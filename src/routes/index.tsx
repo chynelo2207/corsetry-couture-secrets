@@ -27,6 +27,90 @@ function Countdown() {
   );
 }
 
+function Countdown() {
+  const [seconds, setSeconds] = useState(15 * 60);
+  useEffect(() => {
+    const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
+    return () => clearInterval(t);
+  }, []);
+  const m = String(Math.floor(seconds / 60)).padStart(2, "0");
+  const s = String(seconds % 60).padStart(2, "0");
+  return (
+    <div className="flex items-center justify-center gap-3 font-display text-3xl md:text-4xl font-bold tabular-nums">
+      <span className="bg-primary text-primary-foreground rounded-md px-4 py-2 shadow-lg">{m}</span>
+      <span className="text-primary-foreground/90">:</span>
+      <span className="bg-primary text-primary-foreground rounded-md px-4 py-2 shadow-lg">{s}</span>
+    </div>
+  );
+}
+
+const PURCHASE_ALERTS = [
+  { name: "Elaine M.", city: "São Paulo, SP", time: "há 2 minutos" },
+  { name: "Juliana R.", city: "Belo Horizonte, MG", time: "há 4 minutos" },
+  { name: "Patrícia S.", city: "Curitiba, PR", time: "há 7 minutos" },
+  { name: "Fernanda L.", city: "Rio de Janeiro, RJ", time: "há 9 minutos" },
+  { name: "Mariana T.", city: "Porto Alegre, RS", time: "há 12 minutos" },
+  { name: "Camila O.", city: "Salvador, BA", time: "há 15 minutos" },
+  { name: "Roberta P.", city: "Recife, PE", time: "há 18 minutos" },
+  { name: "Aline C.", city: "Fortaleza, CE", time: "há 21 minutos" },
+];
+
+function PurchaseNotification() {
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const showTimer = setTimeout(() => setVisible(true), 3000);
+    return () => clearTimeout(showTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    const cycle = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIdx((i) => (i + 1) % PURCHASE_ALERTS.length);
+        setVisible(true);
+      }, 500);
+    }, 6000);
+    return () => clearInterval(cycle);
+  }, [visible]);
+
+  const alert = PURCHASE_ALERTS[idx];
+  return (
+    <div
+      className={`fixed bottom-4 left-4 z-50 max-w-xs bg-card border border-gold/40 rounded-xl shadow-elegant p-3 flex items-center gap-3 transition-all duration-500 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+      }`}
+    >
+      <div className="w-10 h-10 rounded-full bg-cta/15 text-cta flex items-center justify-center shrink-0">
+        <ShoppingBag className="w-5 h-5" />
+      </div>
+      <div className="text-left">
+        <p className="text-xs font-semibold text-foreground leading-tight">
+          <span className="text-primary">{alert.name}</span> acabou de comprar
+        </p>
+        <p className="text-[11px] text-muted-foreground mt-0.5">{alert.city} · {alert.time}</p>
+      </div>
+      <Check className="w-4 h-4 text-cta shrink-0" />
+    </div>
+  );
+}
+
+function StarRating({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
+  const sizes = { sm: "w-4 h-4", md: "w-5 h-5", lg: "w-6 h-6" };
+  const text = { sm: "text-sm", md: "text-base", lg: "text-lg" };
+  return (
+    <div className="flex items-center justify-center gap-2 flex-wrap">
+      <div className="flex gap-0.5 text-gold">
+        {[...Array(5)].map((_, i) => <Star key={i} className={`${sizes[size]} fill-current`} />)}
+      </div>
+      <span className={`font-bold text-foreground ${text[size]}`}>4,9</span>
+      <span className={`text-muted-foreground ${text[size]}`}>· +2.147 avaliações</span>
+    </div>
+  );
+}
+
 function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS" }: { label?: string }) {
   return (
     <a
