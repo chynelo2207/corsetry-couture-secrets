@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star } from "lucide-react";
+import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/course-mockup.jpg";
 import bonusModules from "@/assets/bonus-modules.jpg";
 
