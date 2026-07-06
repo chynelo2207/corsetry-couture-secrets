@@ -136,14 +136,6 @@ function SalesPage() {
         SITE OFICIAL E SEGURO — COMPRE COM TOTAL SEGURANÇA
       </div>
 
-      <div className="w-full bg-primary text-primary-foreground py-4 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="uppercase text-xs md:text-sm font-semibold tracking-wider mb-2 flex items-center justify-center gap-2">
-            <Clock className="w-4 h-4" /> OFERTA ESPECIAL DE LANÇAMENTO ENCERRA EM:
-          </p>
-          <Countdown />
-        </div>
-      </div>
 
       <section className="max-w-4xl mx-auto px-5 pt-12 md:pt-16 pb-8 text-center">
         <div className="inline-flex items-center gap-2 text-gold text-sm font-semibold uppercase tracking-widest mb-6">
@@ -228,7 +220,13 @@ function SalesPage() {
             </div>
           ))}
         </div>
+
+        <div className="mt-12 text-center max-w-2xl mx-auto">
+          <CTAButton label="QUERO APRENDER TODAS AS VARIAÇÕES" />
+          <p className="mt-3 text-sm text-muted-foreground">Garantia de 7 dias • Acesso imediato</p>
+        </div>
       </section>
+
 
       <section className="bg-primary text-primary-foreground py-16 md:py-24 px-5">
         <div className="max-w-4xl mx-auto text-center">
@@ -313,7 +311,13 @@ function SalesPage() {
             </div>
           ))}
         </div>
+
+        <div className="mt-14 text-center max-w-2xl mx-auto">
+          <CTAButton label="QUERO SER UMA CORSELETEIRA DE REFERÊNCIA" />
+          <p className="mt-3 text-sm text-muted-foreground">+2.000 alunas já transformaram suas costuras</p>
+        </div>
       </section>
+
 
       <section id="comprar" className="px-5 py-16 md:py-24">
         <div className="max-w-2xl mx-auto bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden">
