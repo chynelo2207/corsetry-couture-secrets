@@ -152,7 +152,9 @@ function SalesPage() {
           Do molde à peça vestida sem ajustes — domine a arte que transforma cada silhueta.
         </p>
 
-        <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+        <div className="mt-6"><StarRating size="md" /></div>
+
+        <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
           <div className="flex -space-x-2">
             {[...Array(4)].map((_, i) => (
               <div key={i} className="w-8 h-8 rounded-full bg-accent border-2 border-background" />
