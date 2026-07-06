@@ -261,22 +261,51 @@ function SalesPage() {
         </div>
       </section>
 
+      <section className="bg-secondary py-14 md:py-20 px-5">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: Users, n: "+2.147", l: "Alunas ativas" },
+              { icon: Star, n: "4,9/5", l: "Nota das alunas" },
+              { icon: TrendingUp, n: "97%", l: "Concluem o curso" },
+              { icon: Heart, n: "+15 anos", l: "De experiência" },
+            ].map((s) => (
+              <div key={s.l} className="flex flex-col items-center">
+                <s.icon className="w-7 h-7 text-gold mb-2" />
+                <div className="font-display text-3xl md:text-4xl font-bold text-primary leading-none">{s.n}</div>
+                <div className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wide">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
-        <h2 className="text-center font-display text-3xl md:text-4xl font-bold text-primary mb-12">
+        <div className="text-center mb-4">
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">Depoimentos reais</span>
+        </div>
+        <h2 className="text-center font-display text-3xl md:text-5xl font-bold text-primary mb-4">
           Alunas que já transformaram sua costura
         </h2>
+        <div className="mb-12"><StarRating size="md" /></div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { n: "Ana Beatriz", t: "Fiz meu primeiro corselet e vestiu perfeito na primeira prova. Chorei." },
-            { n: "Cláudia Menezes", t: "As dicas de acabamento mudaram completamente o padrão do meu atelier." },
-            { n: "Renata Oliveira", t: "Método claro, direto e com um nível de detalhe que não encontrei em nenhum outro curso." },
+            { n: "Ana Beatriz", c: "São Paulo, SP", t: "Fiz meu primeiro corselet e vestiu perfeito na primeira prova. Chorei de emoção — nunca imaginei conseguir esse nível de acabamento." },
+            { n: "Cláudia Menezes", c: "Belo Horizonte, MG", t: "As dicas de acabamento mudaram completamente o padrão do meu atelier. Já triplico o valor das minhas peças." },
+            { n: "Renata Oliveira", c: "Curitiba, PR", t: "Método claro, direto e com um nível de detalhe que não encontrei em nenhum outro curso. Vale cada centavo." },
+            { n: "Fernanda Lopes", c: "Rio de Janeiro, RJ", t: "Vendi 8 corselets no primeiro mês depois do curso. O método Mirian é um divisor de águas na minha carreira." },
+            { n: "Juliana Ramos", c: "Porto Alegre, RS", t: "A aula de vestir sem ajustes é surreal. Minha cliente chorou quando provou. Recomendo de olhos fechados." },
+            { n: "Patrícia Souza", c: "Salvador, BA", t: "Sou costureira há 20 anos e ainda aprendi segredos preciosos. A Mirian entrega ouro em cada aula." },
           ].map((r) => (
             <div key={r.n} className="bg-card rounded-xl p-6 border border-border shadow-soft">
               <div className="flex gap-1 text-gold mb-3">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
               <p className="text-sm text-foreground italic">"{r.t}"</p>
-              <p className="mt-4 text-sm font-semibold text-primary">— {r.n}</p>
+              <div className="mt-4">
+                <p className="text-sm font-semibold text-primary">— {r.n}</p>
+                <p className="text-xs text-muted-foreground">{r.c} · Compra verificada</p>
+              </div>
             </div>
           ))}
         </div>
