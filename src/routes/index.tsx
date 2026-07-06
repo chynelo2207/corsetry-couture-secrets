@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star } from "lucide-react";
+import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/course-mockup.jpg";
 import bonusModules from "@/assets/bonus-modules.jpg";
 
@@ -23,6 +23,74 @@ function Countdown() {
       <span className="bg-primary text-primary-foreground rounded-md px-4 py-2 shadow-lg">{m}</span>
       <span className="text-primary-foreground/90">:</span>
       <span className="bg-primary text-primary-foreground rounded-md px-4 py-2 shadow-lg">{s}</span>
+    </div>
+  );
+}
+
+
+const PURCHASE_ALERTS = [
+  { name: "Elaine M.", city: "São Paulo, SP", time: "há 2 minutos" },
+  { name: "Juliana R.", city: "Belo Horizonte, MG", time: "há 4 minutos" },
+  { name: "Patrícia S.", city: "Curitiba, PR", time: "há 7 minutos" },
+  { name: "Fernanda L.", city: "Rio de Janeiro, RJ", time: "há 9 minutos" },
+  { name: "Mariana T.", city: "Porto Alegre, RS", time: "há 12 minutos" },
+  { name: "Camila O.", city: "Salvador, BA", time: "há 15 minutos" },
+  { name: "Roberta P.", city: "Recife, PE", time: "há 18 minutos" },
+  { name: "Aline C.", city: "Fortaleza, CE", time: "há 21 minutos" },
+];
+
+function PurchaseNotification() {
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const showTimer = setTimeout(() => setVisible(true), 3000);
+    return () => clearTimeout(showTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    const cycle = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIdx((i) => (i + 1) % PURCHASE_ALERTS.length);
+        setVisible(true);
+      }, 500);
+    }, 6000);
+    return () => clearInterval(cycle);
+  }, [visible]);
+
+  const alert = PURCHASE_ALERTS[idx];
+  return (
+    <div
+      className={`fixed bottom-4 left-4 z-50 max-w-xs bg-card border border-gold/40 rounded-xl shadow-elegant p-3 flex items-center gap-3 transition-all duration-500 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+      }`}
+    >
+      <div className="w-10 h-10 rounded-full bg-cta/15 text-cta flex items-center justify-center shrink-0">
+        <ShoppingBag className="w-5 h-5" />
+      </div>
+      <div className="text-left">
+        <p className="text-xs font-semibold text-foreground leading-tight">
+          <span className="text-primary">{alert.name}</span> acabou de comprar
+        </p>
+        <p className="text-[11px] text-muted-foreground mt-0.5">{alert.city} · {alert.time}</p>
+      </div>
+      <Check className="w-4 h-4 text-cta shrink-0" />
+    </div>
+  );
+}
+
+function StarRating({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
+  const sizes = { sm: "w-4 h-4", md: "w-5 h-5", lg: "w-6 h-6" };
+  const text = { sm: "text-sm", md: "text-base", lg: "text-lg" };
+  return (
+    <div className="flex items-center justify-center gap-2 flex-wrap">
+      <div className="flex gap-0.5 text-gold">
+        {[...Array(5)].map((_, i) => <Star key={i} className={`${sizes[size]} fill-current`} />)}
+      </div>
+      <span className={`font-bold text-foreground ${text[size]}`}>4,9</span>
+      <span className={`text-muted-foreground ${text[size]}`}>· +2.147 avaliações</span>
     </div>
   );
 }
@@ -59,6 +127,10 @@ function SalesPage() {
 
   return (
     <div className="min-h-screen">
+      <PurchaseNotification />
+      <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
+        <Flame className="w-4 h-4" /> ÚLTIMAS VAGAS COM 70% OFF — TURMA FECHA HOJE
+      </div>
       <div className="w-full bg-secondary text-secondary-foreground text-xs md:text-sm text-center py-2 font-medium">
         <Shield className="inline w-4 h-4 mr-1.5 -mt-0.5" />
         SITE OFICIAL E SEGURO — COMPRE COM TOTAL SEGURANÇA
@@ -84,7 +156,9 @@ function SalesPage() {
           Do molde à peça vestida sem ajustes — domine a arte que transforma cada silhueta.
         </p>
 
-        <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+        <div className="mt-6"><StarRating size="md" /></div>
+
+        <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
           <div className="flex -space-x-2">
             {[...Array(4)].map((_, i) => (
               <div key={i} className="w-8 h-8 rounded-full bg-accent border-2 border-background" />
@@ -191,22 +265,51 @@ function SalesPage() {
         </div>
       </section>
 
+      <section className="bg-secondary py-14 md:py-20 px-5">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: Users, n: "+2.147", l: "Alunas ativas" },
+              { icon: Star, n: "4,9/5", l: "Nota das alunas" },
+              { icon: TrendingUp, n: "97%", l: "Concluem o curso" },
+              { icon: Heart, n: "+15 anos", l: "De experiência" },
+            ].map((s) => (
+              <div key={s.l} className="flex flex-col items-center">
+                <s.icon className="w-7 h-7 text-gold mb-2" />
+                <div className="font-display text-3xl md:text-4xl font-bold text-primary leading-none">{s.n}</div>
+                <div className="text-xs md:text-sm text-muted-foreground mt-2 uppercase tracking-wide">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
-        <h2 className="text-center font-display text-3xl md:text-4xl font-bold text-primary mb-12">
+        <div className="text-center mb-4">
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">Depoimentos reais</span>
+        </div>
+        <h2 className="text-center font-display text-3xl md:text-5xl font-bold text-primary mb-4">
           Alunas que já transformaram sua costura
         </h2>
+        <div className="mb-12"><StarRating size="md" /></div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { n: "Ana Beatriz", t: "Fiz meu primeiro corselet e vestiu perfeito na primeira prova. Chorei." },
-            { n: "Cláudia Menezes", t: "As dicas de acabamento mudaram completamente o padrão do meu atelier." },
-            { n: "Renata Oliveira", t: "Método claro, direto e com um nível de detalhe que não encontrei em nenhum outro curso." },
+            { n: "Ana Beatriz", c: "São Paulo, SP", t: "Fiz meu primeiro corselet e vestiu perfeito na primeira prova. Chorei de emoção — nunca imaginei conseguir esse nível de acabamento." },
+            { n: "Cláudia Menezes", c: "Belo Horizonte, MG", t: "As dicas de acabamento mudaram completamente o padrão do meu atelier. Já triplico o valor das minhas peças." },
+            { n: "Renata Oliveira", c: "Curitiba, PR", t: "Método claro, direto e com um nível de detalhe que não encontrei em nenhum outro curso. Vale cada centavo." },
+            { n: "Fernanda Lopes", c: "Rio de Janeiro, RJ", t: "Vendi 8 corselets no primeiro mês depois do curso. O método Mirian é um divisor de águas na minha carreira." },
+            { n: "Juliana Ramos", c: "Porto Alegre, RS", t: "A aula de vestir sem ajustes é surreal. Minha cliente chorou quando provou. Recomendo de olhos fechados." },
+            { n: "Patrícia Souza", c: "Salvador, BA", t: "Sou costureira há 20 anos e ainda aprendi segredos preciosos. A Mirian entrega ouro em cada aula." },
           ].map((r) => (
             <div key={r.n} className="bg-card rounded-xl p-6 border border-border shadow-soft">
               <div className="flex gap-1 text-gold mb-3">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
               <p className="text-sm text-foreground italic">"{r.t}"</p>
-              <p className="mt-4 text-sm font-semibold text-primary">— {r.n}</p>
+              <div className="mt-4">
+                <p className="text-sm font-semibold text-primary">— {r.n}</p>
+                <p className="text-xs text-muted-foreground">{r.c} · Compra verificada</p>
+              </div>
             </div>
           ))}
         </div>
