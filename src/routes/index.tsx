@@ -27,22 +27,6 @@ function Countdown() {
   );
 }
 
-function Countdown() {
-  const [seconds, setSeconds] = useState(15 * 60);
-  useEffect(() => {
-    const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
-    return () => clearInterval(t);
-  }, []);
-  const m = String(Math.floor(seconds / 60)).padStart(2, "0");
-  const s = String(seconds % 60).padStart(2, "0");
-  return (
-    <div className="flex items-center justify-center gap-3 font-display text-3xl md:text-4xl font-bold tabular-nums">
-      <span className="bg-primary text-primary-foreground rounded-md px-4 py-2 shadow-lg">{m}</span>
-      <span className="text-primary-foreground/90">:</span>
-      <span className="bg-primary text-primary-foreground rounded-md px-4 py-2 shadow-lg">{s}</span>
-    </div>
-  );
-}
 
 const PURCHASE_ALERTS = [
   { name: "Elaine M.", city: "São Paulo, SP", time: "há 2 minutos" },
