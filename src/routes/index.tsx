@@ -124,15 +124,15 @@ function SalesPage() {
       </div>
 
 
-      <section className="max-w-4xl mx-auto px-4 sm:px-5 pt-10 md:pt-16 pb-8 text-center">
-        <div className="inline-flex items-center gap-2 text-gold text-[11px] sm:text-sm font-semibold uppercase tracking-widest mb-5 sm:mb-6">
+      <section className="max-w-4xl mx-auto px-5 pt-12 md:pt-16 pb-8 text-center">
+        <div className="inline-flex items-center gap-2 text-gold text-sm font-semibold uppercase tracking-widest mb-6">
           <Crown className="w-4 h-4" /> Método Mirian Serrano <Crown className="w-4 h-4" />
         </div>
-        <h1 className="font-display text-[2rem] leading-[1.1] sm:text-5xl md:text-6xl font-bold text-foreground">
-          Aprenda a criar <span className="text-primary italic">corselets de alta costura</span> e cobre R$ 800+ por peça
+        <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight text-foreground">
+          Crie <span className="text-primary italic">corselets de alta costura</span> com caimento impecável
         </h1>
-        <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-1">
-          Do molde à peça vestida <strong className="text-foreground">sem um único ajuste</strong> — o método que já formou +2.000 costureiras em corseleteiras de referência.
+        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          Do molde à peça vestida sem ajustes — domine a arte que transforma cada silhueta.
         </p>
 
         <div className="mt-6"><StarRating size="md" /></div>
@@ -173,15 +173,15 @@ function SalesPage() {
         </div>
       </section>
 
-      <section className="bg-card py-14 md:py-24 px-4 sm:px-5 border-y border-border">
+      <section className="bg-card py-16 md:py-24 px-5 border-y border-border">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-[1.75rem] leading-tight sm:text-4xl md:text-5xl font-bold text-primary">
-            Pare de perder cliente por causa de ajuste. Comece a ser <span className="italic text-gold">indicada</span>.
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary leading-tight">
+            Transforme sua técnica e crie corselets que transcendem
           </h2>
-          <p className="mt-5 sm:mt-6 text-base sm:text-lg text-muted-foreground italic font-display">
-            "Cada corselet é uma escultura vestível. Você aprende a construir peças que valem — e cobram — como alta costura."
+          <p className="mt-6 text-lg text-muted-foreground italic font-display">
+            "Cada corselet é uma escultura vestível. Você aprende a construir peças que valorizam cada silhueta com precisão de alta costura."
           </p>
-          <p className="mt-4 text-xs sm:text-sm uppercase tracking-widest text-gold font-semibold">— Mirian Serrano</p>
+          <p className="mt-4 text-sm uppercase tracking-widest text-gold font-semibold">— Mirian Serrano</p>
         </div>
       </section>
 
@@ -344,28 +344,25 @@ function SalesPage() {
       </section>
 
 
-      <section id="comprar" className="px-4 sm:px-5 py-14 md:py-24">
+      <section id="comprar" className="px-5 py-16 md:py-24">
         <div className="max-w-2xl mx-auto bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden">
-          <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-[11px] sm:text-sm px-2">
-            🔥 70% OFF · últimas vagas desta turma
+          <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
+            🔥 Oferta especial de lançamento
           </div>
-          <div className="p-6 sm:p-8 md:p-10 text-center">
-            <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-primary leading-tight">
+          <div className="p-8 md:p-10 text-center">
+            <h3 className="font-display text-2xl md:text-3xl font-bold text-primary">
               Curso Completo de Corselets<br />
               <span className="text-gold">Método Mirian Serrano</span>
             </h3>
-            <p className="mt-3 text-sm text-muted-foreground max-w-md mx-auto">
-              Recupere o investimento com <strong className="text-foreground">1 única peça vendida</strong>. Depois disso, é lucro.
-            </p>
 
             <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
               {[
-                "6 módulos com variações de corselet (do clássico ao noiva)",
-                "Aulas de vestir peça sob medida — ZERO ajustes na prova",
-                "Dicas de ouro de acabamento (segredos de atelier)",
-                "Moldes prontos para download + lista de fornecedores",
-                "Certificado de conclusão para valorizar seu atelier",
-                "Grupo exclusivo de alunas + suporte com a equipe",
+                "6 módulos com variações de corselet",
+                "Aulas de vestir peça sob medida (zero ajustes)",
+                "Aulas com dicas de ouro exclusivas",
+                "Moldes prontos para download",
+                "Certificado de conclusão",
+                "Acesso vitalício + atualizações",
               ].map((b) => (
                 <div key={b} className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
@@ -376,22 +373,18 @@ function SalesPage() {
 
             <div className="mt-8">
               <p className="text-sm text-muted-foreground line-through">De R$ 997,00</p>
-              <p className="text-[11px] sm:text-xs uppercase tracking-widest text-muted-foreground mt-2">Hoje, por apenas 12x de</p>
-              <p className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-primary leading-none mt-1">
-                R$ 29<span className="text-2xl sm:text-3xl">,70</span>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">Por apenas 12x de</p>
+              <p className="font-display text-6xl md:text-7xl font-bold text-primary leading-none mt-1">
+                R$ 29<span className="text-3xl">,70</span>
               </p>
-              <p className="text-sm text-muted-foreground mt-1">ou R$ 297 à vista · menos que 1 corselet vendido</p>
-              <p className="mt-3 inline-block bg-cta/10 text-cta text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full">
-                Economia de R$ 700 · só hoje
-              </p>
+              <p className="text-sm text-muted-foreground mt-1">ou R$ 297 à vista</p>
             </div>
 
             <div className="mt-8">
-              <CTAButton label="QUERO MINHA VAGA COM 70% OFF" />
+              <CTAButton label="GARANTIR MINHA VAGA AGORA" />
             </div>
-            <p className="mt-3 text-xs text-muted-foreground">✓ Acesso imediato ✓ Pagamento 100% seguro ✓ 7 dias de garantia</p>
 
-            <div className="mt-6 flex items-center justify-center gap-4 sm:gap-5 text-[10px] sm:text-xs text-muted-foreground uppercase font-medium flex-wrap">
+            <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
               <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
               <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
               <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> Acesso imediato</span>
