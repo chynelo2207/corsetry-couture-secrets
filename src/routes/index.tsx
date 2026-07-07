@@ -5,13 +5,7 @@ import heroMockup from "@/assets/course-mockup.jpg";
 import bonusModules from "@/assets/bonus-modules.jpg";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "wistia-player": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { "media-id"?: string; aspect?: string }, HTMLElement>;
-    }
-  }
-}
+const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string }>;
 
 export const Route = createFileRoute("/")({
   component: SalesPage,
