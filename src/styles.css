@@ -27,8 +27,8 @@
   --color-cta-foreground: var(--cta-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --font-display: "Cormorant Garamond", serif;
-  --font-body: "Poppins", sans-serif;
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
   --shadow-elegant: 0 20px 60px -20px color-mix(in oklab, var(--primary) 35%, transparent);
   --shadow-soft: 0 10px 30px -10px color-mix(in oklab, var(--primary) 20%, transparent);
   --gradient-warm: linear-gradient(135deg, var(--background), color-mix(in oklab, var(--gold) 12%, var(--background)));
