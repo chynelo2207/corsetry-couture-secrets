@@ -206,7 +206,7 @@ function SalesPage() {
         <div className="mt-14 max-w-4xl mx-auto">
           <p className="text-center text-xs uppercase tracking-widest text-gold font-bold mb-4">Reportagem com Mirian</p>
           <div className="rounded-2xl overflow-hidden shadow-elegant border border-border">
-            <wistia-player media-id="a5jnm5622k" aspect="1.7777777777777777"></wistia-player>
+            <WistiaPlayer media-id="a5jnm5622k" aspect="1.7777777777777777" />
           </div>
         </div>
       </section>
