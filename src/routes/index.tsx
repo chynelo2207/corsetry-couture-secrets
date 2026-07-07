@@ -3,6 +3,15 @@ import { useEffect, useState } from "react";
 import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/course-mockup.jpg";
 import bonusModules from "@/assets/bonus-modules.jpg";
+import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "wistia-player": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { "media-id"?: string; aspect?: string }, HTMLElement>;
+    }
+  }
+}
 
 export const Route = createFileRoute("/")({
   component: SalesPage,
