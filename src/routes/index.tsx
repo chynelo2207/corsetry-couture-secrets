@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/course-mockup.jpg";
 import bonusModules from "@/assets/bonus-modules.jpg";
+import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
+
+const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string }>;
 
 export const Route = createFileRoute("/")({
   component: SalesPage,
@@ -166,6 +169,44 @@ function SalesPage() {
             <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
             <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL criptografado</span>
             <span className="flex items-center gap-1"><Award className="w-4 h-4" /> Certificado</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-6xl mx-auto px-5 py-16 md:py-24">
+        <div className="text-center mb-12">
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">Conheça a mentora</span>
+          <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Quem é Mirian Serrano</h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <img
+            src={mirianPhoto.url}
+            alt="Estilista Mirian Serrano em seu atelier"
+            className="rounded-2xl shadow-elegant w-full max-w-md mx-auto"
+            loading="lazy"
+          />
+          <div className="space-y-5 text-foreground">
+            <p className="text-base md:text-lg leading-relaxed">
+              Sou a <span className="font-semibold text-primary">Estilista internacional Mirian Serrano</span>, atuo nesta profissão desde <span className="font-semibold">2015</span>. Passei por muitas partes da costura, porém escolhi a área de <span className="italic text-gold">moda festa</span>.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed">
+              Hoje atuo com destreza trazendo <span className="font-semibold">técnicas internacionais</span> para um acabamento de requinte. Uma peça bem feita agrega história e se torna <span className="italic">memória visual</span>.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed">
+              Atendo <span className="font-semibold">dentro e fora do Brasil</span>, presencial e on-line, com técnicas assertivas de medidas. Já fiz coleção para marcas e já vesti <span className="font-semibold text-gold">celebridades</span>.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex items-center gap-2 text-sm"><Crown className="w-5 h-5 text-gold" /> Desde 2015</div>
+              <div className="flex items-center gap-2 text-sm"><Award className="w-5 h-5 text-gold" /> Vestiu celebridades</div>
+              <div className="flex items-center gap-2 text-sm"><Sparkles className="w-5 h-5 text-gold" /> Atendimento internacional</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14 max-w-4xl mx-auto">
+          <p className="text-center text-xs uppercase tracking-widest text-gold font-bold mb-4">Reportagem com Mirian</p>
+          <div className="rounded-2xl overflow-hidden shadow-elegant border border-border">
+            <WistiaPlayer media-id="a5jnm5622k" aspect="1.7777777777777777" />
           </div>
         </div>
       </section>
