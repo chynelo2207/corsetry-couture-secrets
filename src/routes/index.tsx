@@ -124,15 +124,15 @@ function SalesPage() {
       </div>
 
 
-      <section className="max-w-4xl mx-auto px-5 pt-12 md:pt-16 pb-8 text-center">
-        <div className="inline-flex items-center gap-2 text-gold text-sm font-semibold uppercase tracking-widest mb-6">
+      <section className="max-w-4xl mx-auto px-4 sm:px-5 pt-10 md:pt-16 pb-8 text-center">
+        <div className="inline-flex items-center gap-2 text-gold text-[11px] sm:text-sm font-semibold uppercase tracking-widest mb-5 sm:mb-6">
           <Crown className="w-4 h-4" /> Método Mirian Serrano <Crown className="w-4 h-4" />
         </div>
-        <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight text-foreground">
-          Crie <span className="text-primary italic">corselets de alta costura</span> com caimento impecável
+        <h1 className="font-display text-[2rem] leading-[1.1] sm:text-5xl md:text-6xl font-bold text-foreground">
+          Aprenda a criar <span className="text-primary italic">corselets de alta costura</span> e cobre R$ 800+ por peça
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-          Do molde à peça vestida sem ajustes — domine a arte que transforma cada silhueta.
+        <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-1">
+          Do molde à peça vestida <strong className="text-foreground">sem um único ajuste</strong> — o método que já formou +2.000 costureiras em corseleteiras de referência.
         </p>
 
         <div className="mt-6"><StarRating size="md" /></div>
