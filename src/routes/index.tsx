@@ -344,25 +344,28 @@ function SalesPage() {
       </section>
 
 
-      <section id="comprar" className="px-5 py-16 md:py-24">
+      <section id="comprar" className="px-4 sm:px-5 py-14 md:py-24">
         <div className="max-w-2xl mx-auto bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden">
-          <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-            🔥 Oferta especial de lançamento
+          <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-[11px] sm:text-sm px-2">
+            🔥 70% OFF · últimas vagas desta turma
           </div>
-          <div className="p-8 md:p-10 text-center">
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-primary">
+          <div className="p-6 sm:p-8 md:p-10 text-center">
+            <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-primary leading-tight">
               Curso Completo de Corselets<br />
               <span className="text-gold">Método Mirian Serrano</span>
             </h3>
+            <p className="mt-3 text-sm text-muted-foreground max-w-md mx-auto">
+              Recupere o investimento com <strong className="text-foreground">1 única peça vendida</strong>. Depois disso, é lucro.
+            </p>
 
             <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
               {[
-                "6 módulos com variações de corselet",
-                "Aulas de vestir peça sob medida (zero ajustes)",
-                "Aulas com dicas de ouro exclusivas",
-                "Moldes prontos para download",
-                "Certificado de conclusão",
-                "Acesso vitalício + atualizações",
+                "6 módulos com variações de corselet (do clássico ao noiva)",
+                "Aulas de vestir peça sob medida — ZERO ajustes na prova",
+                "Dicas de ouro de acabamento (segredos de atelier)",
+                "Moldes prontos para download + lista de fornecedores",
+                "Certificado de conclusão para valorizar seu atelier",
+                "Grupo exclusivo de alunas + suporte com a equipe",
               ].map((b) => (
                 <div key={b} className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
@@ -373,18 +376,22 @@ function SalesPage() {
 
             <div className="mt-8">
               <p className="text-sm text-muted-foreground line-through">De R$ 997,00</p>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">Por apenas 12x de</p>
-              <p className="font-display text-6xl md:text-7xl font-bold text-primary leading-none mt-1">
-                R$ 29<span className="text-3xl">,70</span>
+              <p className="text-[11px] sm:text-xs uppercase tracking-widest text-muted-foreground mt-2">Hoje, por apenas 12x de</p>
+              <p className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-primary leading-none mt-1">
+                R$ 29<span className="text-2xl sm:text-3xl">,70</span>
               </p>
-              <p className="text-sm text-muted-foreground mt-1">ou R$ 297 à vista</p>
+              <p className="text-sm text-muted-foreground mt-1">ou R$ 297 à vista · menos que 1 corselet vendido</p>
+              <p className="mt-3 inline-block bg-cta/10 text-cta text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full">
+                Economia de R$ 700 · só hoje
+              </p>
             </div>
 
             <div className="mt-8">
-              <CTAButton label="GARANTIR MINHA VAGA AGORA" />
+              <CTAButton label="QUERO MINHA VAGA COM 70% OFF" />
             </div>
+            <p className="mt-3 text-xs text-muted-foreground">✓ Acesso imediato ✓ Pagamento 100% seguro ✓ 7 dias de garantia</p>
 
-            <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
+            <div className="mt-6 flex items-center justify-center gap-4 sm:gap-5 text-[10px] sm:text-xs text-muted-foreground uppercase font-medium flex-wrap">
               <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
               <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
               <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> Acesso imediato</span>
