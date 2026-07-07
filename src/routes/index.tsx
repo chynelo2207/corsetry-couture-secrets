@@ -173,15 +173,15 @@ function SalesPage() {
         </div>
       </section>
 
-      <section className="bg-card py-16 md:py-24 px-5 border-y border-border">
+      <section className="bg-card py-14 md:py-24 px-4 sm:px-5 border-y border-border">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary leading-tight">
-            Transforme sua técnica e crie corselets que transcendem
+          <h2 className="font-display text-[1.75rem] leading-tight sm:text-4xl md:text-5xl font-bold text-primary">
+            Pare de perder cliente por causa de ajuste. Comece a ser <span className="italic text-gold">indicada</span>.
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground italic font-display">
-            "Cada corselet é uma escultura vestível. Você aprende a construir peças que valorizam cada silhueta com precisão de alta costura."
+          <p className="mt-5 sm:mt-6 text-base sm:text-lg text-muted-foreground italic font-display">
+            "Cada corselet é uma escultura vestível. Você aprende a construir peças que valem — e cobram — como alta costura."
           </p>
-          <p className="mt-4 text-sm uppercase tracking-widest text-gold font-semibold">— Mirian Serrano</p>
+          <p className="mt-4 text-xs sm:text-sm uppercase tracking-widest text-gold font-semibold">— Mirian Serrano</p>
         </div>
       </section>
 
