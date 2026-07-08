@@ -97,7 +97,7 @@ function SalesPage() {
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
     { n: "02", title: "Corselet Underbust", desc: "Peça marcante para valorizar a silhueta com precisão." },
-    { n: "03", title: "Corselet Overbust", desc: "Sofisticação e sustentação com caimento de alta costura." },
+    { n: "03", title: "Corselet Overbust", desc: "Sofisticação e sustentação com caimento de Alto Designer." },
     { n: "04", title: "Corselet de Noiva", desc: "Delicadeza e luxo para peças únicas e inesquecíveis." },
     { n: "05", title: "Corselet Estilizado", desc: "Variações criativas para looks autorais e editoriais." },
     { n: "06", title: "Corselet Sob Medida", desc: "Aula de vestir a primeira peça — zero ajustes, encaixe perfeito." },
@@ -129,7 +129,7 @@ function SalesPage() {
           <Crown className="w-4 h-4" /> Método Mirian Serrano <Crown className="w-4 h-4" />
         </div>
         <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight text-foreground">
-          Crie <span className="text-primary italic">corselets de alta costura</span> com caimento impecável
+          Crie <span className="text-primary italic">corselets de Alto Designer</span> com caimento impecável
         </h1>
         <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
           Do molde à peça vestida sem ajustes — domine a arte que transforma cada silhueta.
@@ -179,7 +179,7 @@ function SalesPage() {
             Transforme sua técnica e crie corselets que transcendem
           </h2>
           <p className="mt-6 text-lg text-muted-foreground italic font-display">
-            "Cada corselet é uma escultura vestível. Você aprende a construir peças que valorizam cada silhueta com precisão de alta costura."
+            "Cada corselet é uma escultura vestível. Você aprende a construir peças que valorizam cada silhueta com precisão de Alto Designer."
           </p>
           <p className="mt-4 text-sm uppercase tracking-widest text-gold font-semibold">— Mirian Serrano</p>
         </div>
@@ -239,7 +239,7 @@ function SalesPage() {
               "Molde base infalível para qualquer manequim",
               "Segredo do caimento sem ajustes na primeira prova",
               "Escolha de barbatanas, entretelas e tecidos nobres",
-              "Acabamento interno digno de atelier de alta costura",
+              "Acabamento interno digno de atelier de Alto Designer",
             ].map((t) => (
               <div key={t} className="flex items-start gap-3 bg-primary-foreground/10 rounded-lg p-4">
                 <Check className="w-5 h-5 text-gold shrink-0 mt-0.5" />
