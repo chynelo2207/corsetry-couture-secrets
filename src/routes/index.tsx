@@ -128,7 +128,7 @@ function SalesPage() {
         <div className="inline-flex items-center gap-2 text-gold text-sm font-semibold uppercase tracking-widest mb-6">
           <Crown className="w-4 h-4" /> Método Mirian Serrano <Crown className="w-4 h-4" />
         </div>
-        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
+        <h1 className="font-display text-[1.65rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] sm:leading-tight text-foreground break-words">
           Crie <span className="text-primary italic">corselets de Alto Designer</span> com caimento impecável
         </h1>
         <p className="mt-6 text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
