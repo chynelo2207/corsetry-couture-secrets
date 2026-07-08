@@ -7,6 +7,9 @@ import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 import moldeVestido from "@/assets/molde-vestido-noiva.png.asset.json";
 import moldeCorselet from "@/assets/molde-corselet-transparente.png.asset.json";
 import moldeManequim from "@/assets/molde-manequim-corselet.png.asset.json";
+import moldeDecotes from "@/assets/molde-corset-decotes.png.asset.json";
+import moldeVariacoes from "@/assets/molde-corsets-variacoes.png.asset.json";
+import moldePatente from "@/assets/molde-corset-patente.png.asset.json";
 
 const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
