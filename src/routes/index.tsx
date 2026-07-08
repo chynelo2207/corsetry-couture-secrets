@@ -7,6 +7,9 @@ import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 import moldeVestido from "@/assets/molde-vestido-noiva.png.asset.json";
 import moldeCorselet from "@/assets/molde-corselet-transparente.png.asset.json";
 import moldeManequim from "@/assets/molde-manequim-corselet.png.asset.json";
+import moldeDecotes from "@/assets/molde-corset-decotes.png.asset.json";
+import moldeVariacoes from "@/assets/molde-corsets-variacoes.png.asset.json";
+import moldePatente from "@/assets/molde-corset-patente.png.asset.json";
 
 const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
@@ -186,16 +189,16 @@ function SalesPage() {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className="marquee-track flex gap-6 w-max">
             {[...Array(2)].flatMap((_, dup) =>
-              [moldeVestido, moldeCorselet, moldeManequim].map((img, i) => (
+              [moldeVestido, moldeDecotes, moldeCorselet, moldeVariacoes, moldeManequim, moldePatente].map((img, i) => (
                 <div
                   key={`${dup}-${i}`}
-                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-card"
+                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
                 >
                   <img
                     src={img.url}
                     alt="Molde e inspiração de corselet"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               ))
