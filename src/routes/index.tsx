@@ -86,7 +86,7 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS" }: { label?: string })
   return (
     <a
       href={CHECKOUT_URL}
-      className="btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-8 py-5 text-base md:text-lg font-bold uppercase tracking-wide w-full max-w-2xl"
+      className="btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal"
     >
       {label} →
     </a>
