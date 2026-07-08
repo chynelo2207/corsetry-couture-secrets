@@ -5,7 +5,7 @@ import heroMockup from "@/assets/course-mockup.jpg";
 import bonusModules from "@/assets/bonus-modules.jpg";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 
-const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string }>;
+const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
 export const Route = createFileRoute("/")({
   component: SalesPage,
