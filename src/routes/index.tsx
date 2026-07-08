@@ -189,16 +189,16 @@ function SalesPage() {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className="marquee-track flex gap-6 w-max">
             {[...Array(2)].flatMap((_, dup) =>
-              [moldeVestido, moldeCorselet, moldeManequim].map((img, i) => (
+              [moldeVestido, moldeDecotes, moldeCorselet, moldeVariacoes, moldeManequim, moldePatente].map((img, i) => (
                 <div
                   key={`${dup}-${i}`}
-                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-card"
+                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
                 >
                   <img
                     src={img.url}
                     alt="Molde e inspiração de corselet"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               ))
