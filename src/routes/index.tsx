@@ -50,18 +50,18 @@ function PurchaseNotification() {
   const alert = PURCHASE_ALERTS[idx];
   return (
     <div
-      className={`fixed bottom-4 left-4 z-50 max-w-xs bg-card border border-gold/40 rounded-xl shadow-elegant p-3 flex items-center gap-3 transition-all duration-500 ${
+      className={`fixed z-50 bg-card border border-gold/40 rounded-xl shadow-elegant p-2.5 md:p-3 flex items-center gap-2.5 md:gap-3 transition-all duration-500 bottom-2 left-2 right-2 md:bottom-4 md:left-4 md:right-auto md:max-w-xs ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
     >
-      <div className="w-10 h-10 rounded-full bg-cta/15 text-cta flex items-center justify-center shrink-0">
-        <ShoppingBag className="w-5 h-5" />
+      <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-cta/15 text-cta flex items-center justify-center shrink-0">
+        <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
       </div>
-      <div className="text-left">
-        <p className="text-xs font-semibold text-foreground leading-tight">
+      <div className="text-left min-w-0 flex-1">
+        <p className="text-[11px] md:text-xs font-semibold text-foreground leading-tight truncate">
           <span className="text-primary">{alert.name}</span> acabou de comprar
         </p>
-        <p className="text-[11px] text-muted-foreground mt-0.5">{alert.city} · {alert.time}</p>
+        <p className="text-[10px] md:text-[11px] text-muted-foreground mt-0.5 truncate">{alert.city} · {alert.time}</p>
       </div>
       <Check className="w-4 h-4 text-cta shrink-0" />
     </div>
