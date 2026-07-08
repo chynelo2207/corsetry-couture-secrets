@@ -4,6 +4,9 @@ import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, Sho
 import heroMockup from "@/assets/course-mockup.jpg";
 import bonusModules from "@/assets/bonus-modules.jpg";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
+import moldeVestido from "@/assets/molde-vestido-noiva.png.asset.json";
+import moldeCorselet from "@/assets/molde-corselet-transparente.png.asset.json";
+import moldeManequim from "@/assets/molde-manequim-corselet.png.asset.json";
 
 const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
