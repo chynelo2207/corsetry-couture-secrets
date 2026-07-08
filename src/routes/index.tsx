@@ -349,10 +349,10 @@ function SalesPage() {
           <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
             🔥 Oferta especial de lançamento
           </div>
-          <div className="p-8 md:p-10 text-center">
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-primary">
-              Curso Completo de Corselets<br />
-              <span className="text-gold">Método Mirian Serrano</span>
+          <div className="p-6 md:p-8 lg:p-10 text-center">
+            <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-primary">
+              <span className="block">Curso Completo de Corselets</span>
+              <span className="text-gold block mt-1">Método Mirian Serrano</span>
             </h3>
 
             <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
@@ -374,8 +374,8 @@ function SalesPage() {
             <div className="mt-8">
               <p className="text-sm text-muted-foreground line-through">De R$ 997,00</p>
               <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">Por apenas 12x de</p>
-              <p className="font-display text-6xl md:text-7xl font-bold text-primary leading-none mt-1">
-                R$ 29<span className="text-3xl">,70</span>
+              <p className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mt-1">
+                R$ 29<span className="text-2xl md:text-3xl">,70</span>
               </p>
               <p className="text-sm text-muted-foreground mt-1">ou R$ 297 à vista</p>
             </div>
