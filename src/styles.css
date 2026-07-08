@@ -84,3 +84,12 @@
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.03); }
 }
+
+@utility marquee-track {
+  animation: marqueeRTL 40s linear infinite;
+}
+@keyframes marqueeRTL {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
