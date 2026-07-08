@@ -5,7 +5,7 @@ import heroMockup from "@/assets/course-mockup.jpg";
 import bonusModules from "@/assets/bonus-modules.jpg";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 
-const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string }>;
+const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
 export const Route = createFileRoute("/")({
   component: SalesPage,
@@ -50,18 +50,18 @@ function PurchaseNotification() {
   const alert = PURCHASE_ALERTS[idx];
   return (
     <div
-      className={`fixed bottom-4 left-4 z-50 max-w-xs bg-card border border-gold/40 rounded-xl shadow-elegant p-3 flex items-center gap-3 transition-all duration-500 ${
+      className={`fixed z-50 bg-card border border-gold/40 rounded-xl shadow-elegant p-2.5 md:p-3 flex items-center gap-2.5 md:gap-3 transition-all duration-500 bottom-2 left-2 right-2 md:bottom-4 md:left-4 md:right-auto md:max-w-xs ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
     >
-      <div className="w-10 h-10 rounded-full bg-cta/15 text-cta flex items-center justify-center shrink-0">
-        <ShoppingBag className="w-5 h-5" />
+      <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-cta/15 text-cta flex items-center justify-center shrink-0">
+        <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
       </div>
-      <div className="text-left">
-        <p className="text-xs font-semibold text-foreground leading-tight">
+      <div className="text-left min-w-0 flex-1">
+        <p className="text-[11px] md:text-xs font-semibold text-foreground leading-tight truncate">
           <span className="text-primary">{alert.name}</span> acabou de comprar
         </p>
-        <p className="text-[11px] text-muted-foreground mt-0.5">{alert.city} · {alert.time}</p>
+        <p className="text-[10px] md:text-[11px] text-muted-foreground mt-0.5 truncate">{alert.city} · {alert.time}</p>
       </div>
       <Check className="w-4 h-4 text-cta shrink-0" />
     </div>
@@ -86,7 +86,7 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS" }: { label?: string })
   return (
     <a
       href={CHECKOUT_URL}
-      className="btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-8 py-5 text-base md:text-lg font-bold uppercase tracking-wide w-full max-w-2xl"
+      className="btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal"
     >
       {label} →
     </a>
@@ -97,7 +97,7 @@ function SalesPage() {
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
     { n: "02", title: "Corselet Underbust", desc: "Peça marcante para valorizar a silhueta com precisão." },
-    { n: "03", title: "Corselet Overbust", desc: "Sofisticação e sustentação com caimento de alta costura." },
+    { n: "03", title: "Corselet Overbust", desc: "Sofisticação e sustentação com caimento de Alto Designer." },
     { n: "04", title: "Corselet de Noiva", desc: "Delicadeza e luxo para peças únicas e inesquecíveis." },
     { n: "05", title: "Corselet Estilizado", desc: "Variações criativas para looks autorais e editoriais." },
     { n: "06", title: "Corselet Sob Medida", desc: "Aula de vestir a primeira peça — zero ajustes, encaixe perfeito." },
@@ -128,10 +128,10 @@ function SalesPage() {
         <div className="inline-flex items-center gap-2 text-gold text-sm font-semibold uppercase tracking-widest mb-6">
           <Crown className="w-4 h-4" /> Método Mirian Serrano <Crown className="w-4 h-4" />
         </div>
-        <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight text-foreground">
-          Crie <span className="text-primary italic">corselets de alta costura</span> com caimento impecável
+        <h1 className="font-display text-[1.65rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] sm:leading-tight text-foreground break-words">
+          Crie <span className="text-primary italic">corselets de Alto Designer</span> com caimento impecável
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-6 text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
           Do molde à peça vestida sem ajustes — domine a arte que transforma cada silhueta.
         </p>
 
@@ -179,7 +179,7 @@ function SalesPage() {
             Transforme sua técnica e crie corselets que transcendem
           </h2>
           <p className="mt-6 text-lg text-muted-foreground italic font-display">
-            "Cada corselet é uma escultura vestível. Você aprende a construir peças que valorizam cada silhueta com precisão de alta costura."
+            "Cada corselet é uma escultura vestível. Você aprende a construir peças que valorizam cada silhueta com precisão de Alto Designer."
           </p>
           <p className="mt-4 text-sm uppercase tracking-widest text-gold font-semibold">— Mirian Serrano</p>
         </div>
@@ -239,7 +239,7 @@ function SalesPage() {
               "Molde base infalível para qualquer manequim",
               "Segredo do caimento sem ajustes na primeira prova",
               "Escolha de barbatanas, entretelas e tecidos nobres",
-              "Acabamento interno digno de atelier de alta costura",
+              "Acabamento interno digno de atelier de Alto Designer",
             ].map((t) => (
               <div key={t} className="flex items-start gap-3 bg-primary-foreground/10 rounded-lg p-4">
                 <Check className="w-5 h-5 text-gold shrink-0 mt-0.5" />
@@ -280,10 +280,10 @@ function SalesPage() {
           </div>
         </div>
 
-        <div className="mt-14 max-w-4xl mx-auto">
+        <div className="mt-14 max-w-4xl mx-auto px-0">
           <p className="text-center text-xs uppercase tracking-widest text-gold font-bold mb-4">Reportagem com Mirian</p>
-          <div className="rounded-2xl overflow-hidden shadow-elegant border border-border">
-            <WistiaPlayer media-id="a5jnm5622k" aspect="1.7777777777777777" />
+          <div className="rounded-2xl overflow-hidden shadow-elegant border border-border w-full">
+            <WistiaPlayer media-id="a5jnm5622k" aspect="1.7777777777777777" className="w-full" />
           </div>
         </div>
       </section>
@@ -349,10 +349,10 @@ function SalesPage() {
           <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
             🔥 Oferta especial de lançamento
           </div>
-          <div className="p-8 md:p-10 text-center">
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-primary">
-              Curso Completo de Corselets<br />
-              <span className="text-gold">Método Mirian Serrano</span>
+          <div className="p-6 md:p-8 lg:p-10 text-center">
+            <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-primary">
+              <span className="block">Curso Completo de Corselets</span>
+              <span className="text-gold block mt-1">Método Mirian Serrano</span>
             </h3>
 
             <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
@@ -374,8 +374,8 @@ function SalesPage() {
             <div className="mt-8">
               <p className="text-sm text-muted-foreground line-through">De R$ 997,00</p>
               <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">Por apenas 12x de</p>
-              <p className="font-display text-6xl md:text-7xl font-bold text-primary leading-none mt-1">
-                R$ 29<span className="text-3xl">,70</span>
+              <p className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mt-1">
+                R$ 29<span className="text-2xl md:text-3xl">,70</span>
               </p>
               <p className="text-sm text-muted-foreground mt-1">ou R$ 297 à vista</p>
             </div>
