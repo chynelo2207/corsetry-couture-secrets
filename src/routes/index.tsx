@@ -176,7 +176,36 @@ function SalesPage() {
         </div>
       </section>
 
+      <section className="py-12 md:py-16 overflow-hidden bg-secondary/40 border-y border-border">
+        <div className="text-center mb-8 px-5">
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">Inspiração para costureiras</span>
+          <h2 className="mt-2 font-display text-2xl md:text-4xl font-bold text-primary">
+            Moldes, técnicas e peças que apaixonam
+          </h2>
+        </div>
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="marquee-track flex gap-6 w-max">
+            {[...Array(2)].flatMap((_, dup) =>
+              [moldeVestido, moldeCorselet, moldeManequim].map((img, i) => (
+                <div
+                  key={`${dup}-${i}`}
+                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-card"
+                >
+                  <img
+                    src={img.url}
+                    alt="Molde e inspiração de corselet"
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-card py-16 md:py-24 px-5 border-y border-border">
+
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary leading-tight">
             Transforme sua técnica e crie corselets que transcendem
