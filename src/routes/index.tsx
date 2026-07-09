@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
-import bonusModules from "@/assets/bonus-modules.jpg";
+import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 import moldeVestido from "@/assets/molde-vestido-noiva.png.asset.json";
 import moldeCorselet from "@/assets/molde-corselet-transparente.png.asset.json";
@@ -264,8 +264,8 @@ function SalesPage() {
           </p>
 
           <img
-            src={bonusModules}
-            alt="Módulos bônus do curso de corselets"
+            src={bonusModules.url}
+            alt="Método Miriam Serrano - Livros de corsets"
             width={1200}
             height={912}
             loading="lazy"
