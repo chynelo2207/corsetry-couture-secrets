@@ -97,10 +97,74 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS" }: { label?: string })
   return (
     <a
       href={CHECKOUT_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       className="btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal"
     >
       {label} →
     </a>
+  );
+}
+
+function ExitIntentPopup() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("exit_popup_shown") === "1") return;
+
+    let armed = true;
+    const trigger = () => {
+      if (!armed) return;
+      armed = false;
+      sessionStorage.setItem("exit_popup_shown", "1");
+      setOpen(true);
+    };
+
+    const onMouseOut = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !e.relatedTarget) trigger();
+    };
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") trigger();
+    };
+    // mobile fallback: back-button
+    const onPopState = () => trigger();
+    history.pushState({ exitGuard: true }, "");
+
+    document.addEventListener("mouseout", onMouseOut);
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("popstate", onPopState);
+    return () => {
+      document.removeEventListener("mouseout", onMouseOut);
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("popstate", onPopState);
+    };
+  }, []);
+
+  if (!open) return null;
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 overflow-y-auto"
+      onClick={() => setOpen(false)}
+    >
+      <div className="relative max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          aria-label="Fechar"
+          onClick={() => setOpen(false)}
+          className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center text-xl font-bold hover:bg-black"
+        >
+          ×
+        </button>
+        <a href={EXIT_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="block">
+          <img
+            src={exitPopupImg.url}
+            alt="Oferta especial - Método Miriam Serrano por R$ 14,90"
+            className="w-full h-auto rounded-xl shadow-2xl"
+          />
+        </a>
+      </div>
+    </div>
   );
 }
 
