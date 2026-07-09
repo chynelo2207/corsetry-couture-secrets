@@ -153,7 +153,7 @@ function SalesPage() {
         </div>
 
         <img
-          src={heroMockup}
+          src={heroMockup.url}
           alt="Curso de Corselets Método Mirian Serrano em laptop e celular"
           width={1408}
           height={1200}
