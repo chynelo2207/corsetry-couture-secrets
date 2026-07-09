@@ -410,12 +410,12 @@ function SalesPage() {
             </div>
 
             <div className="mt-8">
-              <p className="text-sm text-muted-foreground line-through">De R$ 997,00</p>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">Por apenas 12x de</p>
+              <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
               <p className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mt-1">
                 R$ 29<span className="text-2xl md:text-3xl">,70</span>
               </p>
-              <p className="text-sm text-muted-foreground mt-1">ou R$ 297 à vista</p>
+              <p className="text-sm text-muted-foreground mt-1">{"\n"}</p>
             </div>
 
             <div className="mt-8">
