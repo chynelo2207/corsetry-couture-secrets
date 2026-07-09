@@ -10,6 +10,9 @@ import moldeManequim from "@/assets/molde-manequim-corselet.png.asset.json";
 import moldeDecotes from "@/assets/molde-corset-decotes.png.asset.json";
 import moldeVariacoes from "@/assets/molde-corsets-variacoes.png.asset.json";
 import moldePatente from "@/assets/molde-corset-patente.png.asset.json";
+import mirianVestidoRose from "@/assets/mirian-vestido-rose.png.asset.json";
+import croqui3dNoiva from "@/assets/croqui-3d-vestido-noiva.png.asset.json";
+import mirianAjusteNoiva from "@/assets/mirian-ajuste-noiva.png.asset.json";
 
 const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
@@ -189,7 +192,7 @@ function SalesPage() {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className="marquee-track flex gap-6 w-max">
             {[...Array(2)].flatMap((_, dup) =>
-              [moldeVestido, moldeDecotes, moldeCorselet, moldeVariacoes, moldeManequim, moldePatente].map((img, i) => (
+              [moldeVestido, mirianVestidoRose, moldeDecotes, croqui3dNoiva, moldeCorselet, mirianAjusteNoiva, moldeVariacoes, moldeManequim, moldePatente].map((img, i) => (
                 <div
                   key={`${dup}-${i}`}
                   className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
