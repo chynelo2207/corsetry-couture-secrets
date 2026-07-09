@@ -13,6 +13,7 @@ import moldePatente from "@/assets/molde-corset-patente.png.asset.json";
 import mirianVestidoRose from "@/assets/mirian-vestido-rose.png.asset.json";
 import croqui3dNoiva from "@/assets/croqui-3d-vestido-noiva.png.asset.json";
 import mirianAjusteNoiva from "@/assets/mirian-ajuste-noiva.png.asset.json";
+import exitPopupImg from "@/assets/exit-popup-offer.png.asset.json";
 
 const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
@@ -20,7 +21,8 @@ export const Route = createFileRoute("/")({
   component: SalesPage,
 });
 
-const CHECKOUT_URL = "#comprar";
+const CHECKOUT_URL = "https://pay.cakto.com.br/32vtm37_972624";
+const EXIT_CHECKOUT_URL = "https://pay.cakto.com.br/3akrxeg";
 
 
 
