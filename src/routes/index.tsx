@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
-import heroMockup from "@/assets/course-mockup.jpg";
+import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/bonus-modules.jpg";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 import moldeVestido from "@/assets/molde-vestido-noiva.png.asset.json";
