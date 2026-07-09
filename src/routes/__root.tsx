@@ -100,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { src: "https://fast.wistia.com/embed/a5jnm5622k.js", async: true, type: "module" },
       { children: 'window.pixelId = "6a4fdf0cea6d4bfe03f92c1c";' },
       { src: "https://cdn.utmify.com.br/scripts/pixel/pixel.js", async: true, defer: true },
-      { src: "https://cdn.utmify.com.br/scripts/utms/latest.js", async: true, defer: true, "data-utmify-prevent-xcod-sck": "", "data-utmify-prevent-subids": "" } as any,
+      
     ],
   }),
   shellComponent: RootShell,
