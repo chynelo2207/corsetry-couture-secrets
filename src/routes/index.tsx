@@ -192,7 +192,7 @@ function SalesPage() {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className="marquee-track flex gap-6 w-max">
             {[...Array(2)].flatMap((_, dup) =>
-              [moldeVestido, moldeDecotes, moldeCorselet, moldeVariacoes, moldeManequim, moldePatente].map((img, i) => (
+              [moldeVestido, mirianVestidoRose, moldeDecotes, croqui3dNoiva, moldeCorselet, mirianAjusteNoiva, moldeVariacoes, moldeManequim, moldePatente].map((img, i) => (
                 <div
                   key={`${dup}-${i}`}
                   className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
