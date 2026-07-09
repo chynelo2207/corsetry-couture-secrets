@@ -154,9 +154,9 @@ function SalesPage() {
 
         <img
           src={heroMockup.url}
-          alt="Curso de Corselets Método Mirian Serrano em laptop e celular"
-          width={1408}
-          height={1200}
+          alt="Mirian Serrano em seu ateliê com corselet e laptop do curso"
+          width={1354}
+          height={1161}
           className="mt-10 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
         />
 
