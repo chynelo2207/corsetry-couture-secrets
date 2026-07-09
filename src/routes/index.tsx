@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
-import heroMockup from "@/assets/course-mockup.jpg";
+import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/bonus-modules.jpg";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 import moldeVestido from "@/assets/molde-vestido-noiva.png.asset.json";
@@ -153,10 +153,10 @@ function SalesPage() {
         </div>
 
         <img
-          src={heroMockup}
-          alt="Curso de Corselets Método Mirian Serrano em laptop e celular"
-          width={1408}
-          height={1200}
+          src={heroMockup.url}
+          alt="Mirian Serrano em seu ateliê com corselet e laptop do curso"
+          width={1354}
+          height={1161}
           className="mt-10 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
         />
 
