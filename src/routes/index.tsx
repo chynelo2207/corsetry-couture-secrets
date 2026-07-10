@@ -129,21 +129,17 @@ function ExitIntentPopup() {
     const onMouseOut = (e: MouseEvent) => {
       if (e.clientY <= 0 && !e.relatedTarget) trigger();
     };
-    const onVisibility = () => {
-      if (document.visibilityState === "hidden") trigger();
-    };
     // mobile fallback: back-button
     const onPopState = () => trigger();
     history.pushState({ exitGuard: true }, "");
 
     document.addEventListener("mouseout", onMouseOut);
-    document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("popstate", onPopState);
     return () => {
       document.removeEventListener("mouseout", onMouseOut);
-      document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("popstate", onPopState);
     };
+
   }, []);
 
   if (!open) return null;
