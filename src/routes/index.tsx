@@ -528,7 +528,7 @@ function SalesPage() {
             </div>
 
             <div className="mt-8">
-              <CTAButton label="GARANTIR MINHA VAGA AGORA" />
+              <CTAButton label="GARANTIR MINHA VAGA AGORA" href={CHECKOUT_URL} />
             </div>
 
             <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
