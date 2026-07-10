@@ -14,6 +14,10 @@ import mirianVestidoRose from "@/assets/mirian-vestido-rose.png.asset.json";
 import croqui3dNoiva from "@/assets/croqui-3d-vestido-noiva.png.asset.json";
 import mirianAjusteNoiva from "@/assets/mirian-ajuste-noiva.png.asset.json";
 import exitPopupImg from "@/assets/exit-popup-offer.png.asset.json";
+import avatar1 from "@/assets/avatar-1.jpg.asset.json";
+import avatar2 from "@/assets/avatar-2.jpg.asset.json";
+import avatar3 from "@/assets/avatar-3.jpg.asset.json";
+import avatar4 from "@/assets/avatar-4.jpg.asset.json";
 
 const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
@@ -213,11 +217,48 @@ function SalesPage() {
 
         <div className="mt-6"><StarRating size="md" /></div>
 
-        <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+        <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-cta/10 px-3 py-1.5 text-xs font-medium text-cta">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cta opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-cta" />
+          </span>
+          236 pessoas online agora
+        </div>
+
+        <div className="mt-4 flex items-center justify-center gap-3 text-sm text-muted-foreground">
           <div className="flex -space-x-2">
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="w-8 h-8 rounded-full bg-accent border-2 border-background" />
-            ))}
+            <img
+              src={avatar1.url}
+              alt="Aluna do curso"
+              width={32}
+              height={32}
+              loading="lazy"
+              className="w-8 h-8 rounded-full object-cover border-2 border-background"
+            />
+            <img
+              src={avatar2.url}
+              alt="Aluna do curso"
+              width={32}
+              height={32}
+              loading="lazy"
+              className="w-8 h-8 rounded-full object-cover border-2 border-background"
+            />
+            <img
+              src={avatar3.url}
+              alt="Aluna do curso"
+              width={32}
+              height={32}
+              loading="lazy"
+              className="w-8 h-8 rounded-full object-cover border-2 border-background"
+            />
+            <img
+              src={avatar4.url}
+              alt="Aluna do curso"
+              width={32}
+              height={32}
+              loading="lazy"
+              className="w-8 h-8 rounded-full object-cover border-2 border-background"
+            />
           </div>
           <span>+2.000 costureiras já dominam o método</span>
         </div>
