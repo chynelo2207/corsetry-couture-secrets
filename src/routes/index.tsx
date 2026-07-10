@@ -97,12 +97,13 @@ function StarRating({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   );
 }
 
-function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS" }: { label?: string }) {
+function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: { label?: string; href?: string }) {
+  const isAnchor = href.startsWith("#");
   return (
     <a
-      href={CHECKOUT_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={href}
+      target={isAnchor ? undefined : "_blank"}
+      rel={isAnchor ? undefined : "noopener noreferrer"}
       className="btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal"
     >
       {label} →
