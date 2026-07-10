@@ -14,6 +14,10 @@ import mirianVestidoRose from "@/assets/mirian-vestido-rose.png.asset.json";
 import croqui3dNoiva from "@/assets/croqui-3d-vestido-noiva.png.asset.json";
 import mirianAjusteNoiva from "@/assets/mirian-ajuste-noiva.png.asset.json";
 import exitPopupImg from "@/assets/exit-popup-offer.png.asset.json";
+import avatar1 from "@/assets/avatar-1.jpg.asset.json";
+import avatar2 from "@/assets/avatar-2.jpg.asset.json";
+import avatar3 from "@/assets/avatar-3.jpg.asset.json";
+import avatar4 from "@/assets/avatar-4.jpg.asset.json";
 
 const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
