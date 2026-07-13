@@ -97,11 +97,35 @@ function StarRating({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   );
 }
 
+function withTracking(url: string): string {
+  if (typeof window === "undefined") return url;
+  if (url.startsWith("#")) return url;
+  try {
+    const u = new URL(url);
+    let stored: Record<string, string> = {};
+    try { stored = JSON.parse(localStorage.getItem("_utms") || "{}"); } catch { /* noop */ }
+    const live = new URLSearchParams(window.location.search);
+    live.forEach((v, k) => { if (v) stored[k] = v; });
+    Object.entries(stored).forEach(([k, v]) => {
+      if (v && !u.searchParams.has(k)) u.searchParams.set(k, v);
+    });
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
+
 function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: { label?: string; href?: string }) {
   const isAnchor = href.startsWith("#");
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isAnchor) return;
+    e.preventDefault();
+    window.open(withTracking(href), "_blank", "noopener,noreferrer");
+  };
   return (
     <a
       href={href}
+      onClick={onClick}
       target={isAnchor ? undefined : "_blank"}
       rel={isAnchor ? undefined : "noopener noreferrer"}
       className="btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal"
@@ -110,6 +134,7 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: 
     </a>
   );
 }
+
 
 function ExitIntentPopup() {
   const [open, setOpen] = useState(false);
