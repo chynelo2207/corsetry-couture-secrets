@@ -182,7 +182,7 @@ function ExitIntentPopup() {
         >
           ×
         </button>
-        <a href={EXIT_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="block">
+        <a href={withTracking(EXIT_CHECKOUT_URL)} target="_blank" rel="noopener noreferrer" className="block">
           <img
             src={exitPopupImg.url}
             alt="Oferta especial - Método Miriam Serrano por R$ 14,90"
