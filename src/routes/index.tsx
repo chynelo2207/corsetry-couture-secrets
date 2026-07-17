@@ -13,6 +13,7 @@ import moldePatente from "@/assets/molde-corset-patente.png.asset.json";
 import mirianVestidoRose from "@/assets/mirian-vestido-rose.png.asset.json";
 import croqui3dNoiva from "@/assets/croqui-3d-vestido-noiva.png.asset.json";
 import mirianAjusteNoiva from "@/assets/mirian-ajuste-noiva.png.asset.json";
+import exitPopupImg from "@/assets/exit-popup-offer.png.asset.json";
 import avatar1 from "@/assets/avatar-1.jpg.asset.json";
 import avatar2 from "@/assets/avatar-2.jpg.asset.json";
 import avatar3 from "@/assets/avatar-3.jpg.asset.json";
@@ -25,6 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/32vtm37_972624";
+const EXIT_CHECKOUT_URL = "https://pay.cakto.com.br/qk28usb";
 
 
 
@@ -134,6 +136,64 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: 
 }
 
 
+function ExitIntentPopup() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("exit_popup_shown") === "1") return;
+
+    let armed = true;
+    const trigger = () => {
+      if (!armed) return;
+      armed = false;
+      sessionStorage.setItem("exit_popup_shown", "1");
+      setOpen(true);
+    };
+
+    const onMouseOut = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !e.relatedTarget) trigger();
+    };
+    // mobile fallback: back-button
+    const onPopState = () => trigger();
+    history.pushState({ exitGuard: true }, "");
+
+    document.addEventListener("mouseout", onMouseOut);
+    window.addEventListener("popstate", onPopState);
+    return () => {
+      document.removeEventListener("mouseout", onMouseOut);
+      window.removeEventListener("popstate", onPopState);
+    };
+
+  }, []);
+
+  if (!open) return null;
+  return (
+    <div
+      className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 overflow-y-auto"
+      onClick={() => setOpen(false)}
+    >
+      <div className="relative max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          aria-label="Fechar"
+          onClick={() => setOpen(false)}
+          className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center text-xl font-bold hover:bg-black"
+        >
+          ×
+        </button>
+        <a href={withTracking(EXIT_CHECKOUT_URL)} target="_blank" rel="noopener noreferrer" className="block">
+          <img
+            src={exitPopupImg.url}
+            alt="Oferta especial - Método Miriam Serrano por R$ 14,90"
+            className="w-full h-auto rounded-xl shadow-2xl"
+          />
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function SalesPage() {
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
@@ -156,6 +216,7 @@ function SalesPage() {
   return (
     <div className="min-h-screen">
       <PurchaseNotification />
+      <ExitIntentPopup />
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
         <Flame className="w-4 h-4" /> ÚLTIMAS VAGAS COM 70% OFF — TURMA FECHA HOJE
       </div>
@@ -482,7 +543,7 @@ function SalesPage() {
               <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
               <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
               <p className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mt-1">
-                R$ 379<span className="text-2xl md:text-3xl">,00</span>
+                R$ 47<span className="text-2xl md:text-3xl">,98</span>
               </p>
               <p className="text-sm text-muted-foreground mt-1">{"\n"}</p>
             </div>
