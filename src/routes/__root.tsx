@@ -111,6 +111,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { src: "https://fast.wistia.com/embed/a5jnm5622k.js", async: true, type: "module" },
       { children: 'window.pixelId = "6a4fdf0cea6d4bfe03f92c1c";' },
       { src: "https://cdn.utmify.com.br/scripts/pixel/pixel.js", async: true, defer: true },
+      { children: 'window.tikTokPixelId = "6a5d4aff71d8f00e4cfa0452";' },
+      { src: "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js", async: true, defer: true },
     ],
   }),
   shellComponent: RootShell,
