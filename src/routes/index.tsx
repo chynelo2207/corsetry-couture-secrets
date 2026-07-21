@@ -120,6 +120,8 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: 
   const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isAnchor) return;
     e.preventDefault();
+    (window as any).__ctaJustClicked = true;
+    setTimeout(() => { (window as any).__ctaJustClicked = false; }, 1500);
     window.open(withTracking(href), "_blank", "noopener,noreferrer");
   };
   return (
@@ -152,6 +154,7 @@ function ExitIntentPopup() {
     };
 
     const onMouseOut = (e: MouseEvent) => {
+      if ((window as any).__ctaJustClicked) return;
       if (e.clientY <= 0 && !e.relatedTarget) trigger();
     };
     // mobile fallback: back-button
