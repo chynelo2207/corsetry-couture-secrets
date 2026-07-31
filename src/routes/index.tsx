@@ -515,6 +515,102 @@ function SalesPage() {
       </section>
 
 
+
+      <section id="comprar" className="px-5 py-16 md:py-24">
+        <div className="max-w-2xl mx-auto bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden">
+          <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
+            🔥 Oferta especial de lançamento
+          </div>
+          <div className="p-6 md:p-8 lg:p-10 text-center">
+            <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-primary">
+              <span className="block">Curso Completo de Corselets</span>
+              <span className="text-gold block mt-1">Método Mirian Serrano</span>
+            </h3>
+
+            <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
+              {[
+                "6 módulos com variações de corselet",
+                "Aulas de vestir peça sob medida (zero ajustes)",
+                "Aulas com dicas de ouro exclusivas",
+                "Moldes prontos para download",
+                "Certificado de conclusão",
+                "Acesso vitalício + atualizações",
+              ].map((b) => (
+                <div key={b} className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                  <span className="text-sm">{b}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
+              <p className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mt-1">
+                R$ 29<span className="text-2xl md:text-3xl">,70</span>
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">{"\n"}</p>
+            </div>
+
+            <div className="mt-8">
+              <CTAButton label="GARANTIR MINHA VAGA AGORA" href={CHECKOUT_URL} />
+            </div>
+
+            <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
+              <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+              <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
+              <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> Acesso imediato</span>
+            </div>
+          </div>
+        </div>
+      <section id="comprar" className="px-5 py-16 md:py-24">
+        <div className="max-w-2xl mx-auto bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden">
+          <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
+            🔥 Oferta especial de lançamento
+          </div>
+          <div className="p-6 md:p-8 lg:p-10 text-center">
+            <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-primary">
+              <span className="block">Curso Completo de Corselets</span>
+              <span className="text-gold block mt-1">Método Mirian Serrano</span>
+            </h3>
+
+            <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
+              {[
+                "6 módulos com variações de corselet",
+                "Aulas de vestir peça sob medida (zero ajustes)",
+                "Aulas com dicas de ouro exclusivas",
+                "Moldes prontos para download",
+                "Certificado de conclusão",
+                "Acesso vitalício + atualizações",
+              ].map((b) => (
+                <div key={b} className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                  <span className="text-sm">{b}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
+              <p className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mt-1">
+                R$ 29<span className="text-2xl md:text-3xl">,70</span>
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">{"\n"}</p>
+            </div>
+
+            <div className="mt-8">
+              <CTAButton label="GARANTIR MINHA VAGA AGORA" href={CHECKOUT_URL} />
+            </div>
+
+            <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
+              <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+              <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
+              <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> Acesso imediato</span>
+            </div>
+          </div>
+        </div>
+
       <section id="comprar" className="px-5 py-16 md:py-24">
         <div className="max-w-2xl mx-auto bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden">
           <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
