@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
   component: SalesPage,
 });
 
-const CHECKOUT_URL = "https://pay.cakto.com.br/4cgckir_988285";
+const CHECKOUT_URL = "https://pay.cakto.com.br/3bzxs3o_1010395";
 const CHECKOUT_URL_PRODUTO_2 = "https://pay.cakto.com.br/4cgckir_988285";
 const EXIT_CHECKOUT_URL = "https://pay.cakto.com.br/eb3kj4g";
 
