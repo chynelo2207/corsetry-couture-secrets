@@ -116,25 +116,45 @@ function withTracking(url: string): string {
   }
 }
 
+// Lock global (fora do componente) — impede que qualquer clique duplicado,
+// disparo repetido do evento (toque + clique sintético, StrictMode, animação
+// pulse-cta, etc.) abra mais de uma aba de checkout ao mesmo tempo.
+let ctaOpenLock = false;
+
 function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: { label?: string; href?: string }) {
   const isAnchor = href.startsWith("#");
-  const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (isAnchor) return;
+
+  const baseClasses =
+    "btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal";
+
+  if (isAnchor) {
+    return (
+      <a href={href} className={baseClasses}>
+        {label} →
+      </a>
+    );
+  }
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    e.stopPropagation();
+
+    if (ctaOpenLock) return;
+    ctaOpenLock = true;
+
     (window as any).__ctaJustClicked = true;
-    setTimeout(() => { (window as any).__ctaJustClicked = false; }, 1500);
     window.open(withTracking(href), "_blank", "noopener,noreferrer");
+
+    setTimeout(() => {
+      (window as any).__ctaJustClicked = false;
+      ctaOpenLock = false;
+    }, 1500);
   };
+
   return (
-    <a
-      href={href}
-      onClick={onClick}
-      target={isAnchor ? undefined : "_blank"}
-      rel={isAnchor ? undefined : "noopener noreferrer"}
-      className="btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal"
-    >
+    <button type="button" onClick={handleClick} className={baseClasses}>
       {label} →
-    </a>
+    </button>
   );
 }
 
