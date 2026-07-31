@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Check, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
+import { Check, X, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/4cgckir_988285";
-const CHECKOUT_URL_PRODUTO_2 = "https://pay.cakto.com.br/SUBSTITUA_PELO_LINK_DO_PRODUTO_2";
+const CHECKOUT_URL_PRODUTO_2 = "https://pay.cakto.com.br/4cgckir_988285";
 const EXIT_CHECKOUT_URL = "https://pay.cakto.com.br/eb3kj4g";
 
 
@@ -517,101 +517,124 @@ function SalesPage() {
 
 
 
-      <section id="comprar" className="px-5 py-16 md:py-24">
-        <div className="max-w-2xl mx-auto bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden">
-          <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-            🔥 Oferta especial de lançamento
-          </div>
-          <div className="p-6 md:p-8 lg:p-10 text-center">
-            <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-primary">
-              <span className="block">Curso Completo de Corselets</span>
-              <span className="text-gold block mt-1">Método Mirian Serrano</span>
-            </h3>
-
-            <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-              {[
-                "6 módulos com variações de corselet",
-                "Aulas de vestir peça sob medida (zero ajustes)",
-                "Aulas com dicas de ouro exclusivas",
-                "Moldes prontos para download",
-                "Certificado de conclusão",
-                "Acesso vitalício + atualizações",
-              ].map((b) => (
-                <div key={b} className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
-                  <span className="text-sm">{b}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
-              <p className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mt-1">
-                R$ 29<span className="text-2xl md:text-3xl">,70</span>
-              </p>
-              <p className="text-sm text-muted-foreground mt-1">{"\n"}</p>
-            </div>
-
-            <div className="mt-8">
-              <CTAButton label="GARANTIR MINHA VAGA AGORA" href={CHECKOUT_URL} />
-            </div>
-
-            <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
-              <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
-              <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
-              <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> Acesso imediato</span>
-            </div>
-          </div>
+      <section className="px-5 py-16 md:py-24">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">Escolha seu plano</span>
+          <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold text-primary">
+            Qual jornada é a sua?
+          </h2>
         </div>
-      </section>
 
-      <section id="comprar-2" className="px-5 pb-16 md:pb-24">
-        <div className="max-w-2xl mx-auto bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden">
-          <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-            🔥 Oferta especial de lançamento
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+
+          {/* PRODUTO 1 - Básico */}
+          <div id="comprar" className="bg-card rounded-2xl border-2 border-border shadow-soft overflow-hidden flex flex-col">
+            <div className="bg-secondary text-secondary-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
+              Curso Corselet Clássico
+            </div>
+            <div className="p-6 md:p-8 text-center flex flex-col flex-1">
+              <h3 className="font-display text-lg md:text-xl font-bold text-primary">
+                <span className="block">Curso Completo de Corselets</span>
+                <span className="text-gold block mt-1">Método Mirian Serrano</span>
+              </h3>
+
+              <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
+                {[
+                  { t: "6 módulos com variações de corselet", ok: true },
+                  { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
+                  { t: "Moldes prontos para download", ok: true },
+                  { t: "Certificado de conclusão", ok: true },
+                  { t: "Acesso vitalício + atualizações", ok: true },
+                  { t: "Aulas de Crepagem", ok: false },
+                  { t: "Interpretação de modelo - Penélope", ok: false },
+                  { t: "Aulas de medidas assertivas para peças sob medida", ok: false },
+                  { t: "Corselet estruturado em tecidos delicados", ok: false },
+                  { t: "Técnicas internacionais avançadas", ok: false },
+                  { t: "Corselet para Noiva e Moda Festa completo", ok: false },
+                ].map((b) => (
+                  <div key={b.t} className="flex items-start gap-2">
+                    {b.ok ? (
+                      <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                    ) : (
+                      <X className="w-5 h-5 text-muted-foreground/50 shrink-0 mt-0.5" />
+                    )}
+                    <span className={`text-sm ${b.ok ? "" : "text-muted-foreground/60"}`}>{b.t}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8">
+                <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
+                <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
+                  R$ 29<span className="text-xl md:text-2xl">,70</span>
+                </p>
+              </div>
+
+              <div className="mt-8 mt-auto pt-8">
+                <CTAButton label="QUERO O PLANO CLÁSSICO" href={CHECKOUT_URL} />
+              </div>
+
+              <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
+                <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+                <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
+              </div>
+            </div>
           </div>
-          <div className="p-6 md:p-8 lg:p-10 text-center">
-            <h3 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-primary">
-              {/* TODO: troque pelo nome do 2º produto */}
-              <span className="block">Nome do Produto 2</span>
-              <span className="text-gold block mt-1">Subtítulo do Produto 2</span>
-            </h3>
 
-            <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-              {[
-                /* TODO: troque pelos bullets do 2º produto */
-                "Benefício 1 do produto 2",
-                "Benefício 2 do produto 2",
-                "Benefício 3 do produto 2",
-                "Benefício 4 do produto 2",
-                "Certificado de conclusão",
-                "Acesso vitalício + atualizações",
-              ].map((b) => (
-                <div key={b} className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
-                  <span className="text-sm">{b}</span>
-                </div>
-              ))}
+          {/* PRODUTO 2 - Profissional / Recomendado */}
+          <div id="comprar-2" className="relative bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden flex flex-col md:-translate-y-2">
+            <div className="absolute top-3 right-3 bg-cta text-cta-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg z-10">
+              ⭐ Recomendado
             </div>
-
-            <div className="mt-8">
-              {/* TODO: troque pelo preço do 2º produto */}
-              <p className="text-sm text-muted-foreground line-through">De R$ 000,00</p>
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
-              <p className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-none mt-1">
-                R$ 00<span className="text-2xl md:text-3xl">,00</span>
-              </p>
+            <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
+              🔥 Curso Profissional Completo
             </div>
+            <div className="p-6 md:p-8 text-center flex flex-col flex-1">
+              <h3 className="font-display text-lg md:text-xl font-bold text-primary">
+                <span className="block">Curso Profissional Corselet</span>
+                <span className="text-gold block mt-1">Noiva e Moda Festa</span>
+              </h3>
 
-            <div className="mt-8">
-              <CTAButton label="GARANTIR MINHA VAGA AGORA" href={CHECKOUT_URL_PRODUTO_2} />
-            </div>
+              <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
+                {[
+                  "Como montar um molde / molde",
+                  "Aulas de Crepagem",
+                  "Interpretação de modelo - Penélope",
+                  "Dica de Ouro",
+                  "Aulas de medidas assertivas",
+                  "Aulas de medida para peças sob medida",
+                  "Variação de modelos através de um único molde",
+                  "Corselet estruturado em tecido plano",
+                  "Corselet estruturado em tecidos delicados",
+                  "Corselet avançado - técnicas de método internacional",
+                  "Técnicas profissionais de estrutura, montagem e acabamento de alto padrão",
+                  "Certificado de conclusão",
+                  "Acesso vitalício + atualizações",
+                ].map((b) => (
+                  <div key={b} className="flex items-start gap-2">
+                    <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                    <span className="text-sm font-medium">{b}</span>
+                  </div>
+                ))}
+              </div>
 
-            <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
-              <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
-              <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
-              <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> Acesso imediato</span>
+              <div className="mt-8">
+                <p className="text-sm text-muted-foreground line-through">De R$ 897,00</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
+                <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
+                  R$ 47<span className="text-xl md:text-2xl">,98</span>
+                </p>
+              </div>
+
+              <div className="mt-8 mt-auto pt-8">
+                <CTAButton label="QUERO O PLANO PROFISSIONAL" href={CHECKOUT_URL_PRODUTO_2} />
+              </div>
+
+              <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
+                <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+                <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
+              </div>
             </div>
           </div>
         </div>
