@@ -818,7 +818,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
 
         <div className="mt-12 text-center">
-          <CTAButton />
+          <CTAButton label={variant.ctaLabel} />
         </div>
       </section>
 
