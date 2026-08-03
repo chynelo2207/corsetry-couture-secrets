@@ -270,12 +270,9 @@ function SalesPage() {
       <PurchaseNotification />
       <ExitIntentPopup />
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
-        <Flame className="w-4 h-4" /> ÚLTIMAS VAGAS COM 70% OFF — TURMA FECHA HOJE
+        <Flame className="w-4 h-4" /> &nbsp;Oferta de lançamento + bônus disponíveis hoje
       </div>
-      <div className="w-full bg-secondary text-secondary-foreground text-xs md:text-sm text-center py-2 font-medium">
-        <Shield className="inline w-4 h-4 mr-1.5 -mt-0.5" />
-        SITE OFICIAL E SEGURO — COMPRE COM TOTAL SEGURANÇA
-      </div>
+
 
 
       <section className="max-w-4xl mx-auto px-5 pt-12 md:pt-16 pb-8 text-center">
