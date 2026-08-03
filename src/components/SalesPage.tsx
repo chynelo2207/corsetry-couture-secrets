@@ -666,7 +666,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         <div className="max-w-5xl mx-auto text-center mb-10">
           <span className="text-xs uppercase tracking-widest text-gold font-bold">Escolha seu plano</span>
           <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold text-primary">
-            Qual jornada é a sua?
+            {variant.planSupport ?? "Qual jornada é a sua?"}
           </h2>
         </div>
 
