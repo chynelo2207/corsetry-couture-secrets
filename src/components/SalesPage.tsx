@@ -12,7 +12,6 @@ import moldePatente from "@/assets/molde-corset-patente.png.asset.json";
 import mirianVestidoRose from "@/assets/mirian-vestido-rose.png.asset.json";
 import croqui3dNoiva from "@/assets/croqui-3d-vestido-noiva.png.asset.json";
 import mirianAjusteNoiva from "@/assets/mirian-ajuste-noiva.png.asset.json";
-import exitPopupImg from "@/assets/exit-popup-offer.png.asset.json";
 import avatar1 from "@/assets/avatar-1.jpg.asset.json";
 import avatar2 from "@/assets/avatar-2.jpg.asset.json";
 import avatar3 from "@/assets/avatar-3.jpg.asset.json";
@@ -243,8 +242,8 @@ function ExitIntentPopup() {
         </button>
         <a href={withTracking(EXIT_CHECKOUT_URL)} target="_blank" rel="noopener noreferrer" className="block">
           <img
-            src={exitPopupImg.url}
-            alt="Oferta especial - Método Miriam Serrano por R$ 14,90"
+            src="/nova-oferta.png"
+            alt="Oferta especial - Método Miriam Serrano"
             className="w-full h-auto rounded-xl shadow-2xl"
           />
         </a>
