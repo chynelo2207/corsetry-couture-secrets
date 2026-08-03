@@ -20,9 +20,17 @@ import avatar4 from "@/assets/avatar-4.jpg.asset.json";
 
 const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
 
-export const Route = createFileRoute("/")({
-  component: SalesPage,
-});
+export type SalesVariant = {
+  eyebrow?: string;
+  headline: React.ReactNode;
+  subheadline: string;
+  ctaLabel: string;
+  hookTitle?: string;
+  hookParagraphs?: string[];
+  planSupport?: string;
+  incomeAngle?: boolean;
+};
+
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/3bzxs3o_1010395";
 const CHECKOUT_URL_PRODUTO_2 = "https://pay.cakto.com.br/4cgckir_988285";
