@@ -253,7 +253,7 @@ function ExitIntentPopup() {
   );
 }
 
-function SalesPage() {
+export default function SalesPage({ variant }: { variant: SalesVariant }) {
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
     { n: "02", title: "Corselet Underbust", desc: "Peça marcante para valorizar a silhueta com precisão." },
