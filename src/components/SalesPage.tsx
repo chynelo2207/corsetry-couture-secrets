@@ -358,7 +358,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </div>
             ))}
           </div>
-          <CTAButton />
+          <CTAButton label={variant.ctaLabel} />
           <p className="mt-4 text-sm text-muted-foreground">Acesso imediato • 7 dias de garantia</p>
           <div className="mt-4 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
             <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
@@ -367,6 +367,99 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           </div>
         </div>
       </section>
+
+      {variant.hookParagraphs && variant.hookParagraphs.length > 0 && (
+        <section className="bg-primary text-primary-foreground px-5 py-14 md:py-20">
+          <div className="max-w-3xl mx-auto text-center">
+            {variant.hookTitle && (
+              <h2 className="font-display text-2xl md:text-4xl font-bold text-gold leading-tight">
+                {variant.hookTitle}
+              </h2>
+            )}
+            <div className="mt-6 space-y-5">
+              {variant.hookParagraphs.map((p) => (
+                <p key={p} className="text-base md:text-lg leading-relaxed text-primary-foreground/90">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {variant.incomeAngle && (
+        <>
+          <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
+            <div className="text-center mb-12">
+              <span className="text-xs uppercase tracking-widest text-gold font-bold">A conta que ninguém faz</span>
+              <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">
+                Quanto dinheiro você está deixando na mesa
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                { t: "Você cobra por hora, não por valor", d: "Ajustes e costura simples pagam pouco e consomem o dia inteiro. O ticket nunca sobe." },
+                { t: "Você recusa o serviço mais bem pago", d: "Quando chega um vestido estruturado, você indica outra profissional — e o dinheiro vai embora." },
+                { t: "Sua agenda depende de volume", d: "Sem uma especialização, o mês só fecha se você aceitar tudo, por qualquer preço." },
+              ].map((c) => (
+                <div key={c.t} className="bg-card rounded-xl p-6 border border-border shadow-soft">
+                  <TrendingUp className="w-6 h-6 text-gold mb-3" />
+                  <h3 className="font-display text-lg font-bold text-primary">{c.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="bg-card border-y border-border px-5 py-16 md:py-24">
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="text-xs uppercase tracking-widest text-gold font-bold">O mecanismo</span>
+              <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary leading-tight">
+                Por que peças de luxo custam caro
+              </h2>
+              <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
+                O que sustenta um vestido de festa ou de noiva não é o tecido: é o
+                <span className="text-primary font-semibold"> corselete estruturado</span> por dentro. É ele que dá o caimento,
+                a sustentação e o corpo que fazem a cliente pagar sem discutir preço.
+              </p>
+              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                Quem sabe construir essa estrutura entrega uma peça que veste na primeira prova — e cobra por isso.
+              </p>
+            </div>
+          </section>
+
+          <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
+            <div className="text-center mb-12">
+              <span className="text-xs uppercase tracking-widest text-gold font-bold">Comparativo de valor</span>
+              <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">
+                Vestido simples x vestido estruturado
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-secondary rounded-2xl p-7 border border-border">
+                <h3 className="font-display text-xl font-bold text-primary">Vestido simples</h3>
+                <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
+                  {["Concorrência em cada esquina", "Cliente pechincha o preço", "Muitas horas, margem baixa", "Peça esquecível"].map((i) => (
+                    <li key={i} className="flex items-start gap-2"><X className="w-4 h-4 mt-0.5 shrink-0" />{i}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-card rounded-2xl p-7 border-2 border-gold shadow-elegant">
+                <h3 className="font-display text-xl font-bold text-primary">Vestido com corselete estruturado</h3>
+                <ul className="mt-4 space-y-3 text-sm text-foreground">
+                  {["Pouquíssimas profissionais sabem fazer", "Cliente paga pelo resultado", "Ticket muito mais alto por peça", "Vira indicação e memória visual"].map((i) => (
+                    <li key={i} className="flex items-start gap-2"><Check className="w-4 h-4 mt-0.5 text-cta shrink-0" />{i}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="mt-12 text-center max-w-2xl mx-auto">
+              <CTAButton label={variant.ctaLabel} />
+            </div>
+          </section>
+        </>
+      )}
+
 
       <section className="py-12 md:py-16 overflow-hidden bg-secondary/40 border-y border-border">
         <div className="text-center mb-8 px-5">
