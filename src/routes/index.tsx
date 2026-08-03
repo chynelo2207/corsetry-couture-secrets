@@ -128,8 +128,17 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: 
     "btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal";
 
   if (isAnchor) {
+    const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      (window as any).__ctaJustClicked = true;
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        (window as any).__ctaJustClicked = false;
+      }, 2000);
+    };
+
     return (
-      <a href={href} className={baseClasses}>
+      <a href={href} onClick={handleAnchorClick} className={baseClasses}>
         {label} →
       </a>
     );
@@ -167,6 +176,7 @@ function ExitIntentPopup() {
     if (sessionStorage.getItem("exit_popup_shown") === "1") return;
 
     let armed = true;
+    let suppressUntil = 0;
     const trigger = () => {
       if (!armed) return;
       armed = false;
@@ -174,18 +184,36 @@ function ExitIntentPopup() {
       setOpen(true);
     };
 
+    const suppressDuringInteraction = () => {
+      suppressUntil = Date.now() + 2000;
+    };
+
+    const suppressDuringScroll = () => {
+      suppressUntil = Date.now() + 500;
+    };
+
     const onMouseOut = (e: MouseEvent) => {
       if ((window as any).__ctaJustClicked) return;
-      if (e.clientY <= 0 && !e.relatedTarget) trigger();
+      if (Date.now() < suppressUntil || !document.hasFocus()) return;
+      if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+      const leftThroughBrowserTop = e.clientY <= 5 && e.clientX >= 0 && e.clientX <= window.innerWidth;
+      if (leftThroughBrowserTop && !e.relatedTarget) trigger();
     };
     // mobile fallback: back-button
-    const onPopState = () => trigger();
+    const onPopState = () => {
+      if ((window as any).__ctaJustClicked || Date.now() < suppressUntil) return;
+      trigger();
+    };
     history.pushState({ exitGuard: true }, "");
 
     document.addEventListener("mouseout", onMouseOut);
+    document.addEventListener("pointerdown", suppressDuringInteraction, true);
+    window.addEventListener("scroll", suppressDuringScroll, { passive: true });
     window.addEventListener("popstate", onPopState);
     return () => {
       document.removeEventListener("mouseout", onMouseOut);
+      document.removeEventListener("pointerdown", suppressDuringInteraction, true);
+      window.removeEventListener("scroll", suppressDuringScroll);
       window.removeEventListener("popstate", onPopState);
     };
 
