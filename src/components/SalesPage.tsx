@@ -677,7 +677,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           {/* PRODUTO 1 - Básico */}
           <div id="comprar" className="bg-card rounded-2xl border-2 border-border shadow-soft overflow-hidden flex flex-col">
             <div className="bg-secondary text-secondary-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-              Curso Corselet Clássico
+              {variant.singlePlan ? "Acesso completo ao método" : "Curso Corselet Clássico"}
             </div>
             <div className="p-6 md:p-8 text-center flex flex-col flex-1">
               <h3 className="font-display text-lg md:text-xl font-bold text-primary">
@@ -686,19 +686,31 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </h3>
 
               <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-                {[
-                  { t: "6 módulos com variações de corselet", ok: true },
-                  { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
-                  { t: "Moldes prontos para download", ok: true },
-                  { t: "Certificado de conclusão", ok: true },
-                  { t: "Acesso vitalício + atualizações", ok: true },
-                  { t: "Aulas de Crepagem", ok: false },
-                  { t: "Interpretação de modelo - Penélope", ok: false },
-                  { t: "Aulas de medidas assertivas para peças sob medida", ok: false },
-                  { t: "Corselet estruturado em tecidos delicados", ok: false },
-                  { t: "Técnicas internacionais avançadas", ok: false },
-                  { t: "Corselet para Noiva e Moda Festa completo", ok: false },
-                ].map((b) => (
+                {(variant.singlePlan
+                  ? [
+                      { t: "6 módulos com variações de corselet", ok: true },
+                      { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
+                      { t: "Aulas com dicas de ouro exclusivas", ok: true },
+                      { t: "Moldes prontos para download", ok: true },
+                      { t: "Técnicas de precisão de costura e acabamento de luxo", ok: true },
+                      { t: "Suporte no grupo exclusivo de alunas", ok: true },
+                      { t: "Certificado de conclusão", ok: true },
+                      { t: "Acesso vitalício + atualizações", ok: true },
+                    ]
+                  : [
+                      { t: "6 módulos com variações de corselet", ok: true },
+                      { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
+                      { t: "Moldes prontos para download", ok: true },
+                      { t: "Certificado de conclusão", ok: true },
+                      { t: "Acesso vitalício + atualizações", ok: true },
+                      { t: "Aulas de Crepagem", ok: false },
+                      { t: "Interpretação de modelo - Penélope", ok: false },
+                      { t: "Aulas de medidas assertivas para peças sob medida", ok: false },
+                      { t: "Corselet estruturado em tecidos delicados", ok: false },
+                      { t: "Técnicas internacionais avançadas", ok: false },
+                      { t: "Corselet para Noiva e Moda Festa completo", ok: false },
+                    ]
+                ).map((b) => (
                   <div key={b.t} className="flex items-start gap-2">
                     {b.ok ? (
                       <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
@@ -719,8 +731,9 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </div>
 
               <div className="mt-8 mt-auto pt-8">
-                <CTAButton label="QUERO O PLANO CLÁSSICO" href={CHECKOUT_URL} />
+                <CTAButton label={variant.singlePlan ? "QUERO GARANTIR MINHA VAGA" : "QUERO O PLANO CLÁSSICO"} href={CHECKOUT_URL} />
               </div>
+
 
               <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
                 <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
