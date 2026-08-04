@@ -663,13 +663,16 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
       <section className="px-5 py-16 md:py-24">
         <div className="max-w-5xl mx-auto text-center mb-10">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">Escolha seu plano</span>
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">
+            {variant.singlePlan ? "Oferta especial" : "Escolha seu plano"}
+          </span>
           <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold text-primary">
             {variant.planSupport ?? "Qual jornada é a sua?"}
           </h2>
         </div>
 
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+        <div className={`mx-auto grid gap-6 md:gap-8 items-stretch ${variant.singlePlan ? "max-w-xl" : "max-w-5xl md:grid-cols-2"}`}>
+
 
           {/* PRODUTO 1 - Básico */}
           <div id="comprar" className="bg-card rounded-2xl border-2 border-border shadow-soft overflow-hidden flex flex-col">
