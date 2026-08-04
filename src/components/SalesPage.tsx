@@ -28,6 +28,7 @@ export type SalesVariant = {
   hookParagraphs?: string[];
   planSupport?: string;
   incomeAngle?: boolean;
+  singlePlan?: boolean;
 };
 
 
