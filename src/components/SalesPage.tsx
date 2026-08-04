@@ -744,6 +744,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           </div>
 
           {/* PRODUTO 2 - Profissional / Recomendado */}
+          {!variant.singlePlan && (
           <div id="comprar-2" className="relative bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden flex flex-col md:-translate-y-2">
             <div className="absolute top-3 right-3 bg-cta text-cta-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg z-10">
               ⭐ Recomendado
