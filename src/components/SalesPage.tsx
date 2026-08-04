@@ -799,6 +799,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </div>
             </div>
           </div>
+          )}
         </div>
 
         <div className="max-w-2xl mx-auto mt-10 bg-secondary rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
