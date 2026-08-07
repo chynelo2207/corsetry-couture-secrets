@@ -254,6 +254,26 @@ function ExitIntentPopup() {
   );
 }
 
+function TodayDate() {
+  const [today, setToday] = useState("");
+  useEffect(() => {
+    const update = () =>
+      setToday(
+        new Date().toLocaleDateString("pt-BR", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        })
+      );
+    update();
+    const id = setInterval(update, 60_000);
+    return () => clearInterval(id);
+  }, []);
+  if (!today) return null;
+  return <span>— {today}</span>;
+}
+
+
 export default function SalesPage({ variant }: { variant: SalesVariant }) {
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
