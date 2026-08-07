@@ -6,6 +6,7 @@ import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 import mirianAtelierNoiva from "@/assets/mirian-nova-17.png.asset.json";
 import mirianVestidoCabide from "@/assets/mirian-nova-18.png.asset.json";
 import croquiDesenho from "@/assets/mirian-nova-19.png.asset.json";
+import moldeDecotes from "@/assets/molde-corset-decotes.png.asset.json";
 import noivaCorsetRenda from "@/assets/noiva-corset-renda.webp.asset.json";
 
 import moldeVariacoes from "@/assets/molde-corsets-variacoes.png.asset.json";
