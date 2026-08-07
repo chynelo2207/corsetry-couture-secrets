@@ -254,6 +254,26 @@ function ExitIntentPopup() {
   );
 }
 
+function TodayDate() {
+  const [today, setToday] = useState("");
+  useEffect(() => {
+    const update = () =>
+      setToday(
+        new Date().toLocaleDateString("pt-BR", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        })
+      );
+    update();
+    const id = setInterval(update, 60_000);
+    return () => clearInterval(id);
+  }, []);
+  if (!today) return null;
+  return <span>— {today}</span>;
+}
+
+
 export default function SalesPage({ variant }: { variant: SalesVariant }) {
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
@@ -278,8 +298,9 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
       <PurchaseNotification />
       <ExitIntentPopup />
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
-        <Flame className="w-4 h-4" /> &nbsp;Oferta de lançamento + bônus disponíveis hoje
+        <Flame className="w-4 h-4" /> &nbsp;Oferta disponível somente hoje <TodayDate />
       </div>
+
 
 
 
