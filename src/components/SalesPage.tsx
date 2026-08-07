@@ -12,7 +12,7 @@ import noivaCorsetRenda from "@/assets/noiva-corset-renda.webp.asset.json";
 import moldeVariacoes from "@/assets/molde-corsets-variacoes.png.asset.json";
 import moldePatente from "@/assets/molde-corset-patente.png.asset.json";
 import mirianVestidoRose from "@/assets/mirian-vestido-rose.png.asset.json";
-import croqui3dNoiva from "@/assets/croqui-3d-vestido-noiva.png.asset.json";
+import mirianAjusteNoiva from "@/assets/mirian-ajuste-noiva.png.asset.json";
 import avatar1 from "@/assets/avatar-1.jpg.asset.json";
 import avatar2 from "@/assets/avatar-2.jpg.asset.json";
 import avatar3 from "@/assets/avatar-3.jpg.asset.json";
