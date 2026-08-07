@@ -841,9 +841,30 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
       </section>
 
-      <footer className="bg-primary text-primary-foreground/70 text-center py-8 text-xs px-5">
-        <p>© {new Date().getFullYear()} Método Mirian Serrano — Todos os direitos reservados.</p>
+      <footer className="bg-primary text-primary-foreground/70 py-10 text-xs px-5">
+        <div className="max-w-2xl mx-auto text-center space-y-4">
+          <div className="border border-primary-foreground/20 rounded-xl p-5">
+            <p className="text-primary-foreground text-sm font-semibold mb-2">
+              Gostou da estrutura deste lançamento?
+            </p>
+            <p className="leading-relaxed">
+              Este curso foi lançado com estratégia de copy, página de vendas e tráfego feitos sob medida.
+              Se você tem um produto ou conhecimento para transformar em curso, a gente cuida do lançamento
+              do começo ao fim.
+            </p>
+            <a
+              href="https://amaroads.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 underline underline-offset-4 text-primary-foreground font-medium hover:opacity-80 transition-opacity"
+            >
+              Fale com a gente em amaroads.com
+            </a>
+          </div>
+          <p>© {new Date().getFullYear()} Método Mirian Serrano — Todos os direitos reservados.</p>
+        </div>
       </footer>
+
     </div>
   );
 }
