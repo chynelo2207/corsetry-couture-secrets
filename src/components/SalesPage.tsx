@@ -3,10 +3,11 @@ import { Check, X, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, 
 import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
-import moldeVestido from "@/assets/molde-vestido-noiva.png.asset.json";
-import moldeCorselet from "@/assets/molde-corselet-transparente.png.asset.json";
-import moldeManequim from "@/assets/molde-manequim-corselet.png.asset.json";
-import moldeDecotes from "@/assets/molde-corset-decotes.png.asset.json";
+import mirianAtelierNoiva from "@/assets/mirian-nova-17.png.asset.json";
+import mirianVestidoCabide from "@/assets/mirian-nova-18.png.asset.json";
+import croquiDesenho from "@/assets/mirian-nova-19.png.asset.json";
+import noivaCorsetRenda from "@/assets/noiva-corset-renda.webp.asset.json";
+
 import moldeVariacoes from "@/assets/molde-corsets-variacoes.png.asset.json";
 import moldePatente from "@/assets/molde-corset-patente.png.asset.json";
 import mirianVestidoRose from "@/assets/mirian-vestido-rose.png.asset.json";
