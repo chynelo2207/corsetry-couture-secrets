@@ -711,7 +711,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
                 {(variant.singlePlan
                   ? [
-                      { t: "6 módulos com variações de corselet", ok: true },
+                      { t: "Aulas com variações de corselet", ok: true },
                       { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
                       { t: "Aulas com dicas de ouro exclusivas", ok: true },
                       { t: "Moldes prontos para download", ok: true },
@@ -721,7 +721,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
                       { t: "Acesso vitalício + atualizações", ok: true },
                     ]
                   : [
-                      { t: "6 módulos com variações de corselet", ok: true },
+                      { t: "Aulas com variações de corselet", ok: true },
                       { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
                       { t: "Moldes prontos para download", ok: true },
                       { t: "Certificado de conclusão", ok: true },
