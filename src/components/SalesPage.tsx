@@ -749,7 +749,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
                 <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
                 <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
-                  R$ 29<span className="text-xl md:text-2xl">,70</span>
+                  R$ 27<span className="text-xl md:text-2xl">,70</span>
                 </p>
               </div>
 
