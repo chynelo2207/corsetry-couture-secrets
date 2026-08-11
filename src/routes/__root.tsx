@@ -113,6 +113,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { src: "https://cdn.utmify.com.br/scripts/pixel/pixel.js", async: true, defer: true },
       { children: 'window.tikTokPixelId = "6a5d4aff71d8f00e4cfa0452";' },
       { src: "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js", async: true, defer: true },
+      {
+        children:
+          "(function(){function load(){window.tikTokPixelId=\"6a7a79abfe61d9c780c846fe\";var s=document.createElement('script');s.src='https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js';s.async=true;s.defer=true;(document.head||document.documentElement).appendChild(s);}setTimeout(load,2500);})();",
+      },
+
     ],
   }),
   shellComponent: RootShell,
