@@ -277,11 +277,9 @@ function TodayDate() {
 export default function SalesPage({ variant }: { variant: SalesVariant }) {
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
-    { n: "02", title: "Corselet Underbust", desc: "Peça marcante para valorizar a silhueta com precisão." },
-    { n: "03", title: "Variações do Corselet", desc: "Fazendo mudanças através dos moldes" },
-    { n: "04", title: "Corselet de Noiva", desc: "Delicadeza e luxo para peças únicas e inesquecíveis." },
-    { n: "05", title: "Corselet Estilizado", desc: "Variações criativas para looks autorais e editoriais." },
-    { n: "06", title: "Corselet Sob Medida", desc: "Aula de vestir a primeira peça — zero ajustes, encaixe perfeito." },
+    { n: "02", title: "Corselet de Noiva", desc: "Delicadeza e luxo para peças únicas e inesquecíveis." },
+    { n: "03", title: "Corselet Estilizado", desc: "Variações criativas para looks autorais e editoriais." },
+    { n: "04", title: "Corselet Sob Medida", desc: "Aula de vestir a primeira peça — zero ajustes, encaixe perfeito." },
   ];
 
   const bullets = [
