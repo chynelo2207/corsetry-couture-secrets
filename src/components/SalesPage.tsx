@@ -13,6 +13,9 @@ import moldeVariacoes from "@/assets/molde-corsets-variacoes.png.asset.json";
 import moldePatente from "@/assets/molde-corset-patente.png.asset.json";
 import mirianVestidoRose from "@/assets/mirian-vestido-rose.png.asset.json";
 import mirianAjusteNoiva from "@/assets/mirian-ajuste-noiva.png.asset.json";
+import depoimento1 from "@/assets/depoimento-1.jpeg.asset.json";
+import depoimento2 from "@/assets/depoimento-2.jpeg.asset.json";
+import depoimento3 from "@/assets/depoimento-3.jpeg.asset.json";
 import avatar1 from "@/assets/avatar-1.jpg.asset.json";
 import avatar2 from "@/assets/avatar-2.jpg.asset.json";
 import avatar3 from "@/assets/avatar-3.jpg.asset.json";
@@ -679,6 +682,36 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           <p className="mt-3 text-sm text-muted-foreground">+2.000 alunas já transformaram suas costuras</p>
         </div>
       </section>
+
+      <section className="py-12 md:py-16 overflow-hidden bg-secondary/40 border-y border-border">
+        <div className="text-center mb-8 px-5">
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">Mensagens das alunas</span>
+          <h2 className="mt-2 font-display text-2xl md:text-4xl font-bold text-primary">
+            O que elas mandam depois de entrar
+          </h2>
+        </div>
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="marquee-track flex gap-6 w-max">
+            {[...Array(2)].flatMap((_, dup) =>
+              [depoimento1, depoimento2, depoimento3].map((img, i) => (
+                <div
+                  key={`dep-${dup}-${i}`}
+                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
+                >
+                  <img
+                    src={img.url}
+                    alt="Depoimento de aluna do Método Mirian Serrano"
+                    loading="lazy"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
+
+
 
 
 
