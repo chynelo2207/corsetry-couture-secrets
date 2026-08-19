@@ -696,7 +696,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               [depoimento1, depoimento2, depoimento3].map((img, i) => (
                 <div
                   key={`dep-${dup}-${i}`}
-                  className="shrink-0 w-64 md:w-80 rounded-2xl overflow-hidden shadow-elegant border border-border bg-card"
+                  className="shrink-0 w-64 md:w-80 h-80 md:h-[26rem] rounded-2xl overflow-hidden shadow-soft border border-border/30 bg-transparent"
                 >
                   <img
                     src={img.url}
