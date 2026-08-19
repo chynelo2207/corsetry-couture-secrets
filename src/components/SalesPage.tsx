@@ -696,13 +696,13 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               [depoimento1, depoimento2, depoimento3].map((img, i) => (
                 <div
                   key={`dep-${dup}-${i}`}
-                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
+                  className="shrink-0 w-64 md:w-80 h-80 md:h-[26rem] rounded-2xl overflow-hidden shadow-elegant border border-border"
                 >
                   <img
                     src={img.url}
                     alt="Depoimento de aluna do Método Mirian Serrano"
                     loading="lazy"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               ))
