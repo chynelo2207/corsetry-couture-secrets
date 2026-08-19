@@ -691,18 +691,18 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           </h2>
         </div>
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-          <div className="marquee-track flex gap-6 w-max">
+          <div className="marquee-track flex gap-6 w-max items-stretch">
             {[...Array(2)].flatMap((_, dup) =>
               [depoimento1, depoimento2, depoimento3].map((img, i) => (
                 <div
                   key={`dep-${dup}-${i}`}
-                  className="shrink-0 w-64 md:w-80 h-80 md:h-[26rem] rounded-2xl overflow-hidden shadow-elegant border border-border"
+                  className="shrink-0 w-64 md:w-80 rounded-2xl overflow-hidden shadow-elegant border border-border bg-card"
                 >
                   <img
                     src={img.url}
                     alt="Depoimento de aluna do Método Mirian Serrano"
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               ))
