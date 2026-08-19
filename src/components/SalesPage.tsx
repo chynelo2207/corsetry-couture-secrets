@@ -683,6 +683,36 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
       </section>
 
+      <section className="py-12 md:py-16 overflow-hidden bg-secondary/40 border-y border-border">
+        <div className="text-center mb-8 px-5">
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">Mensagens das alunas</span>
+          <h2 className="mt-2 font-display text-2xl md:text-4xl font-bold text-primary">
+            O que elas mandam depois de entrar
+          </h2>
+        </div>
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="marquee-track flex gap-6 w-max">
+            {[...Array(2)].flatMap((_, dup) =>
+              [depoimento1, depoimento2, depoimento3].map((img, i) => (
+                <div
+                  key={`dep-${dup}-${i}`}
+                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
+                >
+                  <img
+                    src={img.url}
+                    alt="Depoimento de aluna do Método Mirian Serrano"
+                    loading="lazy"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
+
+
+
 
 
       <section className="px-5 py-16 md:py-24">
