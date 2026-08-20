@@ -16,6 +16,12 @@ import mirianAjusteNoiva from "@/assets/mirian-ajuste-noiva.png.asset.json";
 import depoimento1 from "@/assets/depoimento-1.jpeg.asset.json";
 import depoimento2 from "@/assets/depoimento-2.jpeg.asset.json";
 import depoimento3 from "@/assets/depoimento-3.jpeg.asset.json";
+import depoimento4 from "@/assets/depoimento-4.png.asset.json";
+import depoimento5 from "@/assets/depoimento-5.jpeg.asset.json";
+import depoimento6 from "@/assets/depoimento-6.png.asset.json";
+import depoimento7 from "@/assets/depoimento-7.png.asset.json";
+import depoimento8 from "@/assets/depoimento-8.png.asset.json";
+import depoimento9 from "@/assets/depoimento-9.png.asset.json";
 import avatar1 from "@/assets/avatar-1.jpg.asset.json";
 import avatar2 from "@/assets/avatar-2.jpg.asset.json";
 import avatar3 from "@/assets/avatar-3.jpg.asset.json";
@@ -693,7 +699,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className="marquee-track flex gap-6 w-max items-stretch">
             {[...Array(2)].flatMap((_, dup) =>
-              [depoimento1, depoimento2, depoimento3].map((img, i) => (
+              [depoimento1, depoimento2, depoimento3, depoimento4, depoimento5, depoimento6, depoimento7, depoimento8, depoimento9].map((img, i) => (
                 <div
                   key={`dep-${dup}-${i}`}
                   className="shrink-0 w-64 md:w-80 h-80 md:h-[26rem] rounded-2xl overflow-hidden shadow-soft border border-border/30 bg-transparent"
