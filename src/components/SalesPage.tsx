@@ -289,6 +289,8 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
     { n: "02", title: "Corselet de Noiva", desc: "Delicadeza e luxo para peças únicas e inesquecíveis." },
     { n: "03", title: "Corselet Estilizado", desc: "Variações criativas para looks autorais e editoriais." },
     { n: "04", title: "Corselet Sob Medida", desc: "Aula de vestir a primeira peça — zero ajustes, encaixe perfeito." },
+    { n: "05", title: "Corselet Avançado", desc: "Técnicas em método internacional para peças de alta complexidade." },
+    { n: "06", title: "Acabamento Alto Padrão", desc: "Técnicas profissionais de estrutura, montagem e acabamento de luxo." },
   ];
 
   const bullets = [
