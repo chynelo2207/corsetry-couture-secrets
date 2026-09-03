@@ -1007,12 +1007,21 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
       <section className="max-w-3xl mx-auto px-5 pb-20">
         <h2 className="text-center font-display text-3xl md:text-4xl font-bold text-primary mb-10">Perguntas frequentes</h2>
         <div className="space-y-3">
-          {[
-            { q: "Preciso saber costurar para começar?", a: "O curso é progressivo. Se você tem noções básicas de costura, consegue acompanhar tranquilamente cada módulo." },
-            { q: "Como recebo o acesso?", a: "Imediatamente após a confirmação do pagamento você recebe o acesso por e-mail." },
-            { q: "Quais materiais vou precisar?", a: "Você aprenderá a escolher barbatanas, entretelas e tecidos nobres. Na primeira aula entregamos uma lista completa de fornecedores." },
-            { q: "Terei suporte para tirar dúvidas?", a: "Sim. Além das aulas gravadas, você conta com acompanhamento em grupo exclusivo para alunas e suporte da equipe." },
-          ].map((f) => (
+          {(variant.lowTicket
+            ? [
+                { q: "Esse curso ensina só um modelo de corselet?", a: "Sim — e é por isso que ele é tão completo nesse modelo específico. O Corselet Clássico em tule é a base técnica de todos os outros. Depois de dominá-lo, muitas alunas avançam pro Método Completo pra aprender as demais variações." },
+                { q: "Preciso saber costurar para começar?", a: "O curso é progressivo. Se você tem noções básicas de costura, consegue acompanhar tranquilamente cada aula." },
+                { q: "Como recebo o acesso?", a: "Imediatamente após a confirmação do pagamento você recebe o acesso por e-mail." },
+                { q: "Quais materiais vou precisar?", a: "Você aprenderá a escolher barbatanas, entretelas e tecidos nobres. Na primeira aula entregamos uma lista completa de fornecedores." },
+                { q: "Terei suporte para tirar dúvidas?", a: "Sim. Além das aulas gravadas, você conta com acompanhamento em grupo exclusivo para alunas e suporte da equipe." },
+              ]
+            : [
+                { q: "Preciso saber costurar para começar?", a: "O curso é progressivo. Se você tem noções básicas de costura, consegue acompanhar tranquilamente cada módulo." },
+                { q: "Como recebo o acesso?", a: "Imediatamente após a confirmação do pagamento você recebe o acesso por e-mail." },
+                { q: "Quais materiais vou precisar?", a: "Você aprenderá a escolher barbatanas, entretelas e tecidos nobres. Na primeira aula entregamos uma lista completa de fornecedores." },
+                { q: "Terei suporte para tirar dúvidas?", a: "Sim. Além das aulas gravadas, você conta com acompanhamento em grupo exclusivo para alunas e suporte da equipe." },
+              ]
+          ).map((f) => (
             <details key={f.q} className="bg-card rounded-xl border border-border p-5 group">
               <summary className="font-semibold text-primary cursor-pointer flex justify-between items-center list-none">
                 {f.q}
