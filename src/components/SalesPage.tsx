@@ -534,34 +534,66 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
-        <div className="text-center mb-14">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">O que você vai aprender</span>
-          <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Módulos do Curso</h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Cada módulo é uma variação de corselet — do clássico ao autoral — com aulas passo a passo de modelagem, costura e prova.
+      {variant.lowTicket ? (
+        <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
+          <div className="text-center mb-14">
+            <span className="text-xs uppercase tracking-widest text-gold font-bold">O que você vai aprender</span>
+            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">O Corselet que vai elevar seu portfólio</h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              Um único modelo, ensinado com o nível de detalhe que a maioria dos cursos não entrega:
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+            {[
+              { icon: Sparkles, t: "Vídeo aula passo a passo", d: "Do corte ao acabamento final, sem pular etapas" },
+              { icon: Scissors, t: "PDF exclusivo do molde", d: "Pronto pra você construir a peça com precisão" },
+              { icon: Heart, t: "Segredos do caimento perfeito", d: "A peça vestindo sem ajustes na primeira prova" },
+              { icon: MessageCircle, t: "Suporte direto", d: "Tire suas dúvidas enquanto constrói" },
+            ].map((item) => (
+              <div key={item.t} className="bg-card rounded-xl p-6 border border-border shadow-soft hover:-translate-y-1 transition-transform">
+                <item.icon className="w-8 h-8 text-gold mb-3" />
+                <h3 className="font-display text-lg font-bold text-primary">{item.t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.d}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-10 text-center text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Este é o curso de entrada do Método Mirian Serrano — o primeiro passo pra quem quer se tornar uma corseleteira de referência.
           </p>
-        </div>
+          <div className="mt-10 text-center max-w-2xl mx-auto">
+            <CTAButton label={variant.ctaLabel} />
+          </div>
+        </section>
+      ) : (
+        <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
+          <div className="text-center mb-14">
+            <span className="text-xs uppercase tracking-widest text-gold font-bold">O que você vai aprender</span>
+            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Módulos do Curso</h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              Cada módulo é uma variação de corselet — do clássico ao autoral — com aulas passo a passo de modelagem, costura e prova.
+            </p>
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {modules.map((m) => (
-            <div key={m.n} className="bg-card rounded-xl p-6 border border-border shadow-soft hover:-translate-y-1 transition-transform">
-              <div className="flex items-start gap-4">
-                <div className="font-display text-4xl font-bold text-gold leading-none">{m.n}</div>
-                <div>
-                  <h3 className="font-display text-xl font-bold text-primary">{m.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{m.desc}</p>
+          <div className="grid md:grid-cols-2 gap-5">
+            {modules.map((m) => (
+              <div key={m.n} className="bg-card rounded-xl p-6 border border-border shadow-soft hover:-translate-y-1 transition-transform">
+                <div className="flex items-start gap-4">
+                  <div className="font-display text-4xl font-bold text-gold leading-none">{m.n}</div>
+                  <div>
+                    <h3 className="font-display text-xl font-bold text-primary">{m.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{m.desc}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div className="mt-12 text-center max-w-2xl mx-auto">
-          <CTAButton label="QUERO APRENDER TODAS AS VARIAÇÕES" />
-          <p className="mt-3 text-sm text-muted-foreground">Garantia de 7 dias • Acesso imediato</p>
-        </div>
-      </section>
+          <div className="mt-12 text-center max-w-2xl mx-auto">
+            <CTAButton label="QUERO APRENDER TODAS AS VARIAÇÕES" />
+            <p className="mt-3 text-sm text-muted-foreground">Garantia de 7 dias • Acesso imediato</p>
+          </div>
+        </section>
+      )}
 
 
       <section className="bg-primary text-primary-foreground py-16 md:py-24 px-5">
