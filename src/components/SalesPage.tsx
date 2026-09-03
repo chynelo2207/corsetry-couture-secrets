@@ -756,159 +756,253 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
 
 
-      <section className="px-5 py-16 md:py-24">
-        <div className="max-w-5xl mx-auto text-center mb-10">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">
-            {variant.singlePlan ? "Oferta especial" : "Escolha seu plano"}
-          </span>
-          <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold text-primary">
-            {variant.planSupport ?? "Qual jornada é a sua?"}
-          </h2>
-        </div>
-
-        <div className={`mx-auto grid gap-6 md:gap-8 items-stretch ${variant.singlePlan ? "max-w-xl" : "max-w-5xl md:grid-cols-2"}`}>
-
-
-          {/* PRODUTO 1 - Básico */}
-          <div id="comprar" className="bg-card rounded-2xl border-2 border-border shadow-soft overflow-hidden flex flex-col">
-            <div className="bg-secondary text-secondary-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-              {variant.singlePlan ? "Acesso completo ao método" : "Curso Corselet Clássico"}
+      {variant.lowTicket ? (
+        <section id="comprar" className="px-5 py-16 md:py-24 bg-secondary/30">
+          <div className="max-w-xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="text-xs uppercase tracking-widest text-gold font-bold">Oferta especial</span>
+              <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold text-primary">
+                {variant.planSupport ?? "Qual jornada é a sua?"}
+              </h2>
             </div>
-            <div className="p-6 md:p-8 text-center flex flex-col flex-1">
-              <h3 className="font-display text-lg md:text-xl font-bold text-primary">
-                <span className="block">Curso Completo de Corselets</span>
-                <span className="text-gold block mt-1">Método Mirian Serrano</span>
-              </h3>
 
-              <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-                {(variant.singlePlan
-                  ? [
-                      { t: "Aulas com variações de corselet", ok: true },
-                      { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
-                      { t: "Aulas com dicas de ouro exclusivas", ok: true },
-                      { t: "Moldes prontos para download", ok: true },
-                      { t: "Técnicas de precisão de costura e acabamento de luxo", ok: true },
-                      { t: "Suporte no grupo exclusivo de alunas", ok: true },
-                      { t: "Certificado de conclusão", ok: true },
-                      { t: "Acesso vitalício + atualizações", ok: true },
-                    ]
-                  : [
-                      { t: "Aulas com variações de corselet", ok: true },
-                      { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
-                      { t: "Moldes prontos para download", ok: true },
-                      { t: "Certificado de conclusão", ok: true },
-                      { t: "Acesso vitalício + atualizações", ok: true },
-                      { t: "Aulas de Crepagem", ok: false },
-                      { t: "Interpretação de modelo - Penélope", ok: false },
-                      { t: "Aulas de medidas assertivas para peças sob medida", ok: false },
-                      { t: "Corselet estruturado em tecidos delicados", ok: false },
-                      { t: "Técnicas internacionais avançadas", ok: false },
-                      { t: "Corselet para Noiva e Moda Festa completo", ok: false },
-                    ]
-                ).map((b) => (
-                  <div key={b.t} className="flex items-start gap-2">
-                    {b.ok ? (
+            <div className="bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden">
+              <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
+                Corselet Clássico em Tule Transparente
+              </div>
+              <div className="p-6 md:p-8 text-center">
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-primary">
+                  Corselet Clássico em Tule Transparente
+                </h3>
+                <p className="mt-2 text-muted-foreground">O modelo que toda costureira precisa saber fazer</p>
+
+                <ul className="mt-6 space-y-3 text-left max-w-md mx-auto">
+                  {[
+                    "Vídeo aula passo a passo completa",
+                    "PDF do molde exclusivo",
+                    "Suporte para tirar dúvidas",
+                    "Acesso imediato e vitalício",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
-                    ) : (
-                      <X className="w-5 h-5 text-muted-foreground/50 shrink-0 mt-0.5" />
-                    )}
-                    <span className={`text-sm ${b.ok ? "" : "text-muted-foreground/60"}`}>{b.t}</span>
-                  </div>
-                ))}
-              </div>
+                      <span className="text-sm font-medium">{b}</span>
+                    </li>
+                  ))}
+                </ul>
 
-              <div className="mt-8">
-                <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
-                <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
-                  R$ 27<span className="text-xl md:text-2xl">,70</span>
-                </p>
-              </div>
+                <div className="mt-8">
+                  <p className="text-sm text-muted-foreground line-through">De R$ 97,00</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
+                  <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
+                    R$ 27<span className="text-xl md:text-2xl">,70</span>
+                  </p>
+                </div>
 
-              <div className="mt-8 mt-auto pt-8">
-                <CTAButton label={variant.singlePlan ? "QUERO GARANTIR MINHA VAGA" : "QUERO O PLANO CLÁSSICO"} href={CHECKOUT_URL} />
-              </div>
+                <div className="mt-8">
+                  <CTAButton label="QUERO DOMINAR O CORSELET CLÁSSICO" href={CHECKOUT_URL} />
+                </div>
 
+                <p className="mt-4 text-xs text-muted-foreground">7 dias de garantia • Compra 100% segura</p>
 
-              <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
-                <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
-                <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
+                <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
+                  <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+                  <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
+                </div>
               </div>
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="text-sm text-muted-foreground">
+                🔥 Já dominou o Clássico? Alunas como você estão migrando pro{" "}
+                <a
+                  href={withTracking(CHECKOUT_URL_PRODUTO_2)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cta font-semibold underline"
+                >
+                  Método Completo (mais de 3 modelos: Corselet, Noiva, Estilizado, Sob Medida) por R$ 247
+                </a>{" "}
+                —{" "}
+                <a
+                  href={withTracking(CHECKOUT_URL_PRODUTO_2)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cta font-semibold underline"
+                >
+                  veja o que vem incluso →
+                </a>
+              </p>
             </div>
           </div>
 
-          {/* PRODUTO 2 - Profissional / Recomendado */}
-          {!variant.singlePlan && (
-          <div id="comprar-2" className="relative bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden flex flex-col md:-translate-y-2">
-            <div className="absolute top-3 right-3 bg-cta text-cta-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg z-10">
-              ⭐ Recomendado
+          <div className="max-w-2xl mx-auto mt-10 bg-secondary rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+            <div className="w-24 h-24 rounded-full bg-cta text-cta-foreground flex flex-col items-center justify-center shrink-0 shadow-lg">
+              <span className="font-display text-3xl font-bold leading-none">7</span>
+              <span className="text-xs uppercase font-bold">dias</span>
             </div>
-            <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-              🔥 Curso Profissional Completo
-            </div>
-            <div className="p-6 md:p-8 text-center flex flex-col flex-1">
-              <h3 className="font-display text-lg md:text-xl font-bold text-primary">
-                <span className="block">Curso Profissional Corselet</span>
-                <span className="text-gold block mt-1">Noiva e Moda Festa</span>
-              </h3>
-
-              <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-                {[
-                  "Como montar um molde / molde",
-                  "Aulas de Crepagem",
-                  "Interpretação de modelo - Penélope",
-                  "Dica de Ouro",
-                  "Aulas de medidas assertivas",
-                  "Aulas de medida para peças sob medida",
-                  "Variação de modelos através de um único molde",
-                  "Corselet estruturado em tecido plano",
-                  "Corselet estruturado em tecidos delicados",
-                  "Corselet avançado - técnicas de método internacional",
-                  "Técnicas profissionais de estrutura, montagem e acabamento de alto padrão",
-                  "Certificado de conclusão",
-                  "Acesso vitalício + atualizações",
-                ].map((b) => (
-                  <div key={b} className="flex items-start gap-2">
-                    <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
-                    <span className="text-sm font-medium">{b}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8">
-                <p className="text-sm text-muted-foreground line-through">De R$ 897,00</p>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
-                <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
-                  R$ 47<span className="text-xl md:text-2xl">,98</span>
-                </p>
-              </div>
-
-              <div className="mt-8 mt-auto pt-8">
-                <CTAButton label="QUERO O PLANO PROFISSIONAL" href={CHECKOUT_URL_PRODUTO_2} />
-              </div>
-
-              <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
-                <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
-                <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
-              </div>
+            <div>
+              <h4 className="font-display text-xl font-bold text-primary">Garantia incondicional de 7 dias</h4>
+              <p className="text-sm text-muted-foreground mt-2">
+                Se em 7 dias você sentir que o método não é para você, devolvemos 100% do seu investimento. Sem perguntas.
+              </p>
             </div>
           </div>
-          )}
-        </div>
+        </section>
+      ) : (
+        <section className="px-5 py-16 md:py-24">
+          <div className="max-w-5xl mx-auto text-center mb-10">
+            <span className="text-xs uppercase tracking-widest text-gold font-bold">
+              {variant.singlePlan ? "Oferta especial" : "Escolha seu plano"}
+            </span>
+            <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold text-primary">
+              {variant.planSupport ?? "Qual jornada é a sua?"}
+            </h2>
+          </div>
 
-        <div className="max-w-2xl mx-auto mt-10 bg-secondary rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-          <div className="w-24 h-24 rounded-full bg-cta text-cta-foreground flex flex-col items-center justify-center shrink-0 shadow-lg">
-            <span className="font-display text-3xl font-bold leading-none">7</span>
-            <span className="text-xs uppercase font-bold">dias</span>
+          <div className={`mx-auto grid gap-6 md:gap-8 items-stretch ${variant.singlePlan ? "max-w-xl" : "max-w-5xl md:grid-cols-2"}`}>
+
+
+            {/* PRODUTO 1 - Básico */}
+            <div id="comprar" className="bg-card rounded-2xl border-2 border-border shadow-soft overflow-hidden flex flex-col">
+              <div className="bg-secondary text-secondary-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
+                {variant.singlePlan ? "Acesso completo ao método" : "Curso Corselet Clássico"}
+              </div>
+              <div className="p-6 md:p-8 text-center flex flex-col flex-1">
+                <h3 className="font-display text-lg md:text-xl font-bold text-primary">
+                  <span className="block">Curso Completo de Corselets</span>
+                  <span className="text-gold block mt-1">Método Mirian Serrano</span>
+                </h3>
+
+                <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
+                  {(variant.singlePlan
+                    ? [
+                        { t: "Aulas com variações de corselet", ok: true },
+                        { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
+                        { t: "Aulas com dicas de ouro exclusivas", ok: true },
+                        { t: "Moldes prontos para download", ok: true },
+                        { t: "Técnicas de precisão de costura e acabamento de luxo", ok: true },
+                        { t: "Suporte no grupo exclusivo de alunas", ok: true },
+                        { t: "Certificado de conclusão", ok: true },
+                        { t: "Acesso vitalício + atualizações", ok: true },
+                      ]
+                    : [
+                        { t: "Aulas com variações de corselet", ok: true },
+                        { t: "Aulas de vestir peça sob medida (zero ajustes)", ok: true },
+                        { t: "Moldes prontos para download", ok: true },
+                        { t: "Certificado de conclusão", ok: true },
+                        { t: "Acesso vitalício + atualizações", ok: true },
+                        { t: "Aulas de Crepagem", ok: false },
+                        { t: "Interpretação de modelo - Penélope", ok: false },
+                        { t: "Aulas de medidas assertivas para peças sob medida", ok: false },
+                        { t: "Corselet estruturado em tecidos delicados", ok: false },
+                        { t: "Técnicas internacionais avançadas", ok: false },
+                        { t: "Corselet para Noiva e Moda Festa completo", ok: false },
+                      ]
+                  ).map((b) => (
+                    <div key={b.t} className="flex items-start gap-2">
+                      {b.ok ? (
+                        <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                      ) : (
+                        <X className="w-5 h-5 text-muted-foreground/50 shrink-0 mt-0.5" />
+                      )}
+                      <span className={`text-sm ${b.ok ? "" : "text-muted-foreground/60"}`}>{b.t}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8">
+                  <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
+                  <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
+                    R$ 27<span className="text-xl md:text-2xl">,70</span>
+                  </p>
+                </div>
+
+                <div className="mt-8 mt-auto pt-8">
+                  <CTAButton label={variant.singlePlan ? "QUERO GARANTIR MINHA VAGA" : "QUERO O PLANO CLÁSSICO"} href={CHECKOUT_URL} />
+                </div>
+
+
+                <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
+                  <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+                  <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
+                </div>
+              </div>
+            </div>
+
+            {/* PRODUTO 2 - Profissional / Recomendado */}
+            {!variant.singlePlan && (
+            <div id="comprar-2" className="relative bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden flex flex-col md:-translate-y-2">
+              <div className="absolute top-3 right-3 bg-cta text-cta-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg z-10">
+                ⭐ Recomendado
+              </div>
+              <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
+                🔥 Curso Profissional Completo
+              </div>
+              <div className="p-6 md:p-8 text-center flex flex-col flex-1">
+                <h3 className="font-display text-lg md:text-xl font-bold text-primary">
+                  <span className="block">Curso Profissional Corselet</span>
+                  <span className="text-gold block mt-1">Noiva e Moda Festa</span>
+                </h3>
+
+                <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
+                  {[
+                    "Como montar um molde / molde",
+                    "Aulas de Crepagem",
+                    "Interpretação de modelo - Penélope",
+                    "Dica de Ouro",
+                    "Aulas de medidas assertivas",
+                    "Aulas de medida para peças sob medida",
+                    "Variação de modelos através de um único molde",
+                    "Corselet estruturado em tecido plano",
+                    "Corselet estruturado em tecidos delicados",
+                    "Corselet avançado - técnicas de método internacional",
+                    "Técnicas profissionais de estrutura, montagem e acabamento de alto padrão",
+                    "Certificado de conclusão",
+                    "Acesso vitalício + atualizações",
+                  ].map((b) => (
+                    <div key={b} className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                      <span className="text-sm font-medium">{b}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8">
+                  <p className="text-sm text-muted-foreground line-through">De R$ 897,00</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
+                  <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
+                    R$ 47<span className="text-xl md:text-2xl">,98</span>
+                  </p>
+                </div>
+
+                <div className="mt-8 mt-auto pt-8">
+                  <CTAButton label="QUERO O PLANO PROFISSIONAL" href={CHECKOUT_URL_PRODUTO_2} />
+                </div>
+
+                <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
+                  <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+                  <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
+                </div>
+              </div>
+            </div>
+            )}
           </div>
-          <div>
-            <h4 className="font-display text-xl font-bold text-primary">Garantia incondicional de 7 dias</h4>
-            <p className="text-sm text-muted-foreground mt-2">
-              Se em 7 dias você sentir que o método não é para você, devolvemos 100% do seu investimento. Sem perguntas.
-            </p>
+
+          <div className="max-w-2xl mx-auto mt-10 bg-secondary rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+            <div className="w-24 h-24 rounded-full bg-cta text-cta-foreground flex flex-col items-center justify-center shrink-0 shadow-lg">
+              <span className="font-display text-3xl font-bold leading-none">7</span>
+              <span className="text-xs uppercase font-bold">dias</span>
+            </div>
+            <div>
+              <h4 className="font-display text-xl font-bold text-primary">Garantia incondicional de 7 dias</h4>
+              <p className="text-sm text-muted-foreground mt-2">
+                Se em 7 dias você sentir que o método não é para você, devolvemos 100% do seu investimento. Sem perguntas.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="max-w-3xl mx-auto px-5 pb-20">
         <h2 className="text-center font-display text-3xl md:text-4xl font-bold text-primary mb-10">Perguntas frequentes</h2>
