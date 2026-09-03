@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import SalesPage from "@/components/SalesPage";
 
-const TITLE = "Curso de Corselets — Método Mirian Serrano";
+const TITLE = "Corselet Clássico em Tule Transparente — Método Mirian Serrano";
 const DESC =
-  "Crie corselets de Alto Designer com caimento impecável. Modelagem, costura de precisão e acabamento de luxo.";
+  "Domine o Corselet Clássico em Tule Transparente do molde à peça pronta. Vídeo aula passo a passo, PDF exclusivo do molde e suporte direto.";
 
 export const Route = createFileRoute("/v1")({
   head: () => ({
@@ -22,13 +22,14 @@ export const Route = createFileRoute("/v1")({
       variant={{
         headline: (
           <>
-            Crie <span className="text-primary italic">corselets de Alto Designer</span> com caimento impecável
+            Domine a arte do <span className="text-primary italic">Corselet Clássico em Tule Transparente</span>
           </>
         ),
-        subheadline: "Do molde à peça vestida sem ajustes — domine a arte que transforma cada silhueta.",
-        ctaLabel: "QUERO CRIAR MEUS CORSELETS",
-        planSupport: "Comece hoje o Método Mirian Serrano",
+        subheadline: "Do molde à peça pronta — a técnica que separa quem 'só costura' de quem cria peças de tirar o fôlego.",
+        ctaLabel: "QUERO DOMINAR O CORSELET CLÁSSICO",
+        planSupport: "Oferta especial de lançamento",
         singlePlan: true,
+        lowTicket: true,
       }}
     />
   ),

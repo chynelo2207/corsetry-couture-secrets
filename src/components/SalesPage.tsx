@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Check, X, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
+import { Check, X, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart, MessageCircle } from "lucide-react";
 import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
@@ -39,6 +39,7 @@ export type SalesVariant = {
   planSupport?: string;
   incomeAngle?: boolean;
   singlePlan?: boolean;
+  lowTicket?: boolean;
 };
 
 
