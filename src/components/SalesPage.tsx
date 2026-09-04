@@ -387,18 +387,6 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
         </div>
       </section>
 
-      <section className="bg-card py-16 md:py-24 px-5 border-y border-border">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-primary leading-tight">
-            {t.quoteTitle}
-          </h2>
-          <p className="mt-6 text-lg text-muted-foreground italic font-display">
-            {t.quote}
-          </p>
-          <p className="mt-4 text-sm uppercase tracking-widest text-gold font-semibold">{t.quoteAuthor}</p>
-        </div>
-      </section>
-
       {variant.lowTicket ? (
         <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
           <div className="text-center mb-14">
@@ -429,28 +417,6 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
         </section>
       ) : (
         <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
-          <div className="text-center mb-14">
-            <span className="text-xs uppercase tracking-widest text-gold font-bold">{t.learnEyebrow}</span>
-            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">{t.modulesTitle}</h2>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              {t.modulesIntro}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-5">
-            {t.modules.map((m) => (
-              <div key={m.n} className="bg-card rounded-xl p-6 border border-border shadow-soft hover:-translate-y-1 transition-transform">
-                <div className="flex items-start gap-4">
-                  <div className="font-display text-4xl font-bold text-gold leading-none">{m.n}</div>
-                  <div>
-                    <h3 className="font-display text-xl font-bold text-primary">{m.title}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{m.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
           <div className="mt-16 border-y border-border py-12 md:py-16">
             <div className="text-center max-w-3xl mx-auto">
               <span className="text-xs uppercase tracking-widest text-gold font-bold">✨ {t.courseRevealEyebrow} ✨</span>
