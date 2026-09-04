@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Check, X, Shield, Lock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart, MessageCircle } from "lucide-react";
+import { Check, X, Shield, Lock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart, MessageCircle, PlayCircle } from "lucide-react";
 import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
@@ -26,6 +26,7 @@ import avatar1 from "@/assets/avatar-1.jpg.asset.json";
 import avatar2 from "@/assets/avatar-2.jpg.asset.json";
 import avatar3 from "@/assets/avatar-3.jpg.asset.json";
 import avatar4 from "@/assets/avatar-4.jpg.asset.json";
+import courseModulesVideo from "@/assets/gravacao-area-membros.mp4.asset.json";
 import { SALES_COPY, type Lang, type SalesCopy } from "@/lib/salesCopy";
 
 const WistiaPlayer = "wistia-player" as unknown as React.FC<{ "media-id": string; aspect?: string; className?: string }>;
@@ -530,6 +531,55 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
             ))}
           </div>
 
+          <div className="mt-16 border-y border-border py-12 md:py-16">
+            <div className="text-center max-w-3xl mx-auto">
+              <span className="text-xs uppercase tracking-widest text-gold font-bold">✨ {t.courseRevealEyebrow} ✨</span>
+              <h3 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">{t.courseRevealTitle}</h3>
+              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">{t.courseRevealLead}</p>
+            </div>
+
+            <div className="mt-10 max-w-4xl mx-auto">
+              <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-widest text-primary">
+                <PlayCircle className="h-5 w-5 text-gold" /> {t.courseRevealVideoLabel}
+              </p>
+              <video
+                className="w-full aspect-video rounded-xl border border-border bg-primary shadow-elegant"
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source src={courseModulesVideo.url} type="video/mp4" />
+              </video>
+            </div>
+
+            <div className="mt-12 max-w-4xl mx-auto">
+              <h4 className="text-center font-display text-2xl md:text-3xl font-bold text-primary">✨ {t.learnEyebrow}</h4>
+              <div className="mt-7 grid sm:grid-cols-2 gap-x-8 gap-y-3">
+                {t.courseRevealItems.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-base text-foreground">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12 grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-display text-2xl font-bold text-primary">🔥 {t.courseRevealRangeTitle}</h4>
+                  <p className="mt-3 text-muted-foreground leading-relaxed">{t.courseRevealRangeText}</p>
+                </div>
+                <div>
+                  <h4 className="font-display text-2xl font-bold text-primary">🔥 {t.courseRevealNotOnlyTitle}</h4>
+                  <p className="mt-3 text-muted-foreground leading-relaxed">{t.courseRevealNotOnlyText}</p>
+                </div>
+              </div>
+
+              <p className="mt-10 bg-secondary p-5 md:p-6 rounded-lg text-center font-semibold text-primary leading-relaxed">
+                ✨ {t.courseRevealSummary}
+              </p>
+            </div>
+          </div>
+
           <div className="mt-12 text-center max-w-2xl mx-auto">
             <CTAButton label={t.modulesCta} />
             <p className="mt-3 text-sm text-muted-foreground">{t.modulesCtaSub}</p>
@@ -774,19 +824,19 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
         <section className="px-5 py-16 md:py-24">
           <div className="max-w-5xl mx-auto text-center mb-10">
             <span className="text-xs uppercase tracking-widest text-gold font-bold">
-              {variant.singlePlan ? t.offerEyebrowSingle : t.offerEyebrowMulti}
+              {t.offerEyebrowSingle}
             </span>
             <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold text-primary">
               {variant.planSupport ?? t.planTitleDefault}
             </h2>
           </div>
 
-          <div className={`mx-auto grid gap-6 md:gap-8 items-stretch ${variant.singlePlan ? "max-w-xl" : "max-w-5xl md:grid-cols-2"}`}>
+          <div className="mx-auto max-w-xl">
 
             {/* PRODUTO 1 - Básico */}
             <div id="comprar" className="bg-card rounded-2xl border-2 border-border shadow-soft overflow-hidden flex flex-col">
               <div className="bg-secondary text-secondary-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-                {variant.singlePlan ? t.planBadgeSingle : t.planBadgeMulti}
+                {t.planBadgeSingle}
               </div>
               <div className="p-6 md:p-8 text-center flex flex-col flex-1">
                 <h3 className="font-display text-lg md:text-xl font-bold text-primary">
@@ -795,14 +845,10 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
                 </h3>
 
                 <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-                  {(variant.singlePlan ? t.featuresSingle : t.featuresMulti).map((b) => (
+                  {t.featuresSingle.map((b) => (
                     <div key={b.t} className="flex items-start gap-2">
-                      {b.ok ? (
-                        <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
-                      ) : (
-                        <X className="w-5 h-5 text-muted-foreground/50 shrink-0 mt-0.5" />
-                      )}
-                      <span className={`text-sm ${b.ok ? "" : "text-muted-foreground/60"}`}>{b.t}</span>
+                      <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                      <span className="text-sm">{b.t}</span>
                     </div>
                   ))}
                 </div>
@@ -811,12 +857,12 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
                   <p className="text-sm text-muted-foreground line-through">{t.fromPrice1}</p>
                   <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{t.onlyFor}&nbsp;</p>
                   <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
-                    R$ 27<span className="text-xl md:text-2xl">,70</span>
+                    R$ 189<span className="text-xl md:text-2xl">,89</span>
                   </p>
                 </div>
 
                 <div className="mt-8 mt-auto pt-8">
-                  <CTAButton label={variant.singlePlan ? t.ctaSingle : t.ctaClassic} href={CHECKOUT_URL} />
+                  <CTAButton label={t.ctaSingle} href={CHECKOUT_URL} />
                 </div>
 
                 <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
@@ -826,49 +872,6 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
               </div>
             </div>
 
-            {/* PRODUTO 2 - Profissional / Recomendado */}
-            {!variant.singlePlan && (
-            <div id="comprar-2" className="relative bg-card rounded-2xl border-2 border-gold shadow-elegant overflow-hidden flex flex-col md:-translate-y-2">
-              <div className="absolute top-3 right-3 bg-cta text-cta-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg z-10">
-                {t.recommended}
-              </div>
-              <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-                {t.plan2Badge}
-              </div>
-              <div className="p-6 md:p-8 text-center flex flex-col flex-1">
-                <h3 className="font-display text-lg md:text-xl font-bold text-primary">
-                  <span className="block">{t.plan2TitleA}</span>
-                  <span className="text-gold block mt-1">{t.plan2TitleB}</span>
-                </h3>
-
-                <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-                  {t.plan2Features.map((b) => (
-                    <div key={b} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
-                      <span className="text-sm font-medium">{b}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8">
-                  <p className="text-sm text-muted-foreground line-through">{t.fromPrice2}</p>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{t.onlyFor}&nbsp;</p>
-                  <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
-                    R$ 47<span className="text-xl md:text-2xl">,98</span>
-                  </p>
-                </div>
-
-                <div className="mt-8 mt-auto pt-8">
-                  <CTAButton label={t.ctaPro} href={CHECKOUT_URL_PRODUTO_2} />
-                </div>
-
-                <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
-                  <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> {t.secure}</span>
-                  <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
-                </div>
-              </div>
-            </div>
-            )}
           </div>
 
           <div className="max-w-2xl mx-auto mt-10 bg-secondary rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">

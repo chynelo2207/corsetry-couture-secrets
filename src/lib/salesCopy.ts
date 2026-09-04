@@ -55,6 +55,16 @@ export type SalesCopy = {
   modules: { n: string; title: string; desc: string }[];
   modulesCta: string;
   modulesCtaSub: string;
+  courseRevealEyebrow: string;
+  courseRevealTitle: string;
+  courseRevealLead: string;
+  courseRevealVideoLabel: string;
+  courseRevealItems: string[];
+  courseRevealRangeTitle: string;
+  courseRevealRangeText: string;
+  courseRevealNotOnlyTitle: string;
+  courseRevealNotOnlyText: string;
+  courseRevealSummary: string;
 
   goldTitleA: string;
   goldTitleB: string;
@@ -228,6 +238,33 @@ const pt: SalesCopy = {
   ],
   modulesCta: "QUERO APRENDER TODAS AS VARIAÇÕES",
   modulesCtaSub: "Garantia de 7 dias • Acesso imediato",
+  courseRevealEyebrow: "Curso exclusivo — único no Brasil",
+  courseRevealTitle: "Técnicas Avançadas de Corset",
+  courseRevealLead: "Você terá acesso a 6 modelagens prontas para construção e aprenderá 5 tipos de corset, cada um com uma proposta e técnica de construção diferente.",
+  courseRevealVideoLabel: "Veja por dentro todos os módulos do curso",
+  courseRevealItems: [
+    "5 tipos de corset",
+    "6 modelagens prontas para construção",
+    "Técnica de Moulage",
+    "Técnica de Crepagem",
+    "Medidas assertivas",
+    "Construção da base sob medida",
+    "Aula de Interpretação de Modelo",
+    "Corset estruturado — técnica avançada",
+    "Corset com técnica avançada de construção",
+    "Corset em tecido delicado",
+    "Corset em tule e tecido transparente",
+    "Qual tule é o certo para a construção do corset",
+    "Como escolher o material adequado para cada proposta",
+    "Aplicação de renda",
+    "Técnicas de acabamento para corset",
+    "Dicas de Ouro — aprenda o segredo que ninguém te ensina",
+  ],
+  courseRevealRangeTitle: "Do estruturado ao delicado",
+  courseRevealRangeText: "Aprenda diferentes técnicas de construção e trabalhe com diversos tecidos e materiais, desenvolvendo 5 tipos de corset, desde modelos estruturados até propostas delicadas, com tule, transparência e aplicações sofisticadas de renda.",
+  courseRevealNotOnlyTitle: "Não é apenas um curso de corset",
+  courseRevealNotOnlyText: "Você vai aprender a interpretar o modelo, desenvolver a modelagem, construir e finalizar diferentes tipos de corsets, entendendo também qual material escolher para cada construção.",
+  courseRevealSummary: "5 tipos de corset + 6 modelagens prontas + Moulage + Crepagem + medidas assertivas + construção sob medida + Interpretação de Modelo + técnicas avançadas + aplicação de renda + escolha correta do tule + acabamentos + Dicas de Ouro. Tudo reunido em uma formação exclusiva.",
 
   goldTitleA: "Aulas com ",
   goldTitleB: "dicas de ouro",
@@ -466,6 +503,33 @@ const es: SalesCopy = {
   ],
   modulesCta: "QUIERO APRENDER TODAS LAS VARIACIONES",
   modulesCtaSub: "Garantía de 7 días • Acceso inmediato",
+  courseRevealEyebrow: "Curso exclusivo — único en Brasil",
+  courseRevealTitle: "Técnicas Avanzadas de Corset",
+  courseRevealLead: "Tendrás acceso a 6 patrones listos para confeccionar y aprenderás 5 tipos de corset, cada uno con una propuesta y técnica de construcción diferente.",
+  courseRevealVideoLabel: "Mira por dentro todos los módulos del curso",
+  courseRevealItems: [
+    "5 tipos de corset",
+    "6 patrones listos para confeccionar",
+    "Técnica de moulage",
+    "Técnica de crepado",
+    "Medidas precisas",
+    "Construcción de la base a medida",
+    "Clase de interpretación de modelos",
+    "Corset estructurado — técnica avanzada",
+    "Corset con técnica avanzada de construcción",
+    "Corset en tejido delicado",
+    "Corset en tul y tejido transparente",
+    "Cómo elegir el tul correcto para construir el corset",
+    "Cómo elegir el material adecuado para cada propuesta",
+    "Aplicación de encaje",
+    "Técnicas de acabado para corset",
+    "Consejos de Oro — aprende el secreto que nadie te enseña",
+  ],
+  courseRevealRangeTitle: "Del estructurado al delicado",
+  courseRevealRangeText: "Aprende diferentes técnicas de construcción y trabaja con diversos tejidos y materiales, desarrollando 5 tipos de corset: desde modelos estructurados hasta propuestas delicadas con tul, transparencias y sofisticadas aplicaciones de encaje.",
+  courseRevealNotOnlyTitle: "No es solo un curso de corset",
+  courseRevealNotOnlyText: "Aprenderás a interpretar el modelo, desarrollar el patrón, construir y terminar diferentes tipos de corsets, entendiendo también qué material elegir para cada construcción.",
+  courseRevealSummary: "5 tipos de corset + 6 patrones listos + Moulage + Crepado + medidas precisas + construcción a medida + Interpretación de Modelos + técnicas avanzadas + aplicación de encaje + elección correcta del tul + acabados + Consejos de Oro. Todo reunido en una formación exclusiva.",
 
   goldTitleA: "Clases con ",
   goldTitleB: "consejos de oro",
@@ -704,6 +768,33 @@ const en: SalesCopy = {
   ],
   modulesCta: "I WANT TO LEARN EVERY VARIATION",
   modulesCtaSub: "7-day guarantee • Instant access",
+  courseRevealEyebrow: "Exclusive course — the only one of its kind in Brazil",
+  courseRevealTitle: "Advanced Corset Techniques",
+  courseRevealLead: "You will receive 6 ready-to-use patterns and learn 5 types of corset, each with a different purpose and construction technique.",
+  courseRevealVideoLabel: "See every course module from the inside",
+  courseRevealItems: [
+    "5 types of corset",
+    "6 ready-to-use construction patterns",
+    "Draping technique",
+    "Creping technique",
+    "Accurate measurements",
+    "Made-to-measure base construction",
+    "Model interpretation lesson",
+    "Structured corset — advanced technique",
+    "Corset with advanced construction technique",
+    "Corset in delicate fabric",
+    "Corset in tulle and sheer fabric",
+    "How to choose the right tulle for corset construction",
+    "How to choose the right material for each design",
+    "Lace application",
+    "Corset finishing techniques",
+    "Golden Tips — learn the secret no one teaches you",
+  ],
+  courseRevealRangeTitle: "From structured to delicate",
+  courseRevealRangeText: "Learn different construction techniques and work with a range of fabrics and materials as you develop 5 types of corset—from structured designs to delicate pieces with tulle, sheers and sophisticated lace applications.",
+  courseRevealNotOnlyTitle: "This is more than a corset course",
+  courseRevealNotOnlyText: "You will learn to interpret a design, develop the pattern, construct and finish different types of corsets, while understanding which material to choose for every construction.",
+  courseRevealSummary: "5 types of corset + 6 ready-to-use patterns + Draping + Creping + accurate measurements + made-to-measure construction + Model Interpretation + advanced techniques + lace application + the right tulle choice + finishing + Golden Tips. Everything brought together in one exclusive training.",
 
   goldTitleA: "Lessons with ",
   goldTitleB: "golden tips",
