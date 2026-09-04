@@ -45,9 +45,8 @@ export type SalesVariant = {
 };
 
 
-const CHECKOUT_URL = "https://pay.cakto.com.br/3bzxs3o_1010395";
+const CHECKOUT_URL = "https://pay.wiapy.com/iWJwRQvGe-si";
 const CHECKOUT_URL_PRODUTO_2 = "https://pay.cakto.com.br/4cgckir_988285";
-const EXIT_CHECKOUT_URL = "https://pay.cakto.com.br/zm297ju";
 
 
 function PurchaseNotification({ t }: { t: SalesCopy }) {
@@ -176,84 +175,6 @@ function CTAButton({ label, href = "#comprar" }: { label: string; href?: string 
 }
 
 
-function ExitIntentPopup({ t }: { t: SalesCopy }) {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("exit_popup_shown") === "1") return;
-
-    let armed = true;
-    let suppressUntil = 0;
-    const trigger = () => {
-      if (!armed) return;
-      armed = false;
-      sessionStorage.setItem("exit_popup_shown", "1");
-      setOpen(true);
-    };
-
-    const suppressDuringInteraction = () => {
-      suppressUntil = Date.now() + 2000;
-    };
-
-    const suppressDuringScroll = () => {
-      suppressUntil = Date.now() + 500;
-    };
-
-    const onMouseOut = (e: MouseEvent) => {
-      if ((window as any).__ctaJustClicked) return;
-      if (Date.now() < suppressUntil || !document.hasFocus()) return;
-      if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-      const leftThroughBrowserTop = e.clientY <= 5 && e.clientX >= 0 && e.clientX <= window.innerWidth;
-      if (leftThroughBrowserTop && !e.relatedTarget) trigger();
-    };
-    // mobile fallback: back-button
-    const onPopState = () => {
-      if ((window as any).__ctaJustClicked || Date.now() < suppressUntil) return;
-      trigger();
-    };
-    history.pushState({ exitGuard: true }, "");
-
-    document.addEventListener("mouseout", onMouseOut);
-    document.addEventListener("pointerdown", suppressDuringInteraction, true);
-    window.addEventListener("scroll", suppressDuringScroll, { passive: true });
-    window.addEventListener("popstate", onPopState);
-    return () => {
-      document.removeEventListener("mouseout", onMouseOut);
-      document.removeEventListener("pointerdown", suppressDuringInteraction, true);
-      window.removeEventListener("scroll", suppressDuringScroll);
-      window.removeEventListener("popstate", onPopState);
-    };
-
-  }, []);
-
-  if (!open) return null;
-  return (
-    <div
-      className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 overflow-y-auto"
-      onClick={() => setOpen(false)}
-    >
-      <div className="relative max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
-        <button
-          type="button"
-          aria-label={t.close}
-          onClick={() => setOpen(false)}
-          className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center text-xl font-bold hover:bg-black"
-        >
-          ×
-        </button>
-        <a href={withTracking(EXIT_CHECKOUT_URL)} target="_blank" rel="noopener noreferrer" className="block">
-          <img
-            src="/nova-oferta.png"
-            alt={t.popupAlt}
-            className="w-full h-auto rounded-xl shadow-2xl"
-          />
-        </a>
-      </div>
-    </div>
-  );
-}
-
 function TodayDate({ locale }: { locale: string }) {
   const [today, setToday] = useState("");
   useEffect(() => {
@@ -280,7 +201,6 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
   return (
     <div className="min-h-screen">
       <PurchaseNotification t={t} />
-      <ExitIntentPopup t={t} />
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
         <Flame className="w-4 h-4" /> &nbsp;{t.bannerOffer} <TodayDate locale={t.locale} />
       </div>
