@@ -40,19 +40,12 @@ export type SalesCopy = {
   marqueeTitle: string;
   marqueeAlt: string;
 
-  quoteTitle: string;
-  quote: string;
-  quoteAuthor: string;
-
   learnEyebrow: string;
   lowTicketTitle: string;
   lowTicketIntro: string;
   lowTicketCards: { t: string; d: string }[];
   lowTicketOutro: string;
 
-  modulesTitle: string;
-  modulesIntro: string;
-  modules: { n: string; title: string; desc: string }[];
   modulesCta: string;
   modulesCtaSub: string;
   courseRevealEyebrow: string;
@@ -211,10 +204,6 @@ const pt: SalesCopy = {
   marqueeTitle: "Moldes, técnicas e peças que apaixonam",
   marqueeAlt: "Molde e inspiração de corselet",
 
-  quoteTitle: "Transforme sua técnica e crie corselets que transcendem",
-  quote: "\"Cada corselet é uma escultura vestível. Você aprende a construir peças que valorizam cada silhueta com precisão de Alto Designer.\"",
-  quoteAuthor: "— Mirian Serrano",
-
   learnEyebrow: "O que você vai aprender",
   lowTicketTitle: "O Corselet que vai elevar seu portfólio",
   lowTicketIntro: "Um único modelo, ensinado com o nível de detalhe que a maioria dos cursos não entrega:",
@@ -226,14 +215,6 @@ const pt: SalesCopy = {
   ],
   lowTicketOutro: "Este é o curso de entrada do Método Mirian Serrano — o primeiro passo pra quem quer se tornar uma corseleteira de referência.",
 
-  modulesTitle: "Módulos do Curso",
-  modulesIntro: "Cada módulo é uma variação de corselet — do clássico ao autoral — com aulas passo a passo de modelagem, costura e prova.",
-  modules: [
-    { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
-    { n: "02", title: "Corselet de Noiva", desc: "Delicadeza e luxo para peças únicas e inesquecíveis." },
-    { n: "03", title: "Corselet Avançado", desc: "Técnicas em método internacional para peças de alta complexidade." },
-    { n: "04", title: "Acabamento Alto Padrão", desc: "Técnicas profissionais de estrutura, montagem e acabamento de luxo." },
-  ],
   modulesCta: "QUERO APRENDER TODAS AS VARIAÇÕES",
   modulesCtaSub: "Garantia de 7 dias • Acesso imediato",
   courseRevealEyebrow: "Curso exclusivo — único no Brasil",
@@ -474,10 +455,6 @@ const es: SalesCopy = {
   marqueeTitle: "Patrones, técnicas y piezas que enamoran",
   marqueeAlt: "Patrón e inspiración de corselete",
 
-  quoteTitle: "Transforma tu técnica y crea corseletes que trascienden",
-  quote: "\"Cada corselete es una escultura vestible. Aprendes a construir piezas que realzan cada silueta con precisión de Alto Diseño.\"",
-  quoteAuthor: "— Mirian Serrano",
-
   learnEyebrow: "Lo que vas a aprender",
   lowTicketTitle: "El corselete que va a elevar tu portafolio",
   lowTicketIntro: "Un único modelo, enseñado con el nivel de detalle que la mayoría de los cursos no entrega:",
@@ -489,16 +466,6 @@ const es: SalesCopy = {
   ],
   lowTicketOutro: "Este es el curso de entrada del Método Mirian Serrano — el primer paso para quien quiere convertirse en una corseletera de referencia.",
 
-  modulesTitle: "Módulos del curso",
-  modulesIntro: "Cada módulo es una variación de corselete — del clásico al de autor — con clases paso a paso de patronaje, costura y prueba.",
-  modules: [
-    { n: "01", title: "Corselete Clásico", desc: "La base del método. Patronaje tradicional con estructura impecable." },
-    { n: "02", title: "Corselete de Novia", desc: "Delicadeza y lujo para piezas únicas e inolvidables." },
-    { n: "03", title: "Corselete Estilizado", desc: "Variaciones creativas para looks de autor y editoriales." },
-    { n: "04", title: "Corselete a Medida", desc: "Clase de prueba de la primera pieza — cero retoques, ajuste perfecto." },
-    { n: "05", title: "Corselete Avanzado", desc: "Técnicas de método internacional para piezas de alta complejidad." },
-    { n: "06", title: "Acabado de Alto Nivel", desc: "Técnicas profesionales de estructura, montaje y acabado de lujo." },
-  ],
   modulesCta: "QUIERO APRENDER TODAS LAS VARIACIONES",
   modulesCtaSub: "Garantía de 7 días • Acceso inmediato",
   courseRevealEyebrow: "Curso exclusivo — único en Brasil",
@@ -739,10 +706,6 @@ const en: SalesCopy = {
   marqueeTitle: "Patterns, techniques and pieces you'll fall for",
   marqueeAlt: "Corselet pattern and inspiration",
 
-  quoteTitle: "Transform your technique and create corselets that transcend",
-  quote: "\"Every corselet is a wearable sculpture. You learn to build pieces that enhance every silhouette with High Design precision.\"",
-  quoteAuthor: "— Mirian Serrano",
-
   learnEyebrow: "What you'll learn",
   lowTicketTitle: "The corselet that will elevate your portfolio",
   lowTicketIntro: "A single model, taught with the level of detail most courses never deliver:",
@@ -754,16 +717,6 @@ const en: SalesCopy = {
   ],
   lowTicketOutro: "This is the entry course of the Mirian Serrano Method — the first step for anyone who wants to become a reference corset maker.",
 
-  modulesTitle: "Course modules",
-  modulesIntro: "Each module is a corselet variation — from classic to signature — with step-by-step pattern, sewing and fitting lessons.",
-  modules: [
-    { n: "01", title: "Classic Corselet", desc: "The foundation of the method. Traditional pattern making with flawless structure." },
-    { n: "02", title: "Bridal Corselet", desc: "Delicacy and luxury for unique, unforgettable pieces." },
-    { n: "03", title: "Styled Corselet", desc: "Creative variations for signature and editorial looks." },
-    { n: "04", title: "Made-to-Measure Corselet", desc: "First-fitting lesson — zero adjustments, perfect fit." },
-    { n: "05", title: "Advanced Corselet", desc: "International-method techniques for highly complex pieces." },
-    { n: "06", title: "High-End Finishing", desc: "Professional structure, assembly and luxury finishing techniques." },
-  ],
   modulesCta: "I WANT TO LEARN EVERY VARIATION",
   modulesCtaSub: "7-day guarantee • Instant access",
   courseRevealEyebrow: "Exclusive course — the only one of its kind in Brazil",
