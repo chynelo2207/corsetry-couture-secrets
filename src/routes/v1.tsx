@@ -30,6 +30,7 @@ export const Route = createFileRoute("/v1")({
         planSupport: "Oferta especial de lançamento",
         singlePlan: true,
         lowTicket: true,
+        checkoutUrl: "https://pay.wiapy.com/xKa8OJCEivJ",
       }}
     />
   ),
