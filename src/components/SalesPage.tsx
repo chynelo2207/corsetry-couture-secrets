@@ -42,6 +42,7 @@ export type SalesVariant = {
   incomeAngle?: boolean;
   singlePlan?: boolean;
   lowTicket?: boolean;
+  checkoutUrl?: string;
 };
 
 
@@ -657,7 +658,7 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
                 </div>
 
                 <div className="mt-8">
-                  <CTAButton label={t.ltCta} href={CHECKOUT_URL} />
+                  <CTAButton label={t.ltCta} href={variant.checkoutUrl ?? CHECKOUT_URL} />
                 </div>
 
                 <p className="mt-4 text-xs text-muted-foreground">{t.ltGuarantee}</p>
