@@ -743,7 +743,7 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
                   <p className="text-sm text-muted-foreground line-through">{t.fromPrice1}</p>
                   <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{t.onlyFor}&nbsp;</p>
                   <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
-                    R$ 189<span className="text-xl md:text-2xl">,89</span>
+                    R$ 119<span className="text-xl md:text-2xl">,98</span>
                   </p>
                 </div>
 
