@@ -42,6 +42,7 @@ export type SalesVariant = {
   incomeAngle?: boolean;
   singlePlan?: boolean;
   lowTicket?: boolean;
+  checkoutUrl?: string;
 };
 
 
