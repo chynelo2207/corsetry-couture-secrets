@@ -671,26 +671,7 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-sm text-muted-foreground">
-                {t.ltUpsellPre}
-                <a
-                  href={withTracking(CHECKOUT_URL_PRODUTO_2)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cta font-semibold underline"
-                >
-                  {t.ltUpsellLink}
-                </a>{" "}
-                —{" "}
-                <a
-                  href={withTracking(CHECKOUT_URL_PRODUTO_2)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cta font-semibold underline"
-                >
-                  {t.ltUpsellSee}
-                </a>
-              </p>
+              <p className="text-sm text-muted-foreground">{"\n"}</p>
             </div>
           </div>
 
