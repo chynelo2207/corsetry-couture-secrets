@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Check, X, Shield, Lock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart, MessageCircle, PlayCircle } from "lucide-react";
-import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
+import heroMockup from "@/assets/banner-inicial-corsets.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 import mirianAtelierNoiva from "@/assets/mirian-nova-17.png.asset.json";
@@ -247,8 +247,8 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
         <img
           src={heroMockup.url}
           alt={t.heroAlt}
-          width={1354}
-          height={1161}
+          width={1365}
+          height={768}
           className="mt-10 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
         />
 
