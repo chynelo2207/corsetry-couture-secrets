@@ -46,7 +46,7 @@ export type SalesVariant = {
 };
 
 
-const CHECKOUT_URL = "https://pay.hotmart.com/B106779973O?off=pn5oof24&checkoutMode=10";
+const CHECKOUT_URL = "https://pay.wiapy.com/iWJwRQvGe-si";
 const CHECKOUT_URL_PRODUTO_2 = "https://pay.cakto.com.br/4cgckir_988285";
 
 
