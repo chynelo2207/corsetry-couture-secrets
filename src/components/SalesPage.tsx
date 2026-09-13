@@ -253,14 +253,6 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
         </div>
 
         <div className="mt-10 max-w-2xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-3 text-left mb-8">
-            {t.bullets.map((b) => (
-              <div key={b} className="flex items-start gap-2">
-                <span className="text-gold mt-0.5"><Sparkles className="w-5 h-5" /></span>
-                <span className="text-sm md:text-base font-medium text-foreground">{b}</span>
-              </div>
-            ))}
-          </div>
           <CTAButton label={variant.ctaLabel} />
           <p className="mt-4 text-sm text-muted-foreground">{t.immediateAccess}</p>
           <div className="mt-4 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
