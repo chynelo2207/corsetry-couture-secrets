@@ -213,6 +213,14 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
         <h1 className="font-display text-[1.65rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] sm:leading-tight text-foreground break-words">
           {variant.headline}
         </h1>
+        <img
+          src={heroMockup.url}
+          alt={t.heroAlt}
+          width={1365}
+          height={768}
+          className="mt-10 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
+        />
+
         <p className="mt-6 text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
           {variant.subheadline}
         </p>
@@ -243,14 +251,6 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
           </div>
           <span>{t.studentsBadge}</span>
         </div>
-
-        <img
-          src={heroMockup.url}
-          alt={t.heroAlt}
-          width={1365}
-          height={768}
-          className="mt-10 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
-        />
 
         <div className="mt-10 max-w-2xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-3 text-left mb-8">
