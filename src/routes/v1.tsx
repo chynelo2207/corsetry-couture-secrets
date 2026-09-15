@@ -1,11 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import LowTicketSalesPage from "@/components/LowTicketSalesPage";
+import SalesPage from "@/components/SalesPage";
 
-const TITLE = "Curso de Corselet Clássico — Mirian Serrano";
+const TITLE = "Corselet Clássico em Tule Transparente — Método Mirian Serrano";
 const DESC =
-  "Aprenda o Corselet Clássico em tule transparente, do molde ao acabamento. Aula completa, molde em PDF, suporte e acesso imediato.";
-
-const CHECKOUT_URL = "https://pay.wiapy.com/xKa8OJCEivJ";
+  "Domine o Corselet Clássico em Tule Transparente do molde à peça pronta. Vídeo aula passo a passo, PDF exclusivo do molde e suporte direto.";
 
 export const Route = createFileRoute("/v1")({
   head: () => ({
@@ -19,5 +17,21 @@ export const Route = createFileRoute("/v1")({
       { name: "robots", content: "noindex" },
     ],
   }),
-  component: () => <LowTicketSalesPage checkoutUrl={CHECKOUT_URL} />,
+  component: () => (
+    <SalesPage
+      variant={{
+        headline: (
+          <>
+            Domine a arte do <span className="text-primary italic">Corselet Clássico em Tule Transparente</span>
+          </>
+        ),
+        subheadline: "Do molde à peça pronta — a técnica que separa quem 'só costura' de quem cria peças de tirar o fôlego.",
+        ctaLabel: "QUERO DOMINAR O CORSELET CLÁSSICO",
+        planSupport: "Oferta especial de lançamento",
+        singlePlan: true,
+        lowTicket: true,
+        checkoutUrl: "https://pay.wiapy.com/xKa8OJCEivJ",
+      }}
+    />
+  ),
 });
