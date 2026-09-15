@@ -9,7 +9,7 @@ import depoimento5 from "@/assets/depoimento-5.jpeg.asset.json";
 import depoimento6 from "@/assets/depoimento-6.png.asset.json";
 import depoimento7 from "@/assets/depoimento-7.png.asset.json";
 import depoimento8 from "@/assets/depoimento-8.png.asset.json";
-import depoimento9 from "@/assets/depoimento-9.jpeg.asset.json";
+import depoimento9 from "@/assets/depoimento-9.png.asset.json";
 
 const BENEFITS = [
   "Aula passo a passo",
