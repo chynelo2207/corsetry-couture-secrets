@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Check, X, Shield, Lock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart, MessageCircle, PlayCircle } from "lucide-react";
-import heroMockup from "@/assets/banner-inicial-corsets.png.asset.json";
+import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
 import mirianPhoto from "@/assets/mirian-serrano.png.asset.json";
 import mirianAtelierNoiva from "@/assets/mirian-nova-17.png.asset.json";
@@ -213,14 +213,6 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
         <h1 className="font-display text-[1.65rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] sm:leading-tight text-foreground break-words">
           {variant.headline}
         </h1>
-        <img
-          src={heroMockup.url}
-          alt={t.heroAlt}
-          width={1365}
-          height={768}
-          className="mt-10 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
-        />
-
         <p className="mt-6 text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto">
           {variant.subheadline}
         </p>
@@ -252,7 +244,23 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
           <span>{t.studentsBadge}</span>
         </div>
 
+        <img
+          src={heroMockup.url}
+          alt={t.heroAlt}
+          width={1354}
+          height={1161}
+          className="mt-10 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
+        />
+
         <div className="mt-10 max-w-2xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-3 text-left mb-8">
+            {t.bullets.map((b) => (
+              <div key={b} className="flex items-start gap-2">
+                <span className="text-gold mt-0.5"><Sparkles className="w-5 h-5" /></span>
+                <span className="text-sm md:text-base font-medium text-foreground">{b}</span>
+              </div>
+            ))}
+          </div>
           <CTAButton label={variant.ctaLabel} />
           <p className="mt-4 text-sm text-muted-foreground">{t.immediateAccess}</p>
           <div className="mt-4 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
@@ -352,7 +360,63 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
       )}
 
 
-      {!variant.lowTicket && (
+      <section className="py-12 md:py-16 overflow-hidden bg-secondary/40 border-y border-border">
+        <div className="text-center mb-8 px-5">
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">{t.marqueeEyebrow}</span>
+          <h2 className="mt-2 font-display text-2xl md:text-4xl font-bold text-primary">
+            {t.marqueeTitle}
+          </h2>
+        </div>
+        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="marquee-track flex gap-6 w-max">
+            {[...Array(2)].flatMap((_, dup) =>
+              [mirianAtelierNoiva, mirianVestidoRose, moldeDecotes, mirianVestidoCabide, noivaCorsetRenda, mirianAjusteNoiva, moldeVariacoes, croquiDesenho, moldePatente].map((img, i) => (
+                <div
+                  key={`${dup}-${i}`}
+                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
+                >
+                  <img
+                    src={img.url}
+                    alt={t.marqueeAlt}
+                    loading="lazy"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
+
+      {variant.lowTicket ? (
+        <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
+          <div className="text-center mb-14">
+            <span className="text-xs uppercase tracking-widest text-gold font-bold">{t.learnEyebrow}</span>
+            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">{t.lowTicketTitle}</h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              {t.lowTicketIntro}
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+            {t.lowTicketCards.map((item, i) => {
+              const Icon = [Sparkles, Scissors, Heart, MessageCircle][i] ?? Sparkles;
+              return (
+                <div key={item.t} className="bg-card rounded-xl p-6 border border-border shadow-soft hover:-translate-y-1 transition-transform">
+                  <Icon className="w-8 h-8 text-gold mb-3" />
+                  <h3 className="font-display text-lg font-bold text-primary">{item.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{item.d}</p>
+                </div>
+              );
+            })}
+          </div>
+          <p className="mt-10 text-center text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            {t.lowTicketOutro}
+          </p>
+          <div className="mt-10 text-center max-w-2xl mx-auto">
+            <CTAButton label={variant.ctaLabel} />
+          </div>
+        </section>
+      ) : (
         <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
           <div className="mt-16 border-y border-border py-12 md:py-16">
             <div className="text-center max-w-3xl mx-auto">
@@ -408,66 +472,6 @@ export default function SalesPage({ variant, lang = "pt" }: { variant: SalesVari
             <p className="mt-3 text-sm text-muted-foreground">{t.modulesCtaSub}</p>
           </div>
         </section>
-
-      )}
-
-      <section className="py-12 md:py-16 overflow-hidden bg-secondary/40 border-y border-border">
-        <div className="text-center mb-8 px-5">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">{t.marqueeEyebrow}</span>
-          <h2 className="mt-2 font-display text-2xl md:text-4xl font-bold text-primary">
-            {t.marqueeTitle}
-          </h2>
-        </div>
-        <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-          <div className="marquee-track flex gap-6 w-max">
-            {[...Array(2)].flatMap((_, dup) =>
-              [mirianAtelierNoiva, mirianVestidoRose, moldeDecotes, mirianVestidoCabide, noivaCorsetRenda, mirianAjusteNoiva, moldeVariacoes, croquiDesenho, moldePatente].map((img, i) => (
-                <div
-                  key={`${dup}-${i}`}
-                  className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
-                >
-                  <img
-                    src={img.url}
-                    alt={t.marqueeAlt}
-                    loading="lazy"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              ))
-            )}
-          </div>
-        </div>
-      </section>
-
-      {variant.lowTicket && (
-        <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
-          <div className="text-center mb-14">
-            <span className="text-xs uppercase tracking-widest text-gold font-bold">{t.learnEyebrow}</span>
-            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">{t.lowTicketTitle}</h2>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              {t.lowTicketIntro}
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
-            {t.lowTicketCards.map((item, i) => {
-              const Icon = [Sparkles, Scissors, Heart, MessageCircle][i] ?? Sparkles;
-              return (
-                <div key={item.t} className="bg-card rounded-xl p-6 border border-border shadow-soft hover:-translate-y-1 transition-transform">
-                  <Icon className="w-8 h-8 text-gold mb-3" />
-                  <h3 className="font-display text-lg font-bold text-primary">{item.t}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{item.d}</p>
-                </div>
-              );
-            })}
-          </div>
-          <p className="mt-10 text-center text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t.lowTicketOutro}
-          </p>
-          <div className="mt-10 text-center max-w-2xl mx-auto">
-            <CTAButton label={variant.ctaLabel} />
-          </div>
-        </section>
-
       )}
 
 
