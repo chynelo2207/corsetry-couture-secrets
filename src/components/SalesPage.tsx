@@ -39,6 +39,8 @@ export type SalesVariant = {
   planSupport?: string;
   incomeAngle?: boolean;
   singlePlan?: boolean;
+  professionalPrice?: string;
+  professionalCheckoutUrl?: string;
 };
 
 
@@ -846,12 +848,12 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
                 <p className="text-sm text-muted-foreground line-through">De R$ 897,00</p>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
                 <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
-                  R$ 47<span className="text-xl md:text-2xl">,98</span>
+                  {variant.professionalPrice ?? "R$ 47,98"}
                 </p>
               </div>
 
               <div className="mt-8 mt-auto pt-8">
-                <CTAButton label="QUERO O PLANO PROFISSIONAL" href={CHECKOUT_URL_PRODUTO_2} />
+                <CTAButton label="QUERO O PLANO PROFISSIONAL" href={variant.professionalCheckoutUrl ?? CHECKOUT_URL_PRODUTO_2} />
               </div>
 
               <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">

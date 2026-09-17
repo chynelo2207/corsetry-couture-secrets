@@ -22,6 +22,8 @@ export const Route = createFileRoute("/")({
         ),
         subheadline: "Do molde à peça vestida sem ajustes — domine a arte que transforma cada silhueta.",
         ctaLabel: "QUERO CRIAR MEUS CORSELETS",
+        professionalPrice: "R$ 89,90",
+        professionalCheckoutUrl: "https://pay.wiapy.com/iWJwRQvGe-si",
       }}
     />
   ),
