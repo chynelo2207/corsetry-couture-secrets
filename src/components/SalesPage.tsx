@@ -42,7 +42,7 @@ export type SalesVariant = {
 };
 
 
-const CHECKOUT_URL = "https://pay.cakto.com.br/3bzxs3o_1010395";
+const CHECKOUT_URL = "https://pay.wiapy.com/xKa8OJCEivJ";
 const CHECKOUT_URL_PRODUTO_2 = "https://pay.cakto.com.br/4cgckir_988285";
 const EXIT_CHECKOUT_URL = "https://pay.cakto.com.br/zm297ju";
 
@@ -788,7 +788,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
                 <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
                 <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
-                  R$ 27<span className="text-xl md:text-2xl">,70</span>
+                  R$ 27<span className="text-xl md:text-2xl">,89</span>
                 </p>
               </div>
 
