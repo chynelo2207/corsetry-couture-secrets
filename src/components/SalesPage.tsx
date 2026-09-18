@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Check, X, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
@@ -923,6 +924,12 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               Fale com a gente em amaroads.com
             </a>
           </div>
+          <Link
+            to="/privacidade"
+            className="inline-block underline underline-offset-4 text-primary-foreground hover:opacity-80 transition-opacity"
+          >
+            Política de Privacidade
+          </Link>
           <p>© {new Date().getFullYear()} Método Mirian Serrano — Todos os direitos reservados.</p>
         </div>
       </footer>
