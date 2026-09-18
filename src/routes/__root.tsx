@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AdvertisingConsent } from "../components/AdvertisingConsent";
 
 function NotFoundComponent() {
   return (
@@ -96,28 +97,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
     scripts: [
-      {
-        src: "https://cdn.utmify.com.br/scripts/utms/latest.js",
-        async: true,
-        defer: true,
-        "data-utmify-prevent-xcod-sck": "",
-        "data-utmify-prevent-subids": "",
-      },
-      {
-        children:
-          "(function(){try{var qs=new URLSearchParams(location.search);var K=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','utm_campaign_id','utm_adset_id','utm_ad_id','utm_source_platform','fbclid','fbc','fbp','xcod','sck','gclid','ttclid','src'];var st={};try{st=JSON.parse(localStorage.getItem('_utms')||'{}');}catch(e){}K.forEach(function(k){var v=qs.get(k);if(v)st[k]=v;});localStorage.setItem('_utms',JSON.stringify(st));}catch(e){}})();",
-      },
       { src: "https://fast.wistia.com/player.js", async: true },
       { src: "https://fast.wistia.com/embed/a5jnm5622k.js", async: true, type: "module" },
-      { children: 'window.pixelId = "6a4fdf0cea6d4bfe03f92c1c";' },
-      { src: "https://cdn.utmify.com.br/scripts/pixel/pixel.js", async: true, defer: true },
-      { children: 'window.tikTokPixelId = "6a5d4aff71d8f00e4cfa0452";' },
-      { src: "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js", async: true, defer: true },
-      {
-        children:
-          "(function(){function load(){window.tikTokPixelId=\"6a7a79abfe61d9c780c846fe\";var s=document.createElement('script');s.src='https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js';s.async=true;s.defer=true;(document.head||document.documentElement).appendChild(s);}setTimeout(load,2500);})();",
-      },
-
     ],
   }),
   shellComponent: RootShell,
@@ -128,12 +109,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
       <body>
         {children}
+        <AdvertisingConsent />
         <Scripts />
       </body>
     </html>
