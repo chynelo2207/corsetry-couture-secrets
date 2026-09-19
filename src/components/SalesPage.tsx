@@ -821,7 +821,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </div>
 
               <div className="mt-8 mt-auto pt-8">
-                <CTAButton label="QUERO O CURSO CLÁSSICO" href={CHECKOUT_URL} onClick={() => setUpgradeOpen(true)} />
+                <CTAButton label="QUERO O CURSO CLÁSSICO" href={CHECKOUT_URL} onClick={() => window.setTimeout(() => setUpgradeOpen(true), 0)} />
               </div>
 
 
