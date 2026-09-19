@@ -807,19 +807,22 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
               <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
                 {[
-                  "Como montar um molde / molde",
-                  "Aulas de Crepagem",
-                  "Interpretação de modelo - Penélope",
-                  "Dica de Ouro",
-                  "Aulas de medidas assertivas",
-                  "Aulas de medida para peças sob medida",
-                  "Variação de modelos através de um único molde",
-                  "Corselet estruturado em tecido plano",
-                  "Corselet estruturado em tecidos delicados",
-                  "Corselet avançado - técnicas de método internacional",
-                  "Técnicas profissionais de estrutura, montagem e acabamento de alto padrão",
-                  "Certificado de conclusão",
-                  "Acesso vitalício + atualizações",
+                  "5 tipos de corset",
+                  "Técnica de Moulage",
+                  "Medidas assertivas",
+                  "Aula de Interpretação de Modelo",
+                  "Corset com técnica avançada de construção",
+                  "Corset em tule e tecido transparente",
+                  "Como escolher o material adequado para cada proposta",
+                  "Técnicas de acabamento para corset",
+                  "6 modelagens prontas para construção",
+                  "Técnica de Crepagem",
+                  "Construção da base sob medida",
+                  "Corset estruturado — técnica avançada",
+                  "Corset em tecido delicado",
+                  "Qual tule é o certo para a construção do corset",
+                  "Aplicação de renda",
+                  "Dicas de Ouro — aprenda o segredo que ninguém te ensina",
                 ].map((b) => (
                   <div key={b} className="flex items-start gap-2">
                     <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
