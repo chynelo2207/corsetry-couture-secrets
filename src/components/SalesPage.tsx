@@ -47,6 +47,7 @@ export type SalesVariant = {
 const CHECKOUT_URL = "https://pay.wiapy.com/xKa8OJCEivJ";
 const CHECKOUT_URL_PRODUTO_2 = "https://pay.cakto.com.br/4cgckir_988285";
 const EXIT_CHECKOUT_URL = "https://pay.cakto.com.br/zm297ju";
+const UPGRADE_CHECKOUT_URL = "https://pay.wiapy.com/KktHTpviGsp";
 
 
 
@@ -140,7 +141,7 @@ function withTracking(url: string): string {
 // pulse-cta, etc.) abra mais de uma aba de checkout ao mesmo tempo.
 let ctaOpenLock = false;
 
-function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: { label?: string; href?: string }) {
+function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar", onClick }: { label?: string; href?: string; onClick?: () => void }) {
   const isAnchor = href.startsWith("#");
 
   const baseClasses =
@@ -167,6 +168,15 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: 
     e.preventDefault();
     e.stopPropagation();
 
+    if (onClick) {
+      (window as any).__ctaJustClicked = true;
+      onClick();
+      setTimeout(() => {
+        (window as any).__ctaJustClicked = false;
+      }, 2000);
+      return;
+    }
+
     if (ctaOpenLock) return;
     ctaOpenLock = true;
 
@@ -183,6 +193,36 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar" }: 
     <button type="button" onClick={handleClick} className={baseClasses}>
       {label} →
     </button>
+  );
+}
+
+function UpgradePopup({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-[110] bg-foreground/80 flex items-center justify-center p-4 overflow-y-auto" onClick={onClose}>
+      <div className="relative w-full max-w-lg overflow-hidden rounded-2xl border-2 border-gold bg-card shadow-elegant" onClick={(e) => e.stopPropagation()}>
+        <button type="button" aria-label="Fechar" onClick={onClose} className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-xl font-bold text-secondary-foreground">
+          ×
+        </button>
+        <div className="bg-gold px-6 py-4 text-center font-bold uppercase tracking-widest text-gold-foreground">
+          Oferta exclusiva
+        </div>
+        <div className="p-6 text-center md:p-8">
+          <Sparkles className="mx-auto h-9 w-9 text-gold" />
+          <h3 className="mt-4 font-display text-3xl font-bold text-primary">Leve o Curso Profissional Completo</h3>
+          <p className="mx-auto mt-3 max-w-md text-muted-foreground">
+            Aproveite esta oportunidade para receber todas as aulas profissionais, técnicas avançadas e modelagens.
+          </p>
+          <p className="mt-6 text-sm text-muted-foreground line-through">De R$ 89,90</p>
+          <p className="mt-1 font-display text-5xl font-bold text-primary">R$ 69<span className="text-2xl">,43</span></p>
+          <div className="mt-7">
+            <CTAButton label="SIM, QUERO O CURSO COMPLETO" href={UPGRADE_CHECKOUT_URL} />
+          </div>
+          <a href={withTracking(CHECKOUT_URL)} className="mt-5 inline-block text-sm font-semibold text-muted-foreground underline underline-offset-4">
+            Não, quero continuar apenas com o Curso Clássico por R$ 27,89
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -286,6 +326,7 @@ function TodayDate() {
 
 
 export default function SalesPage({ variant }: { variant: SalesVariant }) {
+  const [upgradeOpen, setUpgradeOpen] = useState(false);
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
     { n: "02", title: "Corselet de Noiva", desc: "Delicadeza e luxo para peças únicas e inesquecíveis." },
@@ -308,6 +349,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
     <div className="min-h-screen">
       <PurchaseNotification />
       <ExitIntentPopup />
+      {upgradeOpen && <UpgradePopup onClose={() => setUpgradeOpen(false)} />}
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
         <Flame className="w-4 h-4" /> &nbsp;Oferta disponível somente hoje <TodayDate />
       </div>
@@ -779,7 +821,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </div>
 
               <div className="mt-8 mt-auto pt-8">
-                <CTAButton label="QUERO O CURSO CLÁSSICO" href={CHECKOUT_URL} />
+                <CTAButton label="QUERO O CURSO CLÁSSICO" href={CHECKOUT_URL} onClick={() => window.setTimeout(() => setUpgradeOpen(true), 0)} />
               </div>
 
 
