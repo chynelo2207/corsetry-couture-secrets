@@ -42,6 +42,7 @@ export type SalesVariant = {
   professionalPrice?: string;
   professionalCheckoutUrl?: string;
   testimonialImages?: { url: string }[];
+  internationalPrice?: React.ReactNode;
   lang?: "pt" | "es";
 };
 
@@ -831,11 +832,13 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </div>
 
               <div className="mt-8">
-                <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
+                {!es && <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>}
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{es ? "POR SOLO" : "POR APENAS"}&nbsp;</p>
-                <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
-                  {es ? <>€ 27<span className="text-xl md:text-2xl">,90</span></> : <>R$ 27<span className="text-xl md:text-2xl">,89</span></>}
-                </p>
+                {es ? variant.internationalPrice : (
+                  <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
+                    R$ 27<span className="text-xl md:text-2xl">,89</span>
+                  </p>
+                )}
               </div>
 
               <div className="mt-8 mt-auto pt-8">
