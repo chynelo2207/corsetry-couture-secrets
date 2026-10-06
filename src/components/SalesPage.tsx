@@ -371,7 +371,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
   return (
     <div className="min-h-screen">
       <ExitIntentPopup />
-      {upgradeOpen && <UpgradePopup onClose={() => setUpgradeOpen(false)} />}
+      {upgradeOpen && <UpgradePopup es={es} onClose={() => setUpgradeOpen(false)} />}
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
         <Flame className="w-4 h-4" /> &nbsp;{es ? "Oferta disponible hoy" : "Oferta disponível somente hoje"} {!es && <TodayDate />}
       </div>
