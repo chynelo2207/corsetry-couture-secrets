@@ -844,7 +844,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               <div className="mt-8 mt-auto pt-8">
                 <CTAButton
                   label={es ? "QUIERO EL CURSO CLÁSICO" : "QUERO O CURSO CLÁSSICO"}
-                  href={es ? "https://pay.hotmart.com/R107917706S" : CHECKOUT_URL}
+                  href={es ? "https://pay.hotmart.com/R107917706S?checkoutMode=10" : CHECKOUT_URL}
                   onClick={es ? undefined : () => window.setTimeout(() => setUpgradeOpen(true), 0)}
                 />
               </div>
