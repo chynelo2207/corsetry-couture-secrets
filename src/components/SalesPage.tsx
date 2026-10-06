@@ -761,7 +761,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className="marquee-track flex gap-6 w-max items-stretch">
             {[...Array(2)].flatMap((_, dup) =>
-              [depoimento1, depoimento2, depoimento3, depoimento4, depoimento5, depoimento6, depoimento7, depoimento8, depoimento9].map((img, i) => (
+              (variant.testimonialImages ?? [depoimento1, depoimento2, depoimento3, depoimento4, depoimento5, depoimento6, depoimento7, depoimento8, depoimento9]).map((img, i) => (
                 <div
                   key={`dep-${dup}-${i}`}
                   className="shrink-0 w-64 md:w-80 h-80 md:h-[26rem] rounded-2xl overflow-hidden shadow-soft border border-border/30 bg-transparent"
