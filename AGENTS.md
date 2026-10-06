@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep international price detection and live exchange-rate presentation in a browser-only effect in a dedicated component supplied by the Spanish route; this isolates requests from Brazilian pages and keeps checkout and tracking untouched.
