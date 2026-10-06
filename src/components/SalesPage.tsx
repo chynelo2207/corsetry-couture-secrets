@@ -198,7 +198,7 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar", on
   );
 }
 
-function UpgradePopup({ onClose }: { onClose: () => void }) {
+function UpgradePopup({ onClose, es }: { onClose: () => void; es?: boolean }) {
   return (
     <div className="fixed inset-0 z-[110] bg-foreground/80 flex items-center justify-center p-4 overflow-y-auto" onClick={onClose}>
       <div className="relative w-full max-w-lg overflow-hidden rounded-2xl border-2 border-gold bg-card shadow-elegant" onClick={(e) => e.stopPropagation()}>
