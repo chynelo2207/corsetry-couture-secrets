@@ -27,8 +27,8 @@ export const Route = createFileRoute("/es")({
         ),
         subheadline: "Del patrón a la prenda terminada — domina la técnica que transforma y realza cada silueta.",
         ctaLabel: "QUIERO CREAR MIS CORSÉS",
-        professionalPrice: "R$ 89,90",
-        professionalCheckoutUrl: "https://pay.wiapy.com/iWJwRQvGe-si",
+        singlePlan: true,
+        planSupport: "Empieza hoy con el Método Mirian Serrano",
       }}
     />
   ),
