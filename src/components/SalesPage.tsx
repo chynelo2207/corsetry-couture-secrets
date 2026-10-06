@@ -685,12 +685,14 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           </div>
         </div>
 
-        <div className="mt-14 max-w-4xl mx-auto px-0">
-          <p className="text-center text-xs uppercase tracking-widest text-gold font-bold mb-4">{es ? "Reportaje con Mirian" : "Reportagem com Mirian"}</p>
-          <div className="rounded-2xl overflow-hidden shadow-elegant border border-border w-full">
-            <WistiaPlayer media-id="a5jnm5622k" aspect="1.7777777777777777" className="w-full" />
+        {!es && (
+          <div className="mt-14 max-w-4xl mx-auto px-0">
+            <p className="text-center text-xs uppercase tracking-widest text-gold font-bold mb-4">Reportagem com Mirian</p>
+            <div className="rounded-2xl overflow-hidden shadow-elegant border border-border w-full">
+              <WistiaPlayer media-id="a5jnm5622k" aspect="1.7777777777777777" className="w-full" />
+            </div>
           </div>
-        </div>
+        )}
       </section>
 
       <section className="bg-secondary py-14 md:py-20 px-5">
