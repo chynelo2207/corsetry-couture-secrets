@@ -614,7 +614,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
 
         <div className="mt-12 text-center max-w-2xl mx-auto">
-          <CTAButton label="{es ? "QUIERO APRENDER TODAS LAS VARIACIONES" : "QUERO APRENDER TODAS AS VARIAÇÕES"}" />
+          <CTAButton label={es ? "QUIERO APRENDER TODAS LAS VARIACIONES" : "QUERO APRENDER TODAS AS VARIAÇÕES"} />
           <p className="mt-3 text-sm text-muted-foreground">{es ? "Garantía de 7 días • Acceso inmediato" : "Garantia de 7 dias • Acesso imediato"}</p>
         </div>
       </section>
@@ -743,7 +743,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
 
         <div className="mt-14 text-center max-w-2xl mx-auto">
-          <CTAButton label="{es ? "QUIERO CONVERTIRME EN UNA REFERENCIA EN CORSÉS" : "QUERO SER UMA CORSELETEIRA DE REFERÊNCIA"}" />
+          <CTAButton label={es ? "QUIERO CONVERTIRME EN UNA REFERENCIA EN CORSÉS" : "QUERO SER UMA CORSELETEIRA DE REFERÊNCIA"} />
           <p className="mt-3 text-sm text-muted-foreground">{es ? "+2.000 alumnas ya transformaron su costura" : "+2.000 alunas já transformaram suas costuras"}</p>
         </div>
       </section>
@@ -805,7 +805,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </h3>
 
               <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-                {[
+                {(es ? [
                   { t: "Módulo completo del Corsé Clásico", ok: true },
                   { t: "Molde del Corsé Clásico para descargar", ok: true },
                   { t: "PDF de apoyo paso a paso", ok: true },
@@ -813,7 +813,15 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
                   { t: "Clases exclusivas del Curso Profesional", ok: false },
                   { t: "Corsé para Novia y Moda de Fiesta", ok: false },
                   { t: "Técnicas profesionales avanzadas", ok: false },
-                ].map((b) => (
+                ] : [
+                  { t: "Módulo completo do Corselet Clássico", ok: true },
+                  { t: "Molde do Corselet Clássico para download", ok: true },
+                  { t: "PDF de apoio passo a passo", ok: true },
+                  { t: "Conteúdos e materiais extras", ok: true },
+                  { t: "Aulas exclusivas do Curso Profissional", ok: false },
+                  { t: "Corselet para Noiva e Moda Festa", ok: false },
+                  { t: "Técnicas profissionais avançadas", ok: false },
+                ]).map((b) => (
                   <div key={b.t} className="flex items-start gap-2">
                     {b.ok ? (
                       <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
@@ -834,7 +842,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </div>
 
               <div className="mt-8 mt-auto pt-8">
-                <CTAButton label="{es ? "QUIERO EL CURSO CLÁSICO" : "QUERO O CURSO CLÁSSICO"}" href={CHECKOUT_URL} onClick={() => window.setTimeout(() => setUpgradeOpen(true), 0)} />
+                <CTAButton label={es ? "QUIERO EL CURSO CLÁSICO" : "QUERO O CURSO CLÁSSICO"} href={CHECKOUT_URL} onClick={() => window.setTimeout(() => setUpgradeOpen(true), 0)} />
               </div>
 
 
@@ -861,7 +869,24 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </h3>
 
               <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-                {[
+                {(es ? [
+                  "5 tipos de corsé",
+                  "Técnica de moulage",
+                  "Medidas precisas",
+                  "Clase de interpretación de modelos",
+                  "Corsé con técnica avanzada de construcción",
+                  "Corsé en tul y tejido transparente",
+                  "Cómo elegir el material adecuado para cada propuesta",
+                  "Técnicas de acabado para corsé",
+                  "6 patrones listos para confeccionar",
+                  "Técnica de crepado",
+                  "Construcción de la base a medida",
+                  "Corsé estructurado — técnica avanzada",
+                  "Corsé en tejido delicado",
+                  "Cómo elegir el tul correcto para construir el corsé",
+                  "Aplicación de encaje",
+                  "Consejos de Oro — aprende detalles que marcan la diferencia",
+                ] : [
                   "5 tipos de corset",
                   "Técnica de Moulage",
                   "Medidas assertivas",
@@ -878,7 +903,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
                   "Qual tule é o certo para a construção do corset",
                   "Aplicação de renda",
                   "Dicas de Ouro — aprenda o segredo que ninguém te ensina",
-                ].map((b) => (
+                ]).map((b) => (
                   <div key={b} className="flex items-start gap-2">
                     <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
                     <span className="text-sm font-medium">{b}</span>
@@ -895,7 +920,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </div>
 
               <div className="mt-8 mt-auto pt-8">
-                <CTAButton label="{es ? "QUIERO EL PLAN PROFESIONAL" : "QUERO O PLANO PROFISSIONAL"}" href={variant.professionalCheckoutUrl ?? CHECKOUT_URL_PRODUTO_2} />
+                <CTAButton label={es ? "QUIERO EL PLAN PROFESIONAL" : "QUERO O PLANO PROFISSIONAL"} href={variant.professionalCheckoutUrl ?? CHECKOUT_URL_PRODUTO_2} />
               </div>
 
               <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
