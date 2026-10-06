@@ -809,29 +809,23 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
               <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
                 {(es ? [
-                  { t: "Módulo completo del Corsé Clásico", ok: true },
-                  { t: "Molde del Corsé Clásico para descargar", ok: true },
-                  { t: "PDF de apoyo paso a paso", ok: true },
-                  { t: "Contenidos y materiales extra", ok: true },
-                  { t: "Clases exclusivas del Curso Profesional", ok: false },
-                  { t: "Corsé para Novia y Moda de Fiesta", ok: false },
-                  { t: "Técnicas profesionales avanzadas", ok: false },
+                  "Curso completo de Corsé Clásico",
+                  "Molde del Corsé Clásico para descargar",
+                  "PDF de apoyo paso a paso",
+                  "Contenidos y materiales complementarios",
+                  "Clases grabadas para estudiar a tu ritmo",
+                  "Acceso inmediato después de la compra",
+                  "Acceso vitalicio al curso",
+                  "Garantía incondicional de 7 días",
                 ] : [
-                  { t: "Módulo completo do Corselet Clássico", ok: true },
-                  { t: "Molde do Corselet Clássico para download", ok: true },
-                  { t: "PDF de apoio passo a passo", ok: true },
-                  { t: "Conteúdos e materiais extras", ok: true },
-                  { t: "Aulas exclusivas do Curso Profissional", ok: false },
-                  { t: "Corselet para Noiva e Moda Festa", ok: false },
-                  { t: "Técnicas profissionais avançadas", ok: false },
-                ]).map((b) => (
-                  <div key={b.t} className="flex items-start gap-2">
-                    {b.ok ? (
-                      <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
-                    ) : (
-                      <X className="w-5 h-5 text-muted-foreground/50 shrink-0 mt-0.5" />
-                    )}
-                    <span className={`text-sm ${b.ok ? "" : "text-muted-foreground/60"}`}>{b.t}</span>
+                  "Módulo completo do Corselet Clássico",
+                  "Molde do Corselet Clássico para download",
+                  "PDF de apoio passo a passo",
+                  "Conteúdos e materiais extras",
+                ]).map((item) => (
+                  <div key={item} className="flex items-start gap-2">
+                    <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
+                    <span className="text-sm">{item}</span>
                   </div>
                 ))}
               </div>
