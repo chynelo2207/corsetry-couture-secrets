@@ -41,6 +41,7 @@ export type SalesVariant = {
   singlePlan?: boolean;
   professionalPrice?: string;
   professionalCheckoutUrl?: string;
+  testimonialImages?: { url: string }[];
   lang?: "pt" | "es";
 };
 
@@ -197,7 +198,7 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar", on
   );
 }
 
-function UpgradePopup({ onClose }: { onClose: () => void }) {
+function UpgradePopup({ onClose, es }: { onClose: () => void; es?: boolean }) {
   return (
     <div className="fixed inset-0 z-[110] bg-foreground/80 flex items-center justify-center p-4 overflow-y-auto" onClick={onClose}>
       <div className="relative w-full max-w-lg overflow-hidden rounded-2xl border-2 border-gold bg-card shadow-elegant" onClick={(e) => e.stopPropagation()}>
@@ -370,7 +371,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
   return (
     <div className="min-h-screen">
       <ExitIntentPopup />
-      {upgradeOpen && <UpgradePopup onClose={() => setUpgradeOpen(false)} />}
+      {upgradeOpen && <UpgradePopup es={es} onClose={() => setUpgradeOpen(false)} />}
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
         <Flame className="w-4 h-4" /> &nbsp;{es ? "Oferta disponible hoy" : "Oferta disponível somente hoje"} {!es && <TodayDate />}
       </div>
@@ -760,7 +761,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
           <div className="marquee-track flex gap-6 w-max items-stretch">
             {[...Array(2)].flatMap((_, dup) =>
-              [depoimento1, depoimento2, depoimento3, depoimento4, depoimento5, depoimento6, depoimento7, depoimento8, depoimento9].map((img, i) => (
+              (variant.testimonialImages ?? [depoimento1, depoimento2, depoimento3, depoimento4, depoimento5, depoimento6, depoimento7, depoimento8, depoimento9]).map((img, i) => (
                 <div
                   key={`dep-${dup}-${i}`}
                   className="shrink-0 w-64 md:w-80 h-80 md:h-[26rem] rounded-2xl overflow-hidden shadow-soft border border-border/30 bg-transparent"

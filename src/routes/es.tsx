@@ -1,5 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import SalesPage from "@/components/SalesPage";
+import depEs1 from "@/assets/dep-es-1.png.asset.json";
+import depEs2 from "@/assets/dep-es-2.png.asset.json";
+import depEs3 from "@/assets/dep-es-3.png.asset.json";
+import depEs4 from "@/assets/dep-es-4.png.asset.json";
+import depEs5 from "@/assets/dep-es-5.png.asset.json";
+import depEs6 from "@/assets/dep-es-6.png.asset.json";
+import depEs7 from "@/assets/dep-es-7.png.asset.json";
+import depEs8 from "@/assets/dep-es-8.png.asset.json";
 
 const TITLE = "Curso de Corsés — Método Mirian Serrano";
 const DESC = "Aprende a crear corsés de alta costura con caída impecable, patronaje profesional, costura de precisión y acabados de lujo.";
@@ -29,6 +37,7 @@ export const Route = createFileRoute("/es")({
         ctaLabel: "QUIERO CREAR MIS CORSÉS",
         singlePlan: true,
         planSupport: "Empieza hoy con el Método Mirian Serrano",
+        testimonialImages: [depEs1, depEs2, depEs3, depEs4, depEs5, depEs6, depEs7, depEs8],
       }}
     />
   ),
