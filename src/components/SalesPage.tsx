@@ -41,6 +41,7 @@ export type SalesVariant = {
   singlePlan?: boolean;
   professionalPrice?: string;
   professionalCheckoutUrl?: string;
+  lang?: "pt" | "es";
 };
 
 
@@ -145,7 +146,7 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar", on
   const isAnchor = href.startsWith("#");
 
   const baseClasses =
-    "btn-cta pulse-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal";
+    "btn-cta inline-flex items-center justify-center rounded-xl px-6 md:px-8 py-4 md:py-5 text-sm md:text-base lg:text-lg font-bold uppercase tracking-wide w-full max-w-2xl break-words whitespace-normal";
 
   if (isAnchor) {
     const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -208,7 +209,7 @@ function UpgradePopup({ onClose }: { onClose: () => void }) {
         </div>
         <div className="p-6 text-center md:p-8">
           <Sparkles className="mx-auto h-9 w-9 text-gold" />
-          <h3 className="mt-4 font-display text-3xl font-bold text-primary">Leve o Curso Profissional Completo</h3>
+          <h3 className="mt-4 font-display text-3xl font-bold text-primary">Leve o {es ? "Curso Profesional Completo" : "Curso Profissional Completo"}</h3>
           <p className="mx-auto mt-3 max-w-md text-muted-foreground">
             Aproveite esta oportunidade para receber todas as aulas profissionais, técnicas avançadas e modelagens.
           </p>
@@ -326,6 +327,7 @@ function TodayDate() {
 
 
 export default function SalesPage({ variant }: { variant: SalesVariant }) {
+  const es = variant.lang === "es";
   const [upgradeOpen, setUpgradeOpen] = useState(false);
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
@@ -336,6 +338,16 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
     { n: "06", title: "Acabamento Alto Padrão", desc: "Técnicas profissionais de estrutura, montagem e acabamento de luxo." },
   ];
 
+  const modulesEs = [
+    { n: "01", title: "Corsé Clásico", desc: "La base del método. Patronaje tradicional con estructura impecable." },
+    { n: "02", title: "Corsé de Novia", desc: "Delicadeza y lujo para prendas únicas e inolvidables." },
+    { n: "03", title: "Corsé Estilizado", desc: "Variaciones creativas para looks de autor y editoriales." },
+    { n: "04", title: "Corsé a Medida", desc: "Prueba de la primera prenda, ajuste y precisión sobre el cuerpo." },
+    { n: "05", title: "Corsé Avanzado", desc: "Técnicas internacionales para prendas de alta complejidad." },
+    { n: "06", title: "Acabado de Alto Nivel", desc: "Técnicas profesionales de estructura, montaje y acabado de lujo." },
+  ];
+  const activeModules = es ? modulesEs : modules;
+
   const bullets = [
     "Método exclusivo Mirian Serrano",
     "Técnicas de precisão de costura",
@@ -345,19 +357,28 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
     "Aulas de vestir a peça sob medida",
   ];
 
+  const bulletsEs = [
+    "Método exclusivo Mirian Serrano",
+    "Técnicas de costura de precisión",
+    "Acabado de lujo",
+    "Patronaje profesional",
+    "Prendas con caída impecable",
+    "Clases de prueba de prendas a medida",
+  ];
+  const activeBullets = es ? bulletsEs : bullets;
+
   return (
     <div className="min-h-screen">
-      <PurchaseNotification />
       <ExitIntentPopup />
       {upgradeOpen && <UpgradePopup onClose={() => setUpgradeOpen(false)} />}
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
-        <Flame className="w-4 h-4" /> &nbsp;Oferta disponível somente hoje <TodayDate />
+        <Flame className="w-4 h-4" /> &nbsp;{es ? "Oferta disponible hoy" : "Oferta disponível somente hoje"} {!es && <TodayDate />}
       </div>
 
 
 
 
-      <section className="max-w-4xl mx-auto px-5 pt-12 md:pt-16 pb-8 text-center">
+      <section className="max-w-4xl mx-auto px-5 pt-8 md:pt-12 pb-8 text-center">
         <div className="inline-flex items-center gap-2 text-gold text-sm font-semibold uppercase tracking-widest mb-6">
           <Crown className="w-4 h-4" /> {variant.eyebrow ?? "Método Mirian Serrano"} <Crown className="w-4 h-4" />
         </div>
@@ -369,14 +390,6 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </p>
 
         <div className="mt-6"><StarRating size="md" /></div>
-
-        <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-cta/10 px-3 py-1.5 text-xs font-medium text-cta">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cta opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-cta" />
-          </span>
-          236 pessoas online agora
-        </div>
 
         <div className="mt-4 flex items-center justify-center gap-3 text-sm text-muted-foreground">
           <div className="flex -space-x-2">
@@ -413,7 +426,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               className="w-8 h-8 rounded-full object-cover border-2 border-background"
             />
           </div>
-          <span>+2.000 costureiras já dominam o método</span>
+          <span>{es ? "+2.000 costureras ya conocen el método" : "+2.000 costureiras já dominam o método"}</span>
         </div>
 
         <img
@@ -421,12 +434,12 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           alt="Mirian Serrano em seu ateliê com corselet e laptop do curso"
           width={1354}
           height={1161}
-          className="mt-10 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
+          className="mt-7 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
         />
 
         <div className="mt-10 max-w-2xl mx-auto">
           <div className="grid sm:grid-cols-2 gap-3 text-left mb-8">
-            {bullets.map((b) => (
+            {activeBullets.map((b) => (
               <div key={b} className="flex items-start gap-2">
                 <span className="text-gold mt-0.5"><Sparkles className="w-5 h-5" /></span>
                 <span className="text-sm md:text-base font-medium text-foreground">{b}</span>
@@ -434,11 +447,11 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
             ))}
           </div>
           <CTAButton label={variant.ctaLabel} />
-          <p className="mt-4 text-sm text-muted-foreground">Acesso imediato • 7 dias de garantia</p>
+          <p className="mt-4 text-sm text-muted-foreground">{es ? "Acceso inmediato • 7 días de garantía" : "Acesso imediato • 7 dias de garantia"}</p>
           <div className="mt-4 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
-            <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+            <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> {es ? "Compra segura" : "Compra segura"}</span>
             <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL criptografado</span>
-            <span className="flex items-center gap-1"><Award className="w-4 h-4" /> Certificado</span>
+            <span className="flex items-center gap-1"><Award className="w-4 h-4" /> {es ? "Certificado" : "Certificado"}</span>
           </div>
         </div>
       </section>
@@ -538,9 +551,9 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
       <section className="py-12 md:py-16 overflow-hidden bg-secondary/40 border-y border-border">
         <div className="text-center mb-8 px-5">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">Inspiração para costureiras</span>
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">{es ? "Inspiración para costureras" : "Inspiração para costureiras"}</span>
           <h2 className="mt-2 font-display text-2xl md:text-4xl font-bold text-primary">
-            Moldes, técnicas e peças que apaixonam
+            {es ? "Moldes, técnicas y prendas que enamoran" : "Moldes, técnicas e peças que apaixonam"}
           </h2>
         </div>
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
@@ -568,10 +581,10 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary leading-tight">
-            Transforme sua técnica e crie corselets que transcendem
+            {es ? "Transforma tu técnica y crea corsés que trascienden" : "Transforme sua técnica e crie corselets que transcendem"}
           </h2>
           <p className="mt-6 text-lg text-muted-foreground italic font-display">
-            "Cada corselet é uma escultura vestível. Você aprende a construir peças que valorizam cada silhueta com precisão de Alto Designer."
+            "{es ? "Cada corsé es una escultura para vestir. Aprendes a construir prendas que realzan cada silueta con precisión de alta costura." : "Cada corselet é uma escultura vestível. Você aprende a construir peças que valorizam cada silhueta com precisão de Alto Designer."}"
           </p>
           <p className="mt-4 text-sm uppercase tracking-widest text-gold font-semibold">— Mirian Serrano</p>
         </div>
@@ -579,15 +592,15 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
       <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
         <div className="text-center mb-14">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">O que você vai aprender</span>
-          <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Módulos do Curso</h2>
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">{es ? "Lo que vas a aprender" : "O que você vai aprender"}</span>
+          <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">{es ? "Módulos del Curso" : "Módulos do Curso"}</h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Cada módulo é uma variação de corselet — do clássico ao autoral — com aulas passo a passo de modelagem, costura e prova.
+            {es ? "Cada módulo presenta una variación de corsé —del clásico al creativo— con clases paso a paso de patronaje, costura y prueba." : "Cada módulo é uma variação de corselet — do clássico ao autoral — com aulas passo a passo de modelagem, costura e prova."}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-5">
-          {modules.map((m) => (
+          {activeModules.map((m) => (
             <div key={m.n} className="bg-card rounded-xl p-6 border border-border shadow-soft hover:-translate-y-1 transition-transform">
               <div className="flex items-start gap-4">
                 <div className="font-display text-4xl font-bold text-gold leading-none">{m.n}</div>
@@ -601,8 +614,8 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
 
         <div className="mt-12 text-center max-w-2xl mx-auto">
-          <CTAButton label="QUERO APRENDER TODAS AS VARIAÇÕES" />
-          <p className="mt-3 text-sm text-muted-foreground">Garantia de 7 dias • Acesso imediato</p>
+          <CTAButton label="{es ? "QUIERO APRENDER TODAS LAS VARIACIONES" : "QUERO APRENDER TODAS AS VARIAÇÕES"}" />
+          <p className="mt-3 text-sm text-muted-foreground">{es ? "Garantía de 7 días • Acceso inmediato" : "Garantia de 7 dias • Acesso imediato"}</p>
         </div>
       </section>
 
@@ -611,10 +624,10 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         <div className="max-w-4xl mx-auto text-center">
           <Scissors className="w-10 h-10 mx-auto text-gold mb-4" />
           <h2 className="font-display text-3xl md:text-5xl font-bold">
-            Aulas com <span className="text-gold italic">dicas de ouro</span>
+            {es ? <>Clases con <span className="text-gold italic">consejos de oro</span></> : <>Aulas com <span className="text-gold italic">dicas de ouro</span></>}
           </h2>
           <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-            O diferencial deste curso: segredos que só quem faz há décadas conhece.
+            {es ? "El diferencial de este curso: secretos que solo conoce quien lleva años trabajando con esta técnica." : "O diferencial deste curso: segredos que só quem faz há décadas conhece."}
           </p>
 
           <img
@@ -644,8 +657,8 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
       <section className="max-w-6xl mx-auto px-5 py-16 md:py-24">
         <div className="text-center mb-12">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">Conheça a mentora</span>
-          <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">Quem é Mirian Serrano</h2>
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">{es ? "Conoce a la mentora" : "Conheça a mentora"}</span>
+          <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">{es ? "Quién es Mirian Serrano" : "Quem é Mirian Serrano"}</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <img
@@ -673,7 +686,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
 
         <div className="mt-14 max-w-4xl mx-auto px-0">
-          <p className="text-center text-xs uppercase tracking-widest text-gold font-bold mb-4">Reportagem com Mirian</p>
+          <p className="text-center text-xs uppercase tracking-widest text-gold font-bold mb-4">{es ? "Reportaje con Mirian" : "Reportagem com Mirian"}</p>
           <div className="rounded-2xl overflow-hidden shadow-elegant border border-border w-full">
             <WistiaPlayer media-id="a5jnm5622k" aspect="1.7777777777777777" className="w-full" />
           </div>
@@ -701,10 +714,10 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
       <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
         <div className="text-center mb-4">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">Depoimentos reais</span>
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">{es ? "Testimonios reales" : "Depoimentos reais"}</span>
         </div>
         <h2 className="text-center font-display text-3xl md:text-5xl font-bold text-primary mb-4">
-          Alunas que já transformaram sua costura
+          {es ? "Alumnas que ya transformaron su costura" : "Alunas que já transformaram sua costura"}
         </h2>
         <div className="mb-12"><StarRating size="md" /></div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -730,16 +743,16 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
 
         <div className="mt-14 text-center max-w-2xl mx-auto">
-          <CTAButton label="QUERO SER UMA CORSELETEIRA DE REFERÊNCIA" />
-          <p className="mt-3 text-sm text-muted-foreground">+2.000 alunas já transformaram suas costuras</p>
+          <CTAButton label="{es ? "QUIERO CONVERTIRME EN UNA REFERENCIA EN CORSÉS" : "QUERO SER UMA CORSELETEIRA DE REFERÊNCIA"}" />
+          <p className="mt-3 text-sm text-muted-foreground">{es ? "+2.000 alumnas ya transformaron su costura" : "+2.000 alunas já transformaram suas costuras"}</p>
         </div>
       </section>
 
       <section className="py-12 md:py-16 overflow-hidden bg-secondary/40 border-y border-border">
         <div className="text-center mb-8 px-5">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">Mensagens das alunas</span>
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">{es ? "Mensajes de las alumnas" : "Mensagens das alunas"}</span>
           <h2 className="mt-2 font-display text-2xl md:text-4xl font-bold text-primary">
-            O que elas mandam depois de entrar
+            {es ? "Lo que nos envían después de entrar" : "O que elas mandam depois de entrar"}
           </h2>
         </div>
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
@@ -770,10 +783,10 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
       <section className="px-5 py-16 md:py-24">
         <div className="max-w-5xl mx-auto text-center mb-10">
           <span className="text-xs uppercase tracking-widest text-gold font-bold">
-            {variant.singlePlan ? "Oferta especial" : "Escolha seu plano"}
+            {variant.singlePlan ? es ? "Oferta especial" : "Oferta especial" : es ? "Elige tu plan" : "Escolha seu plano"}
           </span>
           <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold text-primary">
-            {variant.planSupport ?? "Qual jornada é a sua?"}
+            {variant.planSupport ?? (es ? "¿Cuál es tu camino?" : "Qual jornada é a sua?")}
           </h2>
         </div>
 
@@ -783,23 +796,23 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           {/* PRODUTO 1 - Básico */}
           <div id="comprar" className="bg-card rounded-2xl border-2 border-border shadow-soft overflow-hidden flex flex-col">
             <div className="bg-secondary text-secondary-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-              Curso Corselet Clássico
+              {es ? "Curso Corsé Clásico" : "Curso Corselet Clássico"}
             </div>
             <div className="p-6 md:p-8 text-center flex flex-col flex-1">
               <h3 className="font-display text-lg md:text-xl font-bold text-primary">
-                <span className="block">Curso Corselet Clássico</span>
+                <span className="block">{es ? "Curso Corsé Clásico" : "Curso Corselet Clássico"}</span>
                 <span className="text-gold block mt-1">Método Mirian Serrano</span>
               </h3>
 
               <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
                 {[
-                  { t: "Módulo completo do Corselet Clássico", ok: true },
-                  { t: "Molde do Corselet Clássico para download", ok: true },
-                  { t: "PDF de apoio passo a passo", ok: true },
-                  { t: "Conteúdos e materiais extras", ok: true },
-                  { t: "Aulas exclusivas do Curso Profissional", ok: false },
-                  { t: "Corselet para Noiva e Moda Festa", ok: false },
-                  { t: "Técnicas profissionais avançadas", ok: false },
+                  { t: "Módulo completo del Corsé Clásico", ok: true },
+                  { t: "Molde del Corsé Clásico para descargar", ok: true },
+                  { t: "PDF de apoyo paso a paso", ok: true },
+                  { t: "Contenidos y materiales extra", ok: true },
+                  { t: "Clases exclusivas del Curso Profesional", ok: false },
+                  { t: "Corsé para Novia y Moda de Fiesta", ok: false },
+                  { t: "Técnicas profesionales avanzadas", ok: false },
                 ].map((b) => (
                   <div key={b.t} className="flex items-start gap-2">
                     {b.ok ? (
@@ -814,19 +827,19 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
               <div className="mt-8">
                 <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{es ? "POR SOLO" : "POR APENAS"}&nbsp;</p>
                 <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
                   R$ 27<span className="text-xl md:text-2xl">,89</span>
                 </p>
               </div>
 
               <div className="mt-8 mt-auto pt-8">
-                <CTAButton label="QUERO O CURSO CLÁSSICO" href={CHECKOUT_URL} onClick={() => window.setTimeout(() => setUpgradeOpen(true), 0)} />
+                <CTAButton label="{es ? "QUIERO EL CURSO CLÁSICO" : "QUERO O CURSO CLÁSSICO"}" href={CHECKOUT_URL} onClick={() => window.setTimeout(() => setUpgradeOpen(true), 0)} />
               </div>
 
 
               <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
-                <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+                <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> {es ? "Compra segura" : "Compra segura"}</span>
                 <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
               </div>
             </div>
@@ -839,12 +852,12 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               ⭐ Recomendado
             </div>
             <div className="bg-gold text-gold-foreground text-center py-3 font-bold uppercase tracking-widest text-sm">
-              🔥 Curso Profissional Completo
+              🔥 {es ? "Curso Profesional Completo" : "Curso Profissional Completo"}
             </div>
             <div className="p-6 md:p-8 text-center flex flex-col flex-1">
               <h3 className="font-display text-lg md:text-xl font-bold text-primary">
-                <span className="block">Curso Profissional Corselet</span>
-                <span className="text-gold block mt-1">Noiva e Moda Festa</span>
+                <span className="block">{es ? "Curso Profesional de Corsé" : "Curso Profissional Corselet"}</span>
+                <span className="text-gold block mt-1">{es ? "Novia y Moda de Fiesta" : "Noiva e Moda Festa"}</span>
               </h3>
 
               <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
@@ -875,18 +888,18 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
               <div className="mt-8">
                 <p className="text-sm text-muted-foreground line-through">De R$ 897,00</p>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">POR APENAS&nbsp;</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{es ? "POR SOLO" : "POR APENAS"}&nbsp;</p>
                 <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
                   {variant.professionalPrice ?? "R$ 47,98"}
                 </p>
               </div>
 
               <div className="mt-8 mt-auto pt-8">
-                <CTAButton label="QUERO O PLANO PROFISSIONAL" href={variant.professionalCheckoutUrl ?? CHECKOUT_URL_PRODUTO_2} />
+                <CTAButton label="{es ? "QUIERO EL PLAN PROFESIONAL" : "QUERO O PLANO PROFISSIONAL"}" href={variant.professionalCheckoutUrl ?? CHECKOUT_URL_PRODUTO_2} />
               </div>
 
               <div className="mt-6 flex items-center justify-center gap-5 text-xs text-muted-foreground uppercase font-medium flex-wrap">
-                <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> Compra segura</span>
+                <span className="flex items-center gap-1"><Shield className="w-4 h-4 text-cta" /> {es ? "Compra segura" : "Compra segura"}</span>
                 <span className="flex items-center gap-1"><Lock className="w-4 h-4" /> SSL</span>
               </div>
             </div>
@@ -900,16 +913,16 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
             <span className="text-xs uppercase font-bold">dias</span>
           </div>
           <div>
-            <h4 className="font-display text-xl font-bold text-primary">Garantia incondicional de 7 dias</h4>
+            <h4 className="font-display text-xl font-bold text-primary">{es ? "Garantía incondicional de 7 días" : "Garantia incondicional de 7 dias"}</h4>
             <p className="text-sm text-muted-foreground mt-2">
-              Se em 7 dias você sentir que o método não é para você, devolvemos 100% do seu investimento. Sem perguntas.
+              {es ? "Si en 7 días sientes que el método no es para ti, te devolvemos el 100% de tu inversión." : "Se em 7 dias você sentir que o método não é para você, devolvemos 100% do seu investimento. Sem perguntas."}
             </p>
           </div>
         </div>
       </section>
 
       <section className="max-w-3xl mx-auto px-5 pb-20">
-        <h2 className="text-center font-display text-3xl md:text-4xl font-bold text-primary mb-10">Perguntas frequentes</h2>
+        <h2 className="text-center font-display text-3xl md:text-4xl font-bold text-primary mb-10">{es ? "Preguntas frecuentes" : "Perguntas frequentes"}</h2>
         <div className="space-y-3">
           {[
             { q: "Preciso saber costurar para começar?", a: "O curso é progressivo. Se você tem noções básicas de costura, consegue acompanhar tranquilamente cada módulo." },
@@ -952,7 +965,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               Fale com a gente em amaroads.com
             </a>
           </div>
-          <p>© {new Date().getFullYear()} Método Mirian Serrano — Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Método Mirian Serrano — {es ? "Todos los derechos reservados." : "Todos os direitos reservados."}</p>
         </div>
       </footer>
 
