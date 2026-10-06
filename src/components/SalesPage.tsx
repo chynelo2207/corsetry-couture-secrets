@@ -41,6 +41,7 @@ export type SalesVariant = {
   singlePlan?: boolean;
   professionalPrice?: string;
   professionalCheckoutUrl?: string;
+  testimonialImages?: { url: string }[];
   lang?: "pt" | "es";
 };
 
