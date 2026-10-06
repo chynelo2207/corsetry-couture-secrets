@@ -37,6 +37,7 @@ export const Route = createFileRoute("/es")({
         ctaLabel: "QUIERO CREAR MIS CORSÉS",
         singlePlan: true,
         planSupport: "Empieza hoy con el Método Mirian Serrano",
+        testimonialImages: [depEs1, depEs2, depEs3, depEs4, depEs5, depEs6, depEs7, depEs8],
       }}
     />
   ),
