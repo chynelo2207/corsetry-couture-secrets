@@ -49,7 +49,6 @@ export type SalesVariant = {
 
 const CHECKOUT_URL = "https://pay.wiapy.com/xKa8OJCEivJ";
 const CHECKOUT_URL_PRODUTO_2 = "https://pay.cakto.com.br/4cgckir_988285";
-const EXIT_CHECKOUT_URL = "https://pay.cakto.com.br/zm297ju";
 const UPGRADE_CHECKOUT_URL = "https://pay.wiapy.com/KktHTpviGsp";
 
 
@@ -230,84 +229,6 @@ function UpgradePopup({ onClose, es }: { onClose: () => void; es?: boolean }) {
 }
 
 
-function ExitIntentPopup() {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (sessionStorage.getItem("exit_popup_shown") === "1") return;
-
-    let armed = true;
-    let suppressUntil = 0;
-    const trigger = () => {
-      if (!armed) return;
-      armed = false;
-      sessionStorage.setItem("exit_popup_shown", "1");
-      setOpen(true);
-    };
-
-    const suppressDuringInteraction = () => {
-      suppressUntil = Date.now() + 2000;
-    };
-
-    const suppressDuringScroll = () => {
-      suppressUntil = Date.now() + 500;
-    };
-
-    const onMouseOut = (e: MouseEvent) => {
-      if ((window as any).__ctaJustClicked) return;
-      if (Date.now() < suppressUntil || !document.hasFocus()) return;
-      if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-      const leftThroughBrowserTop = e.clientY <= 5 && e.clientX >= 0 && e.clientX <= window.innerWidth;
-      if (leftThroughBrowserTop && !e.relatedTarget) trigger();
-    };
-    // mobile fallback: back-button
-    const onPopState = () => {
-      if ((window as any).__ctaJustClicked || Date.now() < suppressUntil) return;
-      trigger();
-    };
-    history.pushState({ exitGuard: true }, "");
-
-    document.addEventListener("mouseout", onMouseOut);
-    document.addEventListener("pointerdown", suppressDuringInteraction, true);
-    window.addEventListener("scroll", suppressDuringScroll, { passive: true });
-    window.addEventListener("popstate", onPopState);
-    return () => {
-      document.removeEventListener("mouseout", onMouseOut);
-      document.removeEventListener("pointerdown", suppressDuringInteraction, true);
-      window.removeEventListener("scroll", suppressDuringScroll);
-      window.removeEventListener("popstate", onPopState);
-    };
-
-  }, []);
-
-  if (!open) return null;
-  return (
-    <div
-      className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 overflow-y-auto"
-      onClick={() => setOpen(false)}
-    >
-      <div className="relative max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
-        <button
-          type="button"
-          aria-label="Fechar"
-          onClick={() => setOpen(false)}
-          className="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-black/70 text-white flex items-center justify-center text-xl font-bold hover:bg-black"
-        >
-          ×
-        </button>
-        <a href={withTracking(EXIT_CHECKOUT_URL)} target="_blank" rel="noopener noreferrer" className="block">
-          <img
-            src="/nova-oferta.png"
-            alt="Oferta especial - Método Miriam Serrano"
-            className="w-full h-auto rounded-xl shadow-2xl"
-          />
-        </a>
-      </div>
-    </div>
-  );
-}
-
 function TodayDate() {
   const [today, setToday] = useState("");
   useEffect(() => {
@@ -371,8 +292,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
   return (
     <div className="min-h-screen">
-      <ExitIntentPopup />
-      {upgradeOpen && <UpgradePopup es={es} onClose={() => setUpgradeOpen(false)} />}
+{upgradeOpen && <UpgradePopup es={es} onClose={() => setUpgradeOpen(false)} />}
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
         <Flame className="w-4 h-4" /> &nbsp;{es ? "Oferta disponible hoy" : "Oferta disponível somente hoje"} {!es && <TodayDate />}
       </div>
