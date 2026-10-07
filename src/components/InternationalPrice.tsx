@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const BASE_EUR = 23.87;
-const FALLBACK = "€ 23,87";
+const BASE_EUR = 14.00;
+const FALLBACK = "€ 14,00";
 const COUNTRY_CURRENCIES: Record<string, { currency: string; locale: string }> = {
   ES: { currency: "EUR", locale: "es-ES" },
   PT: { currency: "EUR", locale: "pt-PT" },
