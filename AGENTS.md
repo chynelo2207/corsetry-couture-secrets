@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep international price detection and live exchange-rate presentation in a browser-only effect in a dedicated component supplied by the Spanish route; this isolates requests from Brazilian pages and keeps checkout and tracking untouched.
+- Load Microsoft Clarity through the root route's global head scripts so every page shares the same installation without modifying existing tracking or sales behavior.
