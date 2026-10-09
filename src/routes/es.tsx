@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import SalesPage from "@/components/SalesPage";
 import InternationalPrice from "@/components/InternationalPrice";
+import { spanishMedia } from "@/lib/spanish-media";
+import heroSmall from "@/assets/es-fast-mirian-serrano-hero-768.webp.asset.json";
+import heroLarge from "@/assets/es-fast-mirian-serrano-hero-1354.webp.asset.json";
 import depEs1 from "@/assets/dep-es-1.png.asset.json";
 import depEs2 from "@/assets/dep-es-2.png.asset.json";
 import depEs3 from "@/assets/dep-es-3.png.asset.json";
@@ -15,6 +18,16 @@ const DESC = "Aprende a crear corsés de alta costura con caída impecable, patr
 
 export const Route = createFileRoute("/es")({
   head: () => ({
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: heroLarge.url,
+        imageSrcSet: `${heroSmall.url} 768w, ${heroLarge.url} 1354w`,
+        imageSizes: "(min-width: 808px) 768px, calc(100vw - 40px)",
+        fetchPriority: "high",
+      },
+    ],
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
@@ -28,6 +41,7 @@ export const Route = createFileRoute("/es")({
     <SalesPage
       variant={{
         lang: "es",
+        media: spanishMedia,
         internationalPrice: <InternationalPrice />,
         eyebrow: "Método Mirian Serrano",
         headline: (

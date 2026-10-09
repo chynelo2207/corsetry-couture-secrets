@@ -112,8 +112,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children:
           "(function(){try{var qs=new URLSearchParams(location.search);var K=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','utm_campaign_id','utm_adset_id','utm_ad_id','utm_source_platform','fbclid','fbc','fbp','xcod','sck','gclid','ttclid','src'];var st={};try{st=JSON.parse(localStorage.getItem('_utms')||'{}');}catch(e){}K.forEach(function(k){var v=qs.get(k);if(v)st[k]=v;});localStorage.setItem('_utms',JSON.stringify(st));}catch(e){}})();",
       },
-      { src: "https://fast.wistia.com/player.js", async: true },
-      { src: "https://fast.wistia.com/embed/a5jnm5622k.js", async: true, type: "module" },
       { children: 'window.pixelId = "6a4fdf0cea6d4bfe03f92c1c";' },
       { src: "https://cdn.utmify.com.br/scripts/pixel/pixel.js", async: true, defer: true },
       { children: 'window.tikTokPixelId = "6a7a79abfe61d9c780c846fe";' },
