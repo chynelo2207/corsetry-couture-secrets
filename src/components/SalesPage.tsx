@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { captureLocalOfferAction } from "@/lib/checkout-intent";
 import { Check, X, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
@@ -151,16 +152,17 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar", on
 
   if (isAnchor) {
     const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-      e.preventDefault();
-      (window as any).__ctaJustClicked = true;
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
-      setTimeout(() => {
-        (window as any).__ctaJustClicked = false;
-      }, 2000);
+      captureLocalOfferAction(e, () => {
+        (window as any).__ctaJustClicked = true;
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        setTimeout(() => {
+          (window as any).__ctaJustClicked = false;
+        }, 2000);
+      });
     };
 
     return (
-      <a href={href} onClick={handleAnchorClick} className={baseClasses}>
+      <a href={href} onClickCapture={handleAnchorClick} className={baseClasses}>
         {label} →
       </a>
     );
@@ -169,15 +171,6 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar", on
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-
-    if (onClick) {
-      (window as any).__ctaJustClicked = true;
-      onClick();
-      setTimeout(() => {
-        (window as any).__ctaJustClicked = false;
-      }, 2000);
-      return;
-    }
 
     if (ctaOpenLock) return;
     ctaOpenLock = true;
@@ -192,7 +185,15 @@ function CTAButton({ label = "QUERO CRIAR MEUS CORSELETS", href = "#comprar", on
   };
 
   return (
-    <button type="button" onClick={handleClick} className={baseClasses}>
+    <button type="button" onClickCapture={onClick ? (e) => {
+      captureLocalOfferAction(e, () => {
+        (window as any).__ctaJustClicked = true;
+        onClick();
+        setTimeout(() => {
+          (window as any).__ctaJustClicked = false;
+        }, 2000);
+      });
+    } : undefined} onClick={onClick ? undefined : handleClick} className={baseClasses}>
       {label} →
     </button>
   );
