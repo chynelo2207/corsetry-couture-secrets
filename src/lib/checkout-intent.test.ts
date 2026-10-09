@@ -1,4 +1,5 @@
-import { describe, expect, it } from "bun:test";
+import { describe, it } from "node:test";
+import { strict as assert } from "node:assert";
 import { captureLocalOfferAction } from "./checkout-intent";
 
 describe("local offer actions are not checkout initiation", () => {
@@ -10,9 +11,9 @@ describe("local offer actions are not checkout initiation", () => {
       preventDefault: () => { prevented = true; },
       stopPropagation: () => { propagated = false; },
     }, () => { target = "#comprar"; });
-    expect(prevented).toBe(true);
-    expect(propagated).toBe(false);
-    expect(target).toBe("#comprar");
+    assert.equal(prevented, true);
+    assert.equal(propagated, false);
+    assert.equal(target, "#comprar");
   });
 
   it("opening the upgrade offer does not propagate a checkout click", () => {
@@ -22,7 +23,7 @@ describe("local offer actions are not checkout initiation", () => {
       preventDefault: () => {},
       stopPropagation: () => { propagated = false; },
     }, () => { upgradeOpen = true; });
-    expect(propagated).toBe(false);
-    expect(upgradeOpen).toBe(true);
+    assert.equal(propagated, false);
+    assert.equal(upgradeOpen, true);
   });
 });
