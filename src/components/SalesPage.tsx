@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { captureLocalOfferAction } from "@/lib/checkout-intent";
+import { salesImageProps, type SalesMedia } from "@/lib/sales-media";
+import { loadWistia } from "@/lib/wistia-loader";
 import { Check, X, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
@@ -44,6 +46,7 @@ export type SalesVariant = {
   professionalCheckoutUrl?: string;
   testimonialImages?: { url: string }[];
   internationalPrice?: React.ReactNode;
+  media?: SalesMedia;
   lang?: "pt" | "es";
 };
 
@@ -253,6 +256,9 @@ function TodayDate() {
 export default function SalesPage({ variant }: { variant: SalesVariant }) {
   const es = variant.lang === "es";
   const [upgradeOpen, setUpgradeOpen] = useState(false);
+  useEffect(() => {
+    if (!es) loadWistia(document);
+  }, [es]);
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
     { n: "02", title: "Corselet de Noiva", desc: "Delicadeza e luxo para peças únicas e inesquecíveis." },
@@ -317,7 +323,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         <div className="mt-4 flex items-center justify-center gap-3 text-sm text-muted-foreground">
           <div className="flex -space-x-2">
             <img
-              src={avatar1.url}
+              {...salesImageProps(avatar1, variant.media)}
               alt="Aluna do curso"
               width={32}
               height={32}
@@ -325,7 +331,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               className="w-8 h-8 rounded-full object-cover border-2 border-background"
             />
             <img
-              src={avatar2.url}
+              {...salesImageProps(avatar2, variant.media)}
               alt="Aluna do curso"
               width={32}
               height={32}
@@ -333,7 +339,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               className="w-8 h-8 rounded-full object-cover border-2 border-background"
             />
             <img
-              src={avatar3.url}
+              {...salesImageProps(avatar3, variant.media)}
               alt="Aluna do curso"
               width={32}
               height={32}
@@ -341,7 +347,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               className="w-8 h-8 rounded-full object-cover border-2 border-background"
             />
             <img
-              src={avatar4.url}
+              {...salesImageProps(avatar4, variant.media)}
               alt="Aluna do curso"
               width={32}
               height={32}
@@ -353,10 +359,12 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
 
         <img
-          src={heroMockup.url}
           alt="Mirian Serrano em seu ateliê com corselet e laptop do curso"
           width={1354}
           height={1161}
+          {...salesImageProps(heroMockup, variant.media, "(min-width: 808px) 768px, calc(100vw - 40px)")}
+          loading={variant.media ? "eager" : undefined}
+          fetchPriority={variant.media ? "high" : undefined}
           className="mt-7 mx-auto rounded-2xl shadow-elegant w-full max-w-3xl"
         />
 
@@ -488,7 +496,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
                   className="shrink-0 w-64 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden shadow-elegant border border-border bg-white flex items-center justify-center p-3"
                 >
                   <img
-                    src={img.url}
+                    {...salesImageProps(img, variant.media)}
                     alt="Molde e inspiração de corselet"
                     loading="lazy"
                     className="w-full h-full object-contain"
@@ -554,10 +562,10 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           </p>
 
           <img
-            src={bonusModules.url}
             alt="Método Miriam Serrano - Livros de corsets"
             width={1200}
             height={912}
+            {...salesImageProps(bonusModules, variant.media, "(min-width: 712px) 672px, calc(100vw - 40px)")}
             loading="lazy"
             className="mt-10 mx-auto rounded-2xl shadow-elegant w-full max-w-2xl"
           />
@@ -585,7 +593,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
         </div>
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <img
-            src={mirianPhoto.url}
+            {...salesImageProps(mirianPhoto, variant.media, "(min-width: 488px) 448px, calc(100vw - 40px)")}
             alt="Estilista Mirian Serrano em seu atelier"
             className="rounded-2xl shadow-elegant w-full max-w-md mx-auto"
             loading="lazy"
@@ -689,7 +697,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
                   className="shrink-0 w-64 md:w-80 h-80 md:h-[26rem] rounded-2xl overflow-hidden shadow-soft border border-border/30 bg-transparent"
                 >
                   <img
-                    src={img.url}
+                    {...salesImageProps(img, variant.media)}
                     alt="Depoimento de aluna do Método Mirian Serrano"
                     loading="lazy"
                     className="w-full h-full object-contain"

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import SalesPage from "@/components/SalesPage";
 import InternationalPrice from "@/components/InternationalPrice";
+import { spanishMedia } from "@/lib/spanish-media";
 import depEs1 from "@/assets/dep-es-1.png.asset.json";
 import depEs2 from "@/assets/dep-es-2.png.asset.json";
 import depEs3 from "@/assets/dep-es-3.png.asset.json";
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/es")({
     <SalesPage
       variant={{
         lang: "es",
+        media: spanishMedia,
         internationalPrice: <InternationalPrice />,
         eyebrow: "Método Mirian Serrano",
         headline: (
