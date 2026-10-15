@@ -27,7 +27,7 @@ const CURRENCY_LABELS: Record<string, string> = {
 };
 
 // No rates are hardcoded or persisted: each visit requests the current daily feed.
-export default function InternationalPrice() {
+export default function InternationalPrice({ lang = "es" }: { lang?: "pt" | "es" }) {
   const [price, setPrice] = useState(FALLBACK);
 
   useEffect(() => {
@@ -90,7 +90,9 @@ export default function InternationalPrice() {
         {price}
       </p>
       <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-        Precio convertido según tu región. El importe final se confirma en Hotmart.
+        {lang === "pt"
+          ? "Preço convertido de acordo com sua região. O valor final é confirmado na Hotmart."
+          : "Precio convertido según tu región. El importe final se confirma en Hotmart."}
       </p>
     </>
   );

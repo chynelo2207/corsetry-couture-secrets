@@ -1,8 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
 import SalesPage from "@/components/SalesPage";
+import InternationalPrice from "@/components/InternationalPrice";
+import { spanishMedia } from "@/lib/spanish-media";
+import heroSmall from "@/assets/es-fast-mirian-serrano-hero-768.webp.asset.json";
+import heroLarge from "@/assets/es-fast-mirian-serrano-hero-1354.webp.asset.json";
+import depEs1 from "@/assets/dep-es-1.png.asset.json";
+import depEs2 from "@/assets/dep-es-2.png.asset.json";
+import depEs3 from "@/assets/dep-es-3.png.asset.json";
+import depEs4 from "@/assets/dep-es-4.png.asset.json";
+import depEs5 from "@/assets/dep-es-5.png.asset.json";
+import depEs6 from "@/assets/dep-es-6.png.asset.json";
+import depEs7 from "@/assets/dep-es-7.png.asset.json";
+import depEs8 from "@/assets/dep-es-8.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [{
+      rel: "preload", as: "image", href: heroLarge.url,
+      imageSrcSet: `${heroSmall.url} 768w, ${heroLarge.url} 1354w`,
+      imageSizes: "(min-width: 808px) 768px, calc(100vw - 40px)",
+      fetchPriority: "high",
+    }],
     meta: [
       { title: "Curso de Corselets — Método Mirian Serrano" },
       { name: "description", content: "Crie corselets de Alto Designer com caimento impecável. Modelagem, costura de precisão e acabamento de luxo." },
@@ -15,15 +33,20 @@ export const Route = createFileRoute("/")({
   component: () => (
     <SalesPage
       variant={{
+        lang: "pt",
+        internationalOffer: true,
+        media: spanishMedia,
+        internationalPrice: <InternationalPrice lang="pt" />,
+        singlePlan: true,
+        planSupport: "Comece hoje com o Método Mirian Serrano",
+        testimonialImages: [depEs1, depEs2, depEs3, depEs4, depEs5, depEs6, depEs7, depEs8],
         headline: (
           <>
-            Crie <span className="text-primary italic">corselets de Alto Designer</span> com caimento impecável
+            Crie <span className="text-primary italic">corselets de Alto Designer</span> com um caimento impecável
           </>
         ),
-        subheadline: "Do molde à peça vestida sem ajustes — domine a arte que transforma cada silhueta.",
+        subheadline: "Do molde à peça pronta — domine a técnica que transforma e valoriza cada silhueta.",
         ctaLabel: "QUERO CRIAR MEUS CORSELETS",
-        professionalPrice: "R$ 89,90",
-        professionalCheckoutUrl: "https://pay.wiapy.com/iWJwRQvGe-si",
       }}
     />
   ),
