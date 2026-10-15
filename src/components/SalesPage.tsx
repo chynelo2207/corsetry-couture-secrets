@@ -53,6 +53,8 @@ export type SalesVariant = {
   media?: SalesMedia;
   lang?: "pt" | "es";
   modules?: { n: string; title: string; desc?: string }[];
+  modulesTitle?: string;
+  modulesEyebrow?: string;
   modulesSubtitle?: string;
 };
 
@@ -531,8 +533,8 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
       <section className="max-w-5xl mx-auto px-5 py-16 md:py-24">
         <div className="text-center mb-14">
-          <span className="text-xs uppercase tracking-widest text-gold font-bold">{es ? "Lo que vas a aprender" : "O que você vai aprender"}</span>
-          <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">{es ? "Módulos del Curso" : "Módulos do Curso"}</h2>
+          <span className="text-xs uppercase tracking-widest text-gold font-bold">{variant.modulesEyebrow ?? (es ? "Lo que vas a aprender" : "O que você vai aprender")}</span>
+          <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">{variant.modulesTitle ?? (es ? "Módulos del Curso" : "Módulos do Curso")}</h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             {variant.modulesSubtitle ?? (es ? "Cada módulo apresenta uma variação de corsé —del clásico al creativo— con clases paso a paso de patronaje, costura y prueba." : "Cada módulo é uma variação de corselet — do clássico ao autoral — com aulas passo a passo de modelagem, costura e prova.")}
           </p>
