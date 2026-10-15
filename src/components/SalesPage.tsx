@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { captureLocalOfferAction } from "@/lib/checkout-intent";
 import { salesImageProps, type SalesMedia } from "@/lib/sales-media";
 import { loadWistia } from "@/lib/wistia-loader";
+import { getClassicOffer } from "@/lib/sales-offer";
 import { Check, X, Shield, Lock, Clock, Award, Sparkles, Scissors, Crown, Star, ShoppingBag, Flame, Users, TrendingUp, Heart } from "lucide-react";
 import heroMockup from "@/assets/mirian-serrano-hero.png.asset.json";
 import bonusModules from "@/assets/metodo-miriam-serrano-livros.png.asset.json";
@@ -46,6 +47,7 @@ export type SalesVariant = {
   professionalCheckoutUrl?: string;
   testimonialImages?: { url: string }[];
   internationalPrice?: React.ReactNode;
+  internationalOffer?: boolean;
   media?: SalesMedia;
   lang?: "pt" | "es";
 };
@@ -255,10 +257,12 @@ function TodayDate() {
 
 export default function SalesPage({ variant }: { variant: SalesVariant }) {
   const es = variant.lang === "es";
+  const offer = getClassicOffer(variant.lang, variant.internationalOffer);
+  const international = offer.international;
   const [upgradeOpen, setUpgradeOpen] = useState(false);
   useEffect(() => {
-    if (!es) loadWistia(document);
-  }, [es]);
+    if (!international) loadWistia(document);
+  }, [international]);
   const modules = [
     { n: "01", title: "Corselet Clássico", desc: "A base do método. Modelagem tradicional com estrutura impecável." },
     { n: "02", title: "Corselet de Noiva", desc: "Delicadeza e luxo para peças únicas e inesquecíveis." },
@@ -299,9 +303,9 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
 
   return (
     <div className="min-h-screen">
-{!es && upgradeOpen && <UpgradePopup es={es} onClose={() => setUpgradeOpen(false)} />}
+{!international && upgradeOpen && <UpgradePopup es={es} onClose={() => setUpgradeOpen(false)} />}
       <div className="w-full bg-cta text-cta-foreground text-xs md:text-sm text-center py-2 font-semibold flex items-center justify-center gap-2">
-        <Flame className="w-4 h-4" /> &nbsp;{es ? "Oferta disponible hoy" : "Oferta disponível somente hoje"} {!es && <TodayDate />}
+        <Flame className="w-4 h-4" /> &nbsp;{es ? "Oferta disponible hoy" : international ? "Oferta disponível hoje" : "Oferta disponível somente hoje"} {!international && <TodayDate />}
       </div>
 
 
@@ -355,7 +359,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               className="w-8 h-8 rounded-full object-cover border-2 border-background"
             />
           </div>
-          <span>{es ? "+2.000 costureras ya conocen el método" : "+2.000 costureiras já dominam o método"}</span>
+          <span>{es ? "+2.000 costureras ya conocen el método" : international ? "+2.000 costureiras já conhecem o método" : "+2.000 costureiras já dominam o método"}</span>
         </div>
 
         <img
@@ -558,7 +562,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
             {es ? <>Clases con <span className="text-gold italic">consejos de oro</span></> : <>Aulas com <span className="text-gold italic">dicas de ouro</span></>}
           </h2>
           <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-            {es ? "El diferencial de este curso: secretos que solo conoce quien lleva años trabajando con esta técnica." : "O diferencial deste curso: segredos que só quem faz há décadas conhece."}
+            {es ? "El diferencial de este curso: secretos que solo conoce quien lleva años trabajando con esta técnica." : international ? "O diferencial deste curso: segredos que só quem trabalha há anos com esta técnica conhece." : "O diferencial deste curso: segredos que só quem faz há décadas conhece."}
           </p>
 
           <img
@@ -616,7 +620,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           </div>
         </div>
 
-        {!es && (
+        {!international && (
           <div className="mt-14 max-w-4xl mx-auto px-0">
             <p className="text-center text-xs uppercase tracking-widest text-gold font-bold mb-4">Reportagem com Mirian</p>
             <div className="rounded-2xl overflow-hidden shadow-elegant border border-border w-full">
@@ -738,21 +742,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </h3>
 
               <div className="mt-6 space-y-2 text-left max-w-md mx-auto">
-                {(es ? [
-                  "Curso completo de Corsé Clásico",
-                  "Molde del Corsé Clásico para descargar",
-                  "PDF de apoyo paso a paso",
-                  "Contenidos y materiales complementarios",
-                  "Clases grabadas para estudiar a tu ritmo",
-                  "Acceso inmediato después de la compra",
-                  "Acceso vitalicio al curso",
-                  "Garantía incondicional de 7 días",
-                ] : [
-                  "Módulo completo do Corselet Clássico",
-                  "Molde do Corselet Clássico para download",
-                  "PDF de apoio passo a passo",
-                  "Conteúdos e materiais extras",
-                ]).map((item) => (
+                {offer.benefits.map((item) => (
                   <div key={item} className="flex items-start gap-2">
                     <Check className="w-5 h-5 text-cta shrink-0 mt-0.5" />
                     <span className="text-sm">{item}</span>
@@ -761,9 +751,9 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               </div>
 
               <div className="mt-8">
-                {!es && <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>}
+                {!international && <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>}
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{es ? "POR SOLO" : "POR APENAS"}&nbsp;</p>
-                {es ? variant.internationalPrice : (
+                {international ? variant.internationalPrice : (
                   <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
                     R$ 27<span className="text-xl md:text-2xl">,89</span>
                   </p>
@@ -773,8 +763,8 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               <div className="mt-8 mt-auto pt-8">
                 <CTAButton
                   label={es ? "QUIERO EL CURSO CLÁSICO" : "QUERO O CURSO CLÁSSICO"}
-                  href={es ? "https://pay.hotmart.com/R107917706S?checkoutMode=10" : CHECKOUT_URL}
-                  onClick={es ? undefined : () => window.setTimeout(() => setUpgradeOpen(true), 0)}
+                  href={offer.checkoutUrl}
+                  onClick={international ? undefined : () => window.setTimeout(() => setUpgradeOpen(true), 0)}
                 />
               </div>
 
