@@ -1,8 +1,9 @@
 # Spanish page performance
 
 ## Default page in Brazilian Portuguese
-- [ ] Make / the Portuguese translation of the international page, retaining its offer, checkout and optimized imagery.
-- [ ] Verify Portuguese price notice, Hotmart checkout, no upgrade/video and preserved /es and test variants.
+- [x] Make / the Portuguese translation of the international page, retaining its offer, checkout and optimized imagery.
+- [x] Verify Portuguese price notice, Hotmart checkout, no upgrade/video and preserved /es and test variants.
+- Verified default BRL conversion using controlled current-rate responses, actual Hotmart checkout opening with checkoutMode and UTMs, no runtime errors, and nine passing tests. Original uploaded Spanish testimonial screenshots are preserved. Publication has not been requested.
 
 - [x] Measure the published page and capture current offers and images.
 - [x] Create optimized Spanish image copies without removing originals.
