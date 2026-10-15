@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import SalesPage from "@/components/SalesPage";
-import InternationalPrice from "@/components/InternationalPrice";
 import { spanishMedia } from "@/lib/spanish-media";
 import heroSmall from "@/assets/es-fast-mirian-serrano-hero-768.webp.asset.json";
 import heroLarge from "@/assets/es-fast-mirian-serrano-hero-1354.webp.asset.json";
@@ -36,7 +35,12 @@ export const Route = createFileRoute("/")({
         lang: "pt",
         internationalOffer: true,
         media: spanishMedia,
-        internationalPrice: <InternationalPrice lang="pt" />,
+        checkoutUrl: "https://pay.wiapy.com/iWJwRQvGe-si",
+        classicPrice: (
+          <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
+            R$ 27<span className="text-xl md:text-2xl">,90</span>
+          </p>
+        ),
         singlePlan: true,
         planSupport: "Comece hoje com o Método Mirian Serrano",
         testimonialImages: [depEs1, depEs2, depEs3, depEs4, depEs5, depEs6, depEs7, depEs8],
