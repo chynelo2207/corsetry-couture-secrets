@@ -755,17 +755,17 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
               <div className="mt-8">
                 {!international && <p className="text-sm text-muted-foreground line-through">De R$ 597,00</p>}
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{es ? "POR SOLO" : "POR APENAS"}&nbsp;</p>
-                {international ? variant.internationalPrice : (
+                {variant.classicPrice ?? (international ? variant.internationalPrice : (
                   <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
                     R$ 27<span className="text-xl md:text-2xl">,89</span>
                   </p>
-                )}
+                 ))}
               </div>
 
               <div className="mt-8 mt-auto pt-8">
                 <CTAButton
                   label={es ? "QUIERO EL CURSO CLÁSICO" : "QUERO O CURSO CLÁSSICO"}
-                  href={offer.checkoutUrl}
+                  href={variant.checkoutUrl ?? offer.checkoutUrl}
                   onClick={international ? undefined : () => window.setTimeout(() => setUpgradeOpen(true), 0)}
                 />
               </div>
