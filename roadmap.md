@@ -1,5 +1,9 @@
 # Spanish page performance
 
+## Default page in Brazilian Portuguese
+- [ ] Make / the Portuguese translation of the international page, retaining its offer, checkout and optimized imagery.
+- [ ] Verify Portuguese price notice, Hotmart checkout, no upgrade/video and preserved /es and test variants.
+
 - [x] Measure the published page and capture current offers and images.
 - [x] Create optimized Spanish image copies without removing originals.
 - [x] Connect responsive images exclusively to /es and prioritize its first image.
