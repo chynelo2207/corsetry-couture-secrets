@@ -48,6 +48,8 @@ export type SalesVariant = {
   testimonialImages?: { url: string }[];
   internationalPrice?: React.ReactNode;
   internationalOffer?: boolean;
+  classicPrice?: React.ReactNode;
+  checkoutUrl?: string;
   media?: SalesMedia;
   lang?: "pt" | "es";
 };
