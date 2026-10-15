@@ -52,6 +52,8 @@ export type SalesVariant = {
   checkoutUrl?: string;
   media?: SalesMedia;
   lang?: "pt" | "es";
+  modules?: { n: string; title: string; desc?: string }[];
+  modulesSubtitle?: string;
 };
 
 
@@ -282,7 +284,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
     { n: "05", title: "Corsé Avanzado", desc: "Técnicas internacionales para prendas de alta complejidad." },
     { n: "06", title: "Acabado de Alto Nivel", desc: "Técnicas profesionales de estructura, montaje y acabado de lujo." },
   ];
-  const activeModules = es ? modulesEs : modules;
+  const activeModules = variant.modules ?? (es ? modulesEs : modules);
 
   const bullets = [
     "Método exclusivo Mirian Serrano",
@@ -532,7 +534,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
           <span className="text-xs uppercase tracking-widest text-gold font-bold">{es ? "Lo que vas a aprender" : "O que você vai aprender"}</span>
           <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold text-primary">{es ? "Módulos del Curso" : "Módulos do Curso"}</h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            {es ? "Cada módulo presenta una variación de corsé —del clásico al creativo— con clases paso a paso de patronaje, costura y prueba." : "Cada módulo é uma variação de corselet — do clássico ao autoral — com aulas passo a passo de modelagem, costura e prova."}
+            {variant.modulesSubtitle ?? (es ? "Cada módulo apresenta uma variação de corsé —del clásico al creativo— con clases paso a paso de patronaje, costura y prueba." : "Cada módulo é uma variação de corselet — do clássico ao autoral — com aulas passo a passo de modelagem, costura e prova.")}
           </p>
         </div>
 
@@ -543,7 +545,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
                 <div className="font-display text-4xl font-bold text-gold leading-none">{m.n}</div>
                 <div>
                   <h3 className="font-display text-xl font-bold text-primary">{m.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{m.desc}</p>
+                  {m.desc && <p className="mt-2 text-sm text-muted-foreground">{m.desc}</p>}
                 </div>
               </div>
             </div>

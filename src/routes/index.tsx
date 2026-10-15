@@ -43,6 +43,17 @@ export const Route = createFileRoute("/")({
         ),
         singlePlan: true,
         planSupport: "Comece hoje com o Método Mirian Serrano",
+        modulesSubtitle: "Tudo o que você recebe ao entrar no curso:",
+        modules: [
+          { n: "01", title: "Curso completo de Corselet Clássico" },
+          { n: "02", title: "Molde do Corselet Clássico para download" },
+          { n: "03", title: "PDF de apoio passo a passo" },
+          { n: "04", title: "Conteúdos e materiais complementares" },
+          { n: "05", title: "Aulas gravadas para estudar no seu ritmo" },
+          { n: "06", title: "Acesso imediato após a compra" },
+          { n: "07", title: "Acesso vitalício ao curso" },
+          { n: "08", title: "Garantia incondicional de 7 dias" },
+        ],
         testimonialImages: [depEs1, depEs2, depEs3, depEs4, depEs5, depEs6, depEs7, depEs8],
         headline: (
           <>
