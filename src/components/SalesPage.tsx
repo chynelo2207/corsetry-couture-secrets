@@ -52,6 +52,8 @@ export type SalesVariant = {
   checkoutUrl?: string;
   media?: SalesMedia;
   lang?: "pt" | "es";
+  modules?: { n: string; title: string; desc?: string }[];
+  modulesSubtitle?: string;
 };
 
 
@@ -282,7 +284,7 @@ export default function SalesPage({ variant }: { variant: SalesVariant }) {
     { n: "05", title: "Corsé Avanzado", desc: "Técnicas internacionales para prendas de alta complejidad." },
     { n: "06", title: "Acabado de Alto Nivel", desc: "Técnicas profesionales de estructura, montaje y acabado de lujo." },
   ];
-  const activeModules = es ? modulesEs : modules;
+  const activeModules = variant.modules ?? (es ? modulesEs : modules);
 
   const bullets = [
     "Método exclusivo Mirian Serrano",
