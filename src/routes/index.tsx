@@ -43,6 +43,8 @@ export const Route = createFileRoute("/")({
         ),
         singlePlan: true,
         planSupport: "Comece hoje com o Método Mirian Serrano",
+        modulesEyebrow: "Acesso imediato",
+        modulesTitle: "O que você recebe hoje",
         modulesSubtitle: "Tudo o que você recebe ao entrar no curso:",
         modules: [
           { n: "01", title: "Curso completo de Corselet Clássico" },
