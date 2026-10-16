@@ -2,8 +2,8 @@
 
 ## Default page in Brazilian Portuguese
 - [x] Make / the Portuguese translation of the international page, retaining its offer, checkout and optimized imagery.
-- [x] Verify Portuguese price notice, Hotmart checkout, no upgrade/video and preserved /es and test variants.
-- Verified default BRL conversion using controlled current-rate responses, actual Hotmart checkout opening with checkoutMode and UTMs, no runtime errors, and nine passing tests. Original uploaded Spanish testimonial screenshots are preserved. Publication has not been requested.
+- [x] Verify Portuguese price notice, regional checkout, no upgrade/video and preserved /es and test variants.
+- Verified default BRL conversion using controlled current-rate responses, actual regional checkout opening with UTMs, no runtime errors, and nine passing tests. Original uploaded Spanish testimonial screenshots are preserved. The default page buy button now opens https://pay.hub.la/ieO8vzlmAycfj4TINtWh (verified by click, 2026-10-16); /es keeps its Hotmart checkout and /v1 its upgrade popup. Publication has not been requested.
 
 - [x] Measure the published page and capture current offers and images.
 - [x] Create optimized Spanish image copies without removing originals.
