@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
         lang: "pt",
         internationalOffer: true,
         media: spanishMedia,
-        checkoutUrl: "https://pay.wiapy.com/iWJwRQvGe-si",
+        checkoutUrl: "https://pay.hub.la/ieO8vzlmAycfj4TINtWh",
         classicPrice: (
           <p className="font-display text-4xl md:text-5xl font-bold text-primary leading-none mt-1">
             R$ 27<span className="text-xl md:text-2xl">,90</span>
